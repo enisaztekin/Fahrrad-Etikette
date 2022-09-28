@@ -56,6 +56,16 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 - Micro-USB Kabel mit zwei offenen Kabelenden
 - mindestens 15 Female-to-Female Jumper Kabel
 - Terminal Block
+
+| Komponente                                  | Beschreibung                                                                                                                     | Bild |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------|
+| ESP-WROOM-32                                | Microcontroller auf dem der Code für die LED-Anzeige gespeichert ist und der sich mit dem WLAN und mit Bluetooth verbinden kann  |   ![esp32](https://user-images.githubusercontent.com/44236199/192882507-bdc18236-7096-4b0a-aea1-f33fe07cc0f6.jpg)   |
+| 64x32 RGB LED MATRIX – 5MM Pitch            | LED Matrix auf der die gewünschten Anzeige abgebildet werden                                                                     |   ![WaveShare-RGB-Full-Color-LED-Matrix-Panel-64x32-Pixels](https://user-images.githubusercontent.com/44236199/192883322-65fe3dd6-b2ea-45de-b7e4-334a9e1ae5ce.jpg)   |
+| 5V 3 Ampere Netzteil                        | Netzteil für die Stromzufuhr an die LED Matrix und an den ESP32                                                                  |  ![netzteil](https://user-images.githubusercontent.com/44236199/192882575-5a93a7e4-64e7-4907-8bfd-5816602403a8.jpg) |
+| Micro USB Kabel                             | Mit dem Micro USB Kabel wird der Code vom Rechner auf den ESP32 hochgeladen                                                      |   ![mini-usb](https://user-images.githubusercontent.com/44236199/192882605-9bd6f867-327b-4676-80cf-ab1b6ac60ec3.jpg) |
+| Micro USB Kabel mit zwei offenen Kabelenden | Das Micro USB Kabel mit zwei offenen Kabelenden wird für die Versorgungsspannung ans ESP32, ohne ein zweites Netzteil, benötigt  |    ![31MO4TzwE6L _SY445_SX342_QL70_ML2_](https://user-images.githubusercontent.com/44236199/192882622-953ea12e-6301-4b15-aa46-fec2b3d049ab.jpg)  |
+| mindestens 15 Female to Female Jumper Kabel | Mit den Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |   ![female to female](https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg)  |
+| Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   ![terminalblock](https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png) |
 <a name="matrixsoftware"></a>
 ## 2.1.2 Software
 Verwendete Entwicklungsumgebung:
