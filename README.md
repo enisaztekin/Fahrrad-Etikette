@@ -49,13 +49,6 @@
 <a name="matrixhardware"></a>
 ## 2.1.1 Hardware
 Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
-- ESP32 Microcontroller
-- 64x32 RGB LED Matrix
-- 5V 3 Ampere Netzteil
-- Micro-USB Kabel
-- Micro-USB Kabel mit zwei offenen Kabelenden
-- mindestens 15 Female-to-Female Jumper Kabel
-- Terminal Block
 
 | Komponente                                  | Beschreibung                                                                                                                     | Bild |
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------|
