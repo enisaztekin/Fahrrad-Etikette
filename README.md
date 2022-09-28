@@ -64,7 +64,8 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 <img width="500" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
 
 Das sollte dann so ähnlich wie im folgenden Bild aussehen
-![WhatsApp Image 2022-09-28 at 23 46 55 (5)](https://user-images.githubusercontent.com/44236199/192895515-9944837b-595a-47da-b175-daa99a81432d.jpeg)
+
+<img width="650" alt="pinout2" src="https://user-images.githubusercontent.com/44236199/192895515-9944837b-595a-47da-b175-daa99a81432d.jpeg">
 
 Hinweis: Falls es die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
 <a name="matrixsoftware"></a>
