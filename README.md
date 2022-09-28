@@ -5,7 +5,7 @@
     - [1.2 Zielstellung](#zielstellung)
     - [1.3 Vorgehensweise](#vorgehensweise)
 - [2 Setup](#setup)
-    - [2.1 Matrix Setup](#matrixsetup)
+    - [2.1 LED Matrix Setup](#matrixsetup)
         - [2.1.1 Hardware](#matrixhardware)
         - [2.1.2 Software](#matrixsoftware)
     - [2.2 Personenerkennung Setup](#personenerkennung)
@@ -44,8 +44,8 @@
 ## 2 Setup
 
 <a name="matrixsetup"></a>
-## 2.1 Matrix Setup
-
+## 2.1 LED Matrix Setup
+In den folgenden Abschnitten werden die verwendete Hardware, Software und das Design für die Anzeige auf der LED Matrix näher beschrieben.
 <a name="matrixhardware"></a>
 ## 2.1.1 Hardware
 Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
@@ -59,22 +59,20 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 | Micro USB Kabel mit zwei offenen Kabelenden | Das Micro USB Kabel mit zwei offenen Kabelenden wird für die Versorgungsspannung ans ESP32, ohne ein zweites Netzteil, benötigt  |    ![31MO4TzwE6L _SY445_SX342_QL70_ML2_](https://user-images.githubusercontent.com/44236199/192882622-953ea12e-6301-4b15-aa46-fec2b3d049ab.jpg)  |
 | mindestens 15 Female to Female Jumper Kabel | Mit den Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |   ![female to female](https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg)  |
 | Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   ![terminalblock](https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png) |
+
+### Verknüpfung vom ESP32 mit der LED-Matrix
+<img width="500" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
+
+
+Hinweis: Falls es die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
 <a name="matrixsoftware"></a>
 ## 2.1.2 Software
-Verwendete Entwicklungsumgebung:
-Arduino IDE 1.8.13
+Als Entwicklungsumgebung wurde, für die LED Matrix, [Arduino IDE](https://www.umwelt-campus.de/fileadmin/Umwelt-Campus/IoT-Werkstatt/octopus/Quickstart.pdf) verwendet. Danach muss als erstes das ESP32 Board in die Ardiuno IDE instaliert werden. Eine entsprechende Anleitung gibt es [hier](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/). Anschließend gilt es die Bibliotheken [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) , [ESP32-HUB75-MatrixPanel-I2S-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA) und [Animated GIF](https://github.com/bitbank2/AnimatedGIF) in die IDE hinzuzufügen.
 
-Verwendete Bibliotheken:
-Adafruit GFX
-ESP32-HUB75-MatrixPanel-I2S-DMA
-Animated GIF
+Der verwendete Code stammt ebenfalls von der Bibliothek ESP32-HUB75-MatrixPanel-I2S-DMA unter dem Namen [AnimatedGIFPanel.ino](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA/tree/master/examples/AnimatedGIFPanel), da das uns ermöglicht beliebige Inhalte als GIFs auf der LED Matrix anzuzeigen, ohne jedes Mal den Code anpassen zu müssen. Dafür muss vorab noch das Plugin [Arduino ESP32 filesystem uploader](https://github.com/me-no-dev/arduino-esp32fs-plugin) installiert werden.
 
-Verwendetes Beispiel:
-AnimatedGIFPanel.ino
 
-Verwendetes Plugin:
-Arduino ESP32 filesystem uploader
-Link, um Microcontroller in IDE zu installieren hinzufügen..
+
 <a name="personenerkennung"></a>
 ## 2.2 Personenerkennung
 
