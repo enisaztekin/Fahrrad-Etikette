@@ -292,13 +292,11 @@ Es ist zu erwähnen, dass das Modell noch weiter optimiert werden sollte, um bes
 
 <a name="ausgabe"></a>
 ## 4 Ausgabe (LED-Matrix)
-design
-Design muss vom Fahrrad aus erkennbar sein →  Design aufs Wesentliche reduziert
-FahrradfahrerInnen sollen links überholen und sich rechts einordnen
-Keine Warnung - nur als Hinweis → Grün als Farbe
+Bei der Erstellung unserer Anzeige war es uns wichtig, dass das Design vom Fahrrad aus erkennbar sein muss, weshalb die Frames auf das Wesentliche reduziert wurden. Unsere Anzeige zeigen, dass FarradfahrerInnen links überholen und sich rechts einordnen sollen. Jedoch die Anzeige nicht als Warnung aufgefasst werden und lediglich die FarradfahrerInnen darauf aufmerksam machen auf ihre Mitmenschen rücksicht zu nehmen. Aus diesem Grund wurden Grüntöne als Farbe für die Fahrräder gewählt.
 
-Sechs Frames (GIF)
-Verwendete Software: Piskel (kostenlos)
+Für die Erstellung unserer Anzeige als GIF haben wir die kostenlose Software [Piskel](https://www.piskelapp.com/p/create/sprite) genutzt, die auch als Browseranwendung verfugbar ist. Ein Tutorial zum Erstellen von GIFs mit Piskel gibt es (hier)[https://www.youtube.com/watch?v=XqdZX3Ldzyo].
+
+
 
 <a name="zusammenbau"></a>
 ## 5 Zusammenbau (Bluetooth-Signal)
