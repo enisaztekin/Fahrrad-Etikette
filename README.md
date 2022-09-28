@@ -48,10 +48,30 @@
 
 <a name="matrixhardware"></a>
 ## 2.1.1 Hardware
-
+Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
+- ESP32 Microcontroller
+- 64x32 RGB LED Matrix
+- 5V 3 Ampere Netzteil
+- Micro-USB Kabel
+- Micro-USB Kabel mit zwei offenen Kabelenden
+- mindestens 15 Female-to-Female Jumper Kabel
+- Terminal Block
 <a name="matrixsoftware"></a>
 ## 2.1.2 Software
+Verwendete Entwicklungsumgebung:
+Arduino IDE 1.8.13
 
+Verwendete Bibliotheken:
+Adafruit GFX
+ESP32-HUB75-MatrixPanel-I2S-DMA
+Animated GIF
+
+Verwendetes Beispiel:
+AnimatedGIFPanel.ino
+
+Verwendetes Plugin:
+Arduino ESP32 filesystem uploader
+Link, um Microcontroller in IDE zu installieren hinzufügen..
 <a name="personenerkennung"></a>
 ## 2.2 Personenerkennung
 
@@ -225,6 +245,13 @@ Für das Projekt wird Edge Impulse, welche eine Softwareplattform für die Entwi
 
 <a name="ausgabe"></a>
 ## 4 Ausgabe (LED-Matrix)
+design
+Design muss vom Fahrrad aus erkennbar sein →  Design aufs Wesentliche reduziert
+FahrradfahrerInnen sollen links überholen und sich rechts einordnen
+Keine Warnung - nur als Hinweis → Grün als Farbe
+
+Sechs Frames (GIF)
+Verwendete Software: Piskel (kostenlos)
 
 <a name="zusammenbau"></a>
 ## 5 Zusammenbau (Bluetooth-Signal)
