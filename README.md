@@ -110,12 +110,12 @@ Für die Vorbereitung und das Testen der Hardware wurde folgendes Endgerät genu
 
 Für macOS müssen die drei Schritte durchgeführt werden:
 1. Schritt: USB-Treiber
-- Der USB-Treiber von SiLabs herunterladen und die dmg-Datei installieren: (https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) 
+- Der USB-Treiber von SiLabs herunterladen und die dmg-Datei installieren: https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers 
 2. Schritt: Arduino-IDE
-- (https://www.arduino.cc/en/Main/Software) 
+- https://www.arduino.cc/en/Main/Software 
 - Hierfür wird die Arduino IDE verwendet. Die aktuellste Version ist die Arduino IDE 2.0.0:
 
-! <img width="907" alt="Bildschirmfoto 2022-09-20 um 03 33 51" src="https://user-images.githubusercontent.com/72546527/192511108-1a35b276-12d3-43fd-83af-44afa6645781.png">
+<img width="907" alt="Bildschirmfoto 2022-09-20 um 03 33 51" src="https://user-images.githubusercontent.com/72546527/192511108-1a35b276-12d3-43fd-83af-44afa6645781.png">
 
 3. Schritt: Arduino Nano 33 BLE Board auswählen + Libraries installieren
 - Board “Arduino Mbed OS Nano Boards” installieren:
@@ -219,6 +219,21 @@ Für das Projekt wird Edge Impulse, welche eine Softwareplattform für die Entwi
 <a name="edgeimpulse"></a>
 ## 3.1 Verbindung zwischen Edge Impulse und Arduino Board
 
+Um die Verbindung zu prüfen, muss zuallererst ein Login auf der Edge Impulse Webseite erfolgen und das gewünschte Projekt ausgewählt werden. Der Name des Projektes ist hier “R(o)AD RAGE war gestern. 2.0”:
+
+<img width="713" alt="Bildschirmfoto 2022-09-24 um 16 20 14" src="https://user-images.githubusercontent.com/72546527/192827009-166b10ec-6bcf-4191-99fd-251cdb051d70.png">
+
+Bei “Devices” sollte das gewünschte Board bereits angezeigt werden, jedoch ist bei “Remote Management” das Licht rot. Dann das Arduino Nano 33 BLE Sense Board mit dem USB Kabel an den Computer verbinden. Bei einem macOS Gerät im Terminal folgenden Befehl eingeben: ```edge-impulse-daemon```
+ 
+Das Licht vom Arduino Board bei “Devices” auf Edge Impulse sollte nun grün sein.
+Ein Gerät kann nur an einem Edge Impulse Gerät verknüpft werden. Bei einem Wechsel muss der Terminal-Befehl auf dem macOS Gerät eingeben: ```edge-impulse-daemon --clean```
+
+Die gleichen Logindaten wie bei Edge Impuls eingeben und aus den bereits vorhanden Projekten, das Richtige auswählen:
+
+![Bildschirmfoto 2022-09-24 um 18 44 39](https://user-images.githubusercontent.com/72546527/192827151-482a5ee8-a470-476c-aff3-fd11c784d2eb.png)
+
+Das Arduino Board muss bei den folgenden Schritten nicht angeschlossen werden, da vorerst Daten gesammelt, aufbereitet und das Modell erstellt werden. Erst beim Deployment ist der Anschluss notwendig.
+
 <a name="aquisition"></a>
 ## 3.2 Aquisition der Daten
 
@@ -242,6 +257,31 @@ Für das Projekt wird Edge Impulse, welche eine Softwareplattform für die Entwi
 
 <a name="deployment"></a>
 ## 3.9 Deployment
+
+Für das Deployment wird eine Firmware mit dem optimierten Modell auf dem Arduino Nano 33 BLE Sense gelauncht. Das ist die Edge Impulse Dokumentation für das Development: https://docs.edgeimpulse.com/docs/edge-impulse-studio/deployment
+
+Das  Arduino Nano 33 BLE Sense Board mit dem USB Kabel an den Computer verbinden. Auf der Edge Impulse Webseite "Deployment" gehen und das Gerät “Arduino Nano 33 BLE Sense” auswählen und auf “Build” klicken:
+
+<img width="187" alt="Bildschirmfoto 2022-09-24 um 18 34 01" src="https://user-images.githubusercontent.com/72546527/192828136-15b9027d-1c4b-4ea5-b28b-c9da971f94ee.png">
+
+Die Firmware wird mit dem favorisierten Modell erstellt:
+
+![Bildschirmfoto 2022-09-20 um 00 20 57](https://user-images.githubusercontent.com/72546527/192828407-5948a034-4700-4d2f-bc9f-fd8678b49069.png)
+
+Sobald die Firmware erstellt wurde, wird sie automatisch heruntergeladen. Den Ordner öffnen und die drei Dateien “firmware-arduino-nano-33-ble-sense.ino.with_bootloader.bin”, “firmware-arduino-nano-33-ble-sense.ino.bin” und “flash_mac.command” in den Benutzerordner verschieben. Dann auf “flash_mac.command” klicken. Die neue Firmware wird auf dem Arduino Nano 33 BLE Sense Board gelauncht.
+
+<img width="453" alt="Bildschirmfoto 2022-09-24 um 19 00 48" src="https://user-images.githubusercontent.com/72546527/192828632-6a0cb160-2c44-4355-8743-42053c8d0c10.png">
+
+Ein neues Terminal-Fenster öffnen und folgenden Befehl eingeben: ```edge-impulse-run-impulse```
+Das Arduino Nano 33 BLE Sense Board nimmt im Zweisekunden-Takt ein Bild auf und im Terminal erscheint eine Wahrscheinlichkeit, ob ein:r Fahrradfahrer:in zu erkennen ist oder nicht. Bei dem folgenden Beispiel ist der Wert 1 bei 0.73438, was aussagt, dass die Kamera eine:n Fahrradfahrer:in erkennt:
+
+<img width="724" alt="Bildschirmfoto 2022-09-25 um 03 44 19" src="https://user-images.githubusercontent.com/72546527/192828698-fa55c9ff-5fef-446e-b108-b2ce43939732.png">
+
+Bei dem nächsten Bild wird der Berliner Fernsehturm von der Kamera erfasst und das Modell gibt bei dem Wert 0 eine Wahrscheinlichkeit von 0.72266. Hier ist demnach kein:e Fahrradfahrer:in zu erkennen:
+
+<img width="639" alt="Bildschirmfoto 2022-09-25 um 03 44 30" src="https://user-images.githubusercontent.com/72546527/192828758-6408466e-0197-4aeb-86f5-43b1f20a9e4b.png">
+
+Es ist zu erwähnen, dass das Modell noch weiter optimiert werden sollte, um bessere Resultate zu erzielen. Bei anderen Bildern wurde es nicht eindeutig oder sogar falsch klassifiziert. Hinzu kommt, dass die Datenmenge gering war und es zu fehlerhaften Ergebnissen kam.
 
 <a name="ausgabe"></a>
 ## 4 Ausgabe (LED-Matrix)
