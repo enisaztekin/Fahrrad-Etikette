@@ -73,6 +73,9 @@ Als Entwicklungsumgebung wurde, für die LED Matrix, [Arduino IDE](https://www.u
 
 Der verwendete Code stammt ebenfalls von der Bibliothek ESP32-HUB75-MatrixPanel-I2S-DMA unter dem Namen [AnimatedGIFPanel.ino](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA/tree/master/examples/AnimatedGIFPanel), da das uns ermöglicht beliebige Inhalte als GIFs auf der LED Matrix anzuzeigen, ohne jedes Mal den Code anpassen zu müssen. Dafür muss vorab noch das Plugin [Arduino ESP32 filesystem uploader](https://github.com/me-no-dev/arduino-esp32fs-plugin) installiert werden.
 
+Wenn die oberen Schritte erfolgreich abgeschlossen wurden, können die gewünschten GIFs in den /data/gifs hinzugefügt werden und der Code auf das ESP32 hochgeladen werden.
+
+Hinweis: Falls beim Kompilieren und Hochladen des Codes aud den ESP32 keine Fehler angegeben wurden, aber die Anzeige trotzdem nicht richtig funktioniert (z.B. werden nicht alle Farben  und Formen angezeigt), dann ist es ratsam onchmal die Hardware zu überprüfen. Vorallem jegliche Kabel neigen dazu schnell beschädigt zu werden ohne das man etwas bemerkt.
 
 
 <a name="personenerkennung"></a>
