@@ -247,6 +247,7 @@ Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt
 <img width="111" alt="EdgeImpulse_Steps" src="https://user-images.githubusercontent.com/64984929/193010449-c5d62f2e-4f4a-4652-b7a3-14120211b50e.png">
 Durchzuführende Schritte in Edge Impulse (Anleitung)
 
+
 Im Rahmen eines vergleichbaren Projektes ist es empfehlenswert, eine Reihe an Iterationen bei unzureichender Modellgenauigkeit im Testing zu durchlaufen. Die Genauigkeit kann durch Erhöhung der Datengrundlage, der Überarbeitung der Annotierung ebendieser, der Auswahl des eingesetzten Modells und der Hyperparameteranpassung erfolgen.
 
 <a name="edgeimpulse"></a>
