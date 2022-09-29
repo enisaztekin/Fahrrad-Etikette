@@ -9,7 +9,7 @@
     - [2.1 LED Matrix Setup](#matrixsetup)
         - [2.1.1 Hardware](#matrixhardware)
         - [2.1.2 Bauanleitung der LED-Matrix](#BauanleitungLED-Matrix)
-        - [2.1.2 Software](#matrixsoftware)
+        - [2.1.3 Software](#matrixsoftware)
     - [2.2 Personenerkennung Setup](#personenerkennung)
         - [2.2.1 Hardware](#personenerkennunghardware)
         - [2.2.2 Software](#personenerkennungsoftware)
@@ -227,7 +227,7 @@ Für macOS müssen die drei Schritte durchgeführt werden:
 - Das Ergebnis zeigt, dass die Kamera funktioniert. Jedoch können im Serial Monitor keine Zeilen kopiert werden. Der Aufwand wäre daher zu hoch, um die Hexadezimalzahlen zu entnehmen und abbilden zu lassen.
 
 <a name="personenerkennungsoftware"></a>
-## 2.2.2 Software
+## 2.2.3 Software
 Für das Projekt wird Edge Impulse, welche eine Softwareplattform für die Entwicklung für das maschinelles Lernen (eng. Machine Learning (ML)) ist, genutzt. Es ermöglicht Entwickler:innen Lösungen mit realen Daten zu erstellen und zu optimieren. Durch den Prozess der Erstellung, Bereitstellung und Skalierung von eingebetteten ML-Anwendungen wird das Arbeiten einfacher, schneller und ermöglicht, Geräte intelligenter zu machen. (Edge Impuls 2022)
 
 **Setup Edge Impuls für MacOS:**
