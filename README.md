@@ -11,7 +11,7 @@
     - [2.2 Personenerkennung Setup](#personenerkennung)
         - [2.2.1 Hardware](#personenerkennunghardware)
         - [2.2.2 Software](#personenerkennungsoftware)
-- [3 Erkennnung von Radfahrer:innen mit TinyML und EDGE Impulse](#erkennung)
+- [3 Erkennnung von Radfahrer:innen mit TinyML und Edge Impulse](#erkennung)
     - [3.1 Verbindung zwischen Edge Impulse und Arduino Board](#edgeimpulse)	
     - [3.2 Acquisition der Daten](#aquisition)
     - [3.3 Datenaufbereitung](#datenaufbereitung)	
@@ -51,7 +51,7 @@ Das Projekt kann in drei Pakete aufgeteilt werden.
 
 Letzteres konnte aufgrund der zeitlichen Begrenzung nicht umgesetzt werden. Verweis Frank xxx
 
-Nach dem Zusammenstecken der Hardware konnte die Softwareseite betrachtet werden. Für das Erstellen eines Modells zur Klassifikation der Bilder (Input) ist Edge Impulse im Einsatz. Dabei handelt es sich um eine Plattform für maschinelles Lernen auf Edge Geräten, wozu Kameras und weitere Sensoren zählen. Mit Hilfe von Edge Impulse kann das mit eigenen Bilddaten von der Radbahn angelernte Modell so komprimiert werden, dass es auf den mit der Kamera verbundenen Mikro-Controller geladen werden kann.
+Nach dem Zusammenstecken der Hardware konnte die Softwareseite betrachtet werden. Für das Erstellen eines Modells zur Klassifikation der Bilder (Input) ist Edge Impulse im Einsatz. Dabei handelt es sich um eine Plattform für maschinelles Lernen auf Edge Geräten, wozu Kameras und weitere Sensoren zählen. Mit Hilfe von Edge Impulse kann das mit eigenen Bilddaten von der Radbahn angelernte Modell so komprimiert werden, dass es auf den mit der Kamera verbundenen Mikro-Controller geladen werden kann. Dieses Konzept wird TinyML genannt und umfasst spezielle Hard- und Software sowie Algorithmen. https://www.tinyml.org/
 
 Die Einschränkungen in der Hardware ermöglichen es nur eine Klassifikation der Bilddaten vorzunehmen und dabei zu bestimmen, ob Fahrradfahrende zu sehen sind oder nicht. Ohne diese Beschränkungen könnten auch leistungsstärkere Algorithmen eingesetzt werden, die beispielsweise erkennen können, ob Fahrradfahrende zu sehen sind, wie viele und an welchen Stellen sie sich im Bild befinden. https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/object-detection/fomo-object-detection-for-constrained-devices  
 So könnte ein zukünftiger Prototyp so konzipiert werden, dass die Matrix lediglich dann aufleuchtet, wenn sich Radfahrende nebeneinander fortbewegen.
@@ -240,11 +240,12 @@ Für das Projekt wird Edge Impulse, welche eine Softwareplattform für die Entwi
         <img width="951" alt="Bildschirmfoto 2022-09-20 um 14 48 26" src="https://user-images.githubusercontent.com/72546527/192720521-0dd6c372-2928-4695-8681-41156592f847.png">
 
 <a name="erkennung"></a>
-## 3 Erkennnung von Radfahrer:innen mit TinyML
-Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt werden. Auf der linken Seite befinden sich dann die zu durchlaufenden Schritte von der Verbindung mit dem Edge Gerät über die Datenacquistion und das Modellieren bis zum Deployment der finalen Modellversion. Bereits durchgeführte Schritte werden dabei grün angezeigt.
+## 3 Erkennnung von Radfahrer:innen mit TinyML und Edge Impulse
+Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt werden. Auf der linken Seite befinden sich dann die zu durchlaufenden Schritte von der Verbindung mit dem Edge Gerät über die Datenacquistion und das Modellieren bis zum Deployment der finalen Modellversion. Bereits durchgeführte Schritte werden dabei grün angezeigt.https://www.edgeimpulse.com/
 
 <img width="111" alt="EdgeImpulse_Steps" src="https://user-images.githubusercontent.com/64984929/193010449-c5d62f2e-4f4a-4652-b7a3-14120211b50e.png">
 Durchzuführende Schritte in Edge Impulse (Anleitung)
+
 
 
 Im Rahmen eines vergleichbaren Projektes ist es empfehlenswert, eine Reihe an Iterationen bei unzureichender Modellgenauigkeit im Testing zu durchlaufen. Die Genauigkeit kann durch Erhöhung der Datengrundlage, der Überarbeitung der Annotierung ebendieser, der Auswahl des eingesetzten Modells und der Hyperparameteranpassung erfolgen.
