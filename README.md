@@ -1,5 +1,4 @@
-![Road_Rage_Logo](https://user-images.githubusercontent.com/88652185/193117489-801d656d-c976-4446-a82e-5b252b8c1128.png)
-# Projektdokumentation *Road Rage war gestern*		
+# Projektdokumentation *Road Rage war gestern*
 
 - [1 Einführung](#einfuehrung)
     - [1.1 Motivation](#motivation)
@@ -441,7 +440,11 @@ Bei der Erstellung unserer Anzeige war es uns wichtig, dass das Design vom Fahrr
 
 Für die Erstellung unserer Anzeige als GIF haben wir die kostenlose Software [Piskel](https://www.piskelapp.com/p/create/sprite) genutzt, die auch als Browseranwendung verfugbar ist. Ein Tutorial zum Erstellen von GIFs mit Piskel gibt es [hier](https://www.youtube.com/watch?v=XqdZX3Ldzyo).
 
-![](https://github.com/enisaztekin/Fahrrad-Etikette/blob/main/finalgif.gif)
+
+
+https://user-images.githubusercontent.com/88652185/193116329-f4a17ebf-2f97-4608-a738-39b940da7cc2.mp4
+
+
 
 <a name="learnings"></a>
 ## 5 Learnings
