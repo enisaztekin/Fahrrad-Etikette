@@ -358,7 +358,6 @@ Create Impulse in Edge Impulse
 Die für das Modelltraining generierten Features im Unterpunkt Image erzeugen folgende Darstellung wenn sie wieder auf die zweidimensionale Ebene projeziert werden.
 
 <img width="369" alt="image features 2 0" src="https://user-images.githubusercontent.com/64984929/193043038-f77945eb-482b-4149-88ac-3a6987db984a.png">
-
 Features mit Möglichkeit zum Annotieren und Bild
 
 
@@ -373,6 +372,7 @@ Im Test konnte die höchst mögliche Genauigkeit das Modell erzielen: MobileNetV
 
 <img width="400" alt="Model" src="https://user-images.githubusercontent.com/64984929/193047212-5ad30c5e-2a4b-45ec-b0f1-255b8c6b8e3a.png">
 Auflistung der auswählbaren Modelle
+
 
 <a name="validierung"></a>
 ## 3.7 Validierung
@@ -391,6 +391,7 @@ Als sehr benutzerfreundlich ist in der Übersicht ein weiterer Data Explorer zu 
 Data Explorer
 
 
+
 Zudem kann im unteren Teil der Übersicht die zukünftige Leistung des Modells beim Durchlaufen auf dem Edge Device abgelesen werden. Mit maximal 130,9KB benötigtem Arbeitsspeicher läuft dieses Modell entsprechend auch auf dem Arduino Nano Sense 33 BLE.
 
 Im Rahmen der Modelloptimierung wurden auch die Einstellungen im Bereich der Training Settings angepasst. Die Anzahl an zu durchlaufender Trainingszyklen wurde erhöht und die Lernrate minimiert, was für einen detaillierteren Lernprozess sorgt. Allerdings hat dies zur Überanpassung des Modells auf die Trainingsdaten geführt und angewendet auf die Validierungsdaten nur eine Genauigkeit von 42,9% erreicht.
@@ -400,6 +401,7 @@ Im Rahmen der Modelloptimierung wurden auch die Einstellungen im Bereich der Tra
 
 
 Mit einer leistungsstärkeren Hardware könnten auch Algorithmen angewendet werden, die mehr Arbeitsspeicher benötigen. Im Vergleich zu den vorherigen Modellen könnte so ein deutlich genaueres Ergebnis erzielt werden, wie das mit dem unten verwendeten MobileNetV2-Modell zu sehen ist.
+
 
 <img width="849" alt="vali4" src="https://user-images.githubusercontent.com/64984929/193070927-7767d9b9-7156-4cc1-9d8b-f57f718572a0.png">
 Anwendung des MobileNetV2-Modells auf die Daten
