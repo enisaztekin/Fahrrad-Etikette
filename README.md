@@ -23,7 +23,7 @@
     - [3.7 Validierung](#validierung)	
     - [3.8 Deployment](#deployment)	
 - [4 Ausgabe (LED-Matrix)](#ausgabe)
-- [5 Learnings](#learnings)	
+- [5 Kritische Betrachtung und Ausblick](#learnings)	
 ----
 
 <a name="einfuehrung"></a>
