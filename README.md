@@ -20,8 +20,8 @@
     - [3.6 Modellierung](#modellierung)
     - [3.7 Validierung](#validierung)	
     - [3.8 Deployment](#deployment)	
-- [4 Ausgabe (LED-Matrix)](#ausgabe)	
-- [5 Zusammenbau (Bluetooth-Signal)](#zusammenbau)
+- [4 Ausgabe (LED-Matrix)](#ausgabe)
+- [5 Learnings (Learnings)](#learnings)	
 ----
 
 <a name="einfuehrung"></a>
@@ -440,4 +440,6 @@ Bei der Erstellung unserer Anzeige war es uns wichtig, dass das Design vom Fahrr
 
 Für die Erstellung unserer Anzeige als GIF haben wir die kostenlose Software [Piskel](https://www.piskelapp.com/p/create/sprite) genutzt, die auch als Browseranwendung verfugbar ist. Ein Tutorial zum Erstellen von GIFs mit Piskel gibt es [hier](https://www.youtube.com/watch?v=XqdZX3Ldzyo).
 
+<a name="learnings"></a>
+## 5 Learnings
 
