@@ -36,7 +36,7 @@
 Das Fahrrad als Transportmittel.
 Aus diesem Grund sind die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, eine wichtige Zielgruppe der Radbahn - https://radbahn.berlin/de/ueber-radbahn. Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
 Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der FahrradfarerInnen grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrer:innen. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
-Leider ist die nötige Fahrrad-Etikette nicht jedem bekannt und das soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
+Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt und das soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
 
 <a name="zielstellung"></a>
 ## 1.2 Zielstellung
@@ -56,6 +56,9 @@ Nach dem Zusammenstecken der Hardware konnte die Softwareseite betrachtet werden
 
 Die Einschränkungen in der Hardware ermöglichen es nur eine Klassifikation der Bilddaten vorzunehmen und dabei zu bestimmen, ob Fahrradfahrende zu sehen sind oder nicht. Ohne diese Beschränkungen könnten auch leistungsstärkere Algorithmen eingesetzt werden, die beispielsweise erkennen können, ob Fahrradfahrende zu sehen sind, wie viele und an welchen Stellen sie sich im Bild befinden. https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/object-detection/fomo-object-detection-for-constrained-devices  
 So könnte ein zukünftiger Prototyp so konzipiert werden, dass die Matrix lediglich dann aufleuchtet, wenn sich Radfahrende nebeneinander fortbewegen.
+
+Edge Impulse:
+
 
 <a name="setup"></a>
 ## 2 Setup
@@ -340,12 +343,47 @@ Zukünftig sollte die Kamera so eingestellt sein, dass die Entfernung geringer i
 
 <a name="datenexploration"></a>
 ## 3.6 Datenexploration
+Um ein Gefühl für die Daten und für die technische Verarbeitung der Bilder zu bekommen, bietet Edge Impulse einen Data Explorer an.
+Dieses visuelle Werkzeug unterstützt dabei, Ausreißer und falsch oder gar nicht annotierte Bilder zu erkennen. Dazu wird ein Algorithmus eingesetzt, der aussagekräftige Eigenschaften aus den Bildern extrahiert (Kanten, Kontraste, Muster). Diese werden dann mit einem weiteren Algorithmus zur Dimensionalitätreduktion in die unten sichtbare zweidimensionale Darstellung umgewandelt. Data explorer - Edge Impulse Documentation
+
+<img width="768" alt="Data Explorer" src="https://user-images.githubusercontent.com/64984929/193038931-e51d0344-2595-4e1b-8f12-ed4c1ecc3275.png">
+Data Explorer mit Möglichkeit zum Vergeben einer neuen Annotation und Bild
+
+
+
 
 <a name="modellierung"></a>
 ## 3.7 Modellierung
+In Edge Impulse wird der Modellierungsprozess "Impulse Design" genannt. Im ersten Schritt wurden dabei die empfohlenen Standards für die Feature-Generierung aus den Trainingsdaten gewählt. Auch für das Transfer Learning, was einen bereits vortrainierten Algorithmus zur Klassifizierung von Bildern mit den zuvor generierten Features aus den Trainingsdaten anpasst, wurde die empfohle Standardeinstellung ausgewählt. Alternativ können auch individuelle Algorithmen eingesetzt werden, die vorher in die Plattform geladen werden müssen. Der Output stellt das Ergebnis des Modells dar, dass entsprechend der Annotationslogik entweder 0 oder 1 ist.
+
+<img width="934" alt="image" src="https://user-images.githubusercontent.com/64984929/193039542-97c6a9dd-1d42-45a7-a672-32ccb9fbe2f6.png">
+Create Impulse in Edge Impulse
+
+Die für das Modelltraining generierten Features im Unterpunkt Image erzeugen folgende Darstellung wenn sie wieder auf die zweidimensionale Ebene projeziert werden.
+<img width="369" alt="image features 2 0" src="https://user-images.githubusercontent.com/64984929/193043038-f77945eb-482b-4149-88ac-3a6987db984a.png">
+Features mit Möglichkeit zum Annotieren und Bild
+
+
+Im Bereich Transfer Learning können im oberen Bereich die Trainings Settings angepasst werden. Dabei wurden die Standardeinstellungen übernommen mit Ausnahme von Data Augmentation. Dabei werden die Bilder zufällig während des Trainings transformiert und somit die Diversität der Daten erhöht. Aufgrund der geringen Menge an Daten ist dies sinnvoll. https://www.tensorflow.org/tutorials/images/data_augmentation
+Im unteren Bereich ist die Wahl unterschiedlicher Algorithmen möglich.
+<img width="532" alt="Transfer learning" src="https://user-images.githubusercontent.com/64984929/193043988-f9ddc43d-ed80-4f43-ac62-5f9efc1d3d14.png">
+
+
+Bei der Wahl eines passenden Algorithmus muss auf die Leistung der Hardware geachtet werden. Lediglich die mit MobileNetV1-Modelle können auf dem Arduino Nano Sense 33 BLE laufen, da dieser nur über einen Arbeitsspeicher von 256 KB verfügt. https://docs.arduino.cc/hardware/nano-33-ble-sense
+Im Test konnte die höchst mögliche Genauigkeit das Modell erzielen: MobileNetV1 96x96 0.25 (no final dense layer, 0.1 dropout)
+
+<img width="400" alt="Model" src="https://user-images.githubusercontent.com/64984929/193047212-5ad30c5e-2a4b-45ec-b0f1-255b8c6b8e3a.png">
+Auflistung der auswählbaren Modelle
 
 <a name="validierung"></a>
 ## 3.8 Validierung
+
+
+Genauigkeit (Accuracy) 
+
+Beste Mögliche
+Beste
+schlechteste - Einsehbar
 
 <a name="deployment"></a>
 ## 3.9 Deployment
