@@ -78,7 +78,7 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 | mindestens 15 Female to Female Jumper Kabel | Mit den Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |   ![female to female](https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg)  |
 | Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   ![terminalblock](https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png) |
 
-## Bauanleitung
+## 2.1.2 Bauanleitung für die LED-Matrix
 ### 1. Verknüpfung vom ESP32 mit der LED-Matrix
 <img width="500" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
 
@@ -97,7 +97,7 @@ und so sah es bei uns aus:
 
 ### 2.
 <a name="matrixsoftware"></a>
-## 2.1.2 Software
+## 2.1.3 Software
 Als Entwicklungsumgebung wurde, für die LED Matrix, [Arduino IDE](https://www.umwelt-campus.de/fileadmin/Umwelt-Campus/IoT-Werkstatt/octopus/Quickstart.pdf) verwendet. Danach muss als erstes das ESP32 Board in die Ardiuno IDE instaliert werden. Eine entsprechende Anleitung gibt es [hier](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/). Anschließend gilt es die Bibliotheken [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) , [ESP32-HUB75-MatrixPanel-I2S-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA) und [Animated GIF](https://github.com/bitbank2/AnimatedGIF) in die IDE hinzuzufügen.
 
 Der verwendete Code stammt ebenfalls von der Bibliothek ESP32-HUB75-MatrixPanel-I2S-DMA unter dem Namen [AnimatedGIFPanel.ino](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA/tree/master/examples/AnimatedGIFPanel), da das uns ermöglicht beliebige Inhalte als GIFs auf der LED Matrix anzuzeigen, ohne jedes Mal den Code anpassen zu müssen. Dafür muss vorab noch das Plugin [Arduino ESP32 filesystem uploader](https://github.com/me-no-dev/arduino-esp32fs-plugin) installiert werden.
