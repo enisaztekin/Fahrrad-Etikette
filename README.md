@@ -1,5 +1,5 @@
 # Projektdokumentation *Road Rage war gestern*   
-<img src="https://user-images.githubusercontent.com/88652185/193118046-27b8c1f7-3e31-4aae-bfb1-7b78b6a6ccb0.png" width= 80 align=right>
+<img src="https://user-images.githubusercontent.com/88652185/193118046-27b8c1f7-3e31-4aae-bfb1-7b78b6a6ccb0.png" width=100 align=right>
 
 - [1 Einführung](#einfuehrung)
     - [1.1 Motivation](#motivation)
@@ -30,13 +30,12 @@
 
 <a name="motivation"></a>
 ## 1.1 Motivation
-Das Fahrrad als Transportmittel.</a>
+Das Fahrrad als Transportmittel.
 Aus diesem Grund sind die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, eine wichtige Zielgruppe der [Radbahn](https://radbahn.berlin/de/ueber-radbahn). Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
-Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der Fahrradfarer:innen grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig Fahrende und sich nebeneinander fortbewegende Radfahrer:innen. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
+Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der FahrradfarerInnen grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrer:innen. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
 Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt und das soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
-Zur besseren Veranschaulichung wurde zu dem beschriebenden Szenario ein kleines [Video](https://github.com/enisaztekin/Fahrrad-Etikette/blob/main/Road_Rage_war_gestern_cut.mp4) erstellt und dabei unsere Idee zur Lösung des Problems visulaisiert. 
-<a name="zielstellung"></a>
 
+<a name="zielstellung"></a>
 ## 1.2 Zielstellung
 Mit Hilfe eines TinyML-Modells, das Bildaufnahmen von der Radbahn aufnimmt, sollen Radfahrende erkannt werden. Tritt dies ein, soll ein Signal (1 = Radfahrende zu sehen / 0 keine Radfahrenden zu erkennen) per Bluetooth an eine mit einem Mikrocontroller verbundene Leuchtmatrix gesendet werden und die sonst ausgeschaltete Matrix einschalten. Zu sehen ist dann eine Darstellung des gewünschten Verhaltens von Fahrradfahrenden auf der Radbahn. Das situationsbedingte Einschalten der LED Matrix sorgt für Aufmerksamkeit bei Fahrradfahrenden zudem muss die stromintensive LED Matrix nicht durchgehend angeschalten sein, was die Nachhaltigkeit der Anwendung erhöht. Eine hohe Genauigkeit bei der Objekterkennung ist zudem nicht nötig, da es sich nicht um für den Verkehr kritische Informationen handelt. 
 Was auf den Rolltreppen in England funktioniert, ist auch auf deutschen Radwegen umsetzbar.
@@ -74,19 +73,29 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 | ESP-WROOM-32                                | Microcontroller auf dem der Code für die LED-Anzeige gespeichert ist und der sich mit dem WLAN und mit Bluetooth verbinden kann  |   ![esp32](https://user-images.githubusercontent.com/44236199/192882507-bdc18236-7096-4b0a-aea1-f33fe07cc0f6.jpg)   |
 | 64x32 RGB LED MATRIX – 5MM Pitch            | LED Matrix auf der die gewünschten Anzeige abgebildet werden                                                                     |   ![WaveShare-RGB-Full-Color-LED-Matrix-Panel-64x32-Pixels](https://user-images.githubusercontent.com/44236199/192883322-65fe3dd6-b2ea-45de-b7e4-334a9e1ae5ce.jpg)   |
 | 5V 3 Ampere Netzteil                        | Netzteil für die Stromzufuhr an die LED Matrix und an den ESP32                                                                  |  ![netzteil](https://user-images.githubusercontent.com/44236199/192882575-5a93a7e4-64e7-4907-8bfd-5816602403a8.jpg) |
-| Micro USB Kabel                             | Mit dem Micro USB Kabel wird der Code vom Rechner auf den ESP32 hochgeladen                                                      |   ![mini-usb](https://user-images.githubusercontent.com/44236199/192882605-9bd6f867-327b-4676-80cf-ab1b6ac60ec3.jpg) |
+| Micro USB Kabel                             | Mit dem Micro USB Kabel wird der Code vom Rechner auf den ESP32 hochgeladen                                                      | <img width="250" alt="mini-usb" src="https://user-images.githubusercontent.com/44236199/192882605-9bd6f867-327b-4676-80cf-ab1b6ac60ec3.jpg"> |
 | Micro USB Kabel mit zwei offenen Kabelenden | Das Micro USB Kabel mit zwei offenen Kabelenden wird für die Versorgungsspannung ans ESP32, ohne ein zweites Netzteil, benötigt  |    ![31MO4TzwE6L _SY445_SX342_QL70_ML2_](https://user-images.githubusercontent.com/44236199/192882622-953ea12e-6301-4b15-aa46-fec2b3d049ab.jpg)  |
 | mindestens 15 Female to Female Jumper Kabel | Mit den Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |   ![female to female](https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg)  |
 | Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   ![terminalblock](https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png) |
 
-### Verknüpfung vom ESP32 mit der LED-Matrix
+### Bauanleitung
+#### 1. Verknüpfung vom ESP32 mit der LED-Matrix
 <img width="500" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
 
 Das sollte dann so ähnlich wie im folgenden Bild aussehen
 
 <img width="650" alt="pinout2" src="https://user-images.githubusercontent.com/44236199/192895515-9944837b-595a-47da-b175-daa99a81432d.jpeg">
 
-Hinweis: Falls es die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
+Probleme/Hinweise: 
+
+- Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel, das, wie sich am Ende herausgestellt hat, defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. So sollte es eigentlich aussehen: 
+<img width="400" alt="plasma" src="https://user-images.githubusercontent.com/44236199/193125361-ddb88a1c-3e4f-4599-9689-5524ebe9f1ba.png"> 
+und so sah es bei uns aus:
+<img width="200" alt="WhatsApp Image 2022-09-29 at 21 30 01" src="https://user-images.githubusercontent.com/44236199/193125419-04e30f21-3604-4f79-9d5d-fcaa9eb9a4fe.jpeg"> 
+
+- Falls es die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
+
+### 2.
 <a name="matrixsoftware"></a>
 ## 2.1.2 Software
 Als Entwicklungsumgebung wurde, für die LED Matrix, [Arduino IDE](https://www.umwelt-campus.de/fileadmin/Umwelt-Campus/IoT-Werkstatt/octopus/Quickstart.pdf) verwendet. Danach muss als erstes das ESP32 Board in die Ardiuno IDE instaliert werden. Eine entsprechende Anleitung gibt es [hier](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/). Anschließend gilt es die Bibliotheken [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) , [ESP32-HUB75-MatrixPanel-I2S-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA) und [Animated GIF](https://github.com/bitbank2/AnimatedGIF) in die IDE hinzuzufügen.
