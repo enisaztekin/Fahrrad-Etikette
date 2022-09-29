@@ -331,6 +331,7 @@ Ein Autolabelling ist nicht empfehlenswert, da der Anwendungsfall mit der Radfah
 Nach mehreren Iterationen des Annotierens und Entfernens von überflüssigen Bildern (sehr ähnliche Bilder, fast Duplikate) bilden 312 Aufnahmen die Datengrundlage mit folgender Verteilung:
 
 ![split](https://user-images.githubusercontent.com/64984929/193031394-71312c21-5893-4541-95d2-6d860b8e8aef.png)
+
 Von den 243 Elementen im Trainingsdatensatz sind 112 als 1 annotiert und 131 als 0 annotiert.
 
 Dementsprechend sind die beiden Gruppen (0 und 1) fast gleich groß.
@@ -347,8 +348,7 @@ Um ein Gefühl für die Daten und für die technische Verarbeitung der Bilder zu
 Dieses visuelle Werkzeug unterstützt dabei, Ausreißer und falsch oder gar nicht annotierte Bilder zu erkennen. Dazu wird ein Algorithmus eingesetzt, der aussagekräftige Eigenschaften aus den Bildern extrahiert (Kanten, Kontraste, Muster). Diese werden dann mit einem weiteren Algorithmus zur Dimensionalitätreduktion in die unten sichtbare zweidimensionale Darstellung umgewandelt. Data explorer - Edge Impulse Documentation
 
 <img width="768" alt="Data Explorer" src="https://user-images.githubusercontent.com/64984929/193038931-e51d0344-2595-4e1b-8f12-ed4c1ecc3275.png">
-Data Explorer mit Möglichkeit zum Vergeben einer neuen Annotation und Bild
-
+Data Explorer mit Möglichkeit zum Vergeben einer neuen Annotatierung mit Bild
 
 
 
@@ -377,13 +377,30 @@ Auflistung der auswählbaren Modelle
 
 <a name="validierung"></a>
 ## 3.8 Validierung
+Nach dem Training eines neuen Modells wird auch eine Validierung durchgeführt, um die Leistung des Modells zu erkennen. Entsprechen die Ergebnisse nicht den Anforderungen des Anwendungsfalls gelten sie als Ausgangspunkt für die nächste Iteration. 
 
+Neben der Genauigkeit (Accuracy) des Modells wird eine Konfusionsmatrix, welche die Ergebnisse des Klassifikationsmodells auf die Validierungsdaten darstellt, ausgegeben. 
+Im bestmöglichen Modell (2.4) der fünf erstellten, wurde eine gute Genauigkeit erreicht. Auffallend ist, das 40% der Bilder ohne Radfahrende im Validierungsdatensatz als Bilder mit Radfahrenden klassifiziert wurden. Dies ist allerdings nicht zu kritisch zu bewerten, da es sich dabei oft um Bilder handelt, in denen die Radfahrenden kurz vor dem Erkennungsbereich sind und sowieso im nächsten Frame erkannt werden würden. Zusätzlich ist es für betrachteten Anwendungsfall nicht bedenklich, wenn die LED Matrix etwas öfters aufleuchtet als sie eigentlich müsste. Eine nahezu perfekte Genauigkeit auf Edge Devices zu erwarten, ist nicht realistisch.
 
-Genauigkeit (Accuracy) 
+<img width="389" alt="validation1" src="https://user-images.githubusercontent.com/64984929/193067675-1b2f7586-3449-4e85-a1c8-7d2be7508be7.png">
+Leistungsübersicht des Modells
 
-Beste Mögliche
-Beste
-schlechteste - Einsehbar
+Als sehr benutzerfreundlich ist in der Übersicht ein weiterer Data Explorer zu bewerten, der die unterschiedlihen Klassifizierungen farblich hervorhebt, das Filtern dieser zulässt und die einzelnen Bilder nach Auswahl anzeigt. So können die fehlklassifizierten Bilder identifiziert und darauf aufbauend Anpassungen am Datensatz oder der Annotierung durchgeführt werden.
+
+<img width="383" alt="validation2" src="https://user-images.githubusercontent.com/64984929/193067766-859386d3-6d85-421f-8d16-a9541370e151.png">
+Data Explorer
+
+Zudem kann im unteren Teil der Übersicht die zukünftige Leistung des Modells beim Durchlaufen auf dem Edge Device abgelesen werden. Mit maximal 130,9KB benötigtem Arbeitsspeicher läuft dieses Modell entsprechend auch auf dem Arduino Nano Sense 33 BLE.
+
+Im Rahmen der Modelloptimierung wurden auch die Einstellungen im Bereich der Training Settings angepasst. Die Anzahl an zu durchlaufender Trainingszyklen wurde erhöht und die Lernrate minimiert, was für einen detaillierteren Lernprozess sorgt. Allerdings hat dies zur Überanpassung des Modells auf die Trainingsdaten geführt und angewendet auf die Validierungsdaten nur eine Genauigkeit von 42,9% erreicht.
+
+<img width="809" alt="vali3" src="https://user-images.githubusercontent.com/64984929/193069638-e1d7a92a-cc81-443b-a136-268e0173b797.png">
+Überanpassung des Modells auf Trainingsdaten
+
+Mit einer leistungsstärkeren Hardware könnten auch Algorithmen angewendet werden, die mehr Arbeitsspeicher benötigen. Im Vergleich zu den vorherigen Modellen könnte so ein deutlich genaueres Ergebnis erzielt werden, wie das mit dem unten verwendeten MobileNetV2-Modell zu sehen ist.
+
+<img width="849" alt="vali4" src="https://user-images.githubusercontent.com/64984929/193070927-7767d9b9-7156-4cc1-9d8b-f57f718572a0.png">
+Anwendung des MobileNetV2-Modells auf die Daten
 
 <a name="deployment"></a>
 ## 3.9 Deployment
