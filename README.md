@@ -49,6 +49,7 @@ Das Projekt kann in drei Pakete aufgeteilt werden.
 - Visualisierung auf einer LED Matrix (Output)
 - Erkennung von Radfahrenden mit TinyML und Edge Impulse (Input)
 - Verbindung von Input und Output mit Bluetooth
+
 Letzteres konnte aufgrund der zeitlichen Begrenzung nicht umgesetzt werden. Verweis Frank xxx
 Der erste Schritt besteht darin, die bereitgestellte Hardware zusammenzustecken und die benötigte Software zu installieren.
 
