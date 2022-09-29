@@ -1,4 +1,5 @@
-# Projektdokumentation *Road Rage war gestern*
+![Road_Rage_Logo](https://user-images.githubusercontent.com/88652185/193117489-801d656d-c976-4446-a82e-5b252b8c1128.png)
+# Projektdokumentation *Road Rage war gestern*		
 
 - [1 Einführung](#einfuehrung)
     - [1.1 Motivation](#motivation)
