@@ -32,9 +32,12 @@
 <a name="motivation"></a>
 ## 1.1 Motivation
 Das Fahrrad als Transportmittel.
+
 Aus diesem Grund sind die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, eine wichtige Zielgruppe der [Radbahn](https://radbahn.berlin/de/ueber-radbahn). Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
-Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der FahrradfarerInnen grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrer:innen. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
+Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der Fahrradfarer:innen grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrer:innen. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
 Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt und das soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
+
+Zur besseren Veranschaulichung wurde zu dem beschriebenden Szenario ein kleines [Video](https://github.com/enisaztekin/Fahrrad-Etikette/blob/main/Road_Rage_war_gestern_cut.mp4) erstellt und dabei unsere Idee zur Lösung des Problems visulaisiert. 
 
 <a name="zielstellung"></a>
 ## 1.2 Zielstellung
@@ -495,5 +498,8 @@ https://user-images.githubusercontent.com/88652185/193116329-f4a17ebf-2f97-4608-
 
 
 <a name="learnings"></a>
-## 5 Learnings
+## 5 Kritische Betrachtung und Ausblick
+In Hinblick auf die begrenzte Projektdauer, war es uns nicht möglich die Kommunikation zwischen dem Nano Sense und dem ESP32 herzustellen. Somit würde es sich in einem Folgeprojekt anbieten an einer Lösung zu arbeiten, um die Komponenten per Bluetooth miteinander zu verbinden. Des Weiteren mussten wir eine noch hohe Rate an Fehlklassifikationen feststellen, insbesondere False Positive. Das bedeutet, dass der Algorithmus eine 1 (es nähert sich jemand auf einem Fahrrad) ausgibt, obwohl in Wirklichkeit keine Person sich nähert. Das hätte zur Folge, dass die LED Matrix umsonst aufleuchten würde. Mögliche Lösungsansätze sind das Upgraden der Hardware zum Einsatz leistungsstärkerer Algorithmen, wie zum Beispiel 'FOMO'(Faster Objects, More Objects), sowie die Implementierung der Objekterkennung anstelle der einfachen Objektklassifizierung, damit der Algorithmus so trainiert werden kann, dass nur Personen erkannt werden die nebeneinander fahren.
+
+Wie bereits aus den oberen Abschnitten zu erkennen war, hat die stark fehleranfällige Hardware auch bei der Inbetriebnahme der LED Matrix viele Probleme verursacht, die für Laien in diesem Bereich mit sehr viel Zeit und Mühen verbunden sind. Aus diesem Grund war es uns wichtig unsere Herausforderungen in der Dokumentation mit aufzuführen.
 
