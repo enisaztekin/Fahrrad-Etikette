@@ -1,5 +1,5 @@
 # Projektdokumentation *Road Rage war gestern*   
-<img src="https://user-images.githubusercontent.com/50478523/193144514-07fd4403-13c0-48d8-b004-766bfdfa20b2.png width=200 align=right>
+<img src="https://user-images.githubusercontent.com/50478523/193144514-07fd4403-13c0-48d8-b004-766bfdfa20b2.png" width=200 align=right>
 
 - [1 Einführung](#einfuehrung)
     - [1.1 Motivation](#motivation)
