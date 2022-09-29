@@ -318,12 +318,22 @@ Annotationslogik:
 1 - Radfahrende auf dem Bild zu erkennen
 
 Die Rohdaten können gesammelt in Edge Impulse hochgeladen werden und durch das Öffnen jedes einzelnen betrachtet und entsprechend annotiert werden. Das ist aufwändig und, wie in diesem Anwendungsfall mit über 300 Bilddateien, nicht effizient.
-Alternativ dazu können die Bilder auch lokal entsprechend der Annotationslogik in dafür angelegte Ordner verschoben werden. Diese können dann nacheinander gemäß der Annotation hochgeladen werden.
+Alternativ dazu können die Bilder auch lokal entsprechend der Annotationslogik in dafür angelegte Ordner verschoben werden. Diese können dann nacheinander gemäß der Annotation hochgeladen werden. Zudem kann wie in dem folgenden Bild ein Split der Daten in Trainings- und Testdatensatz durchgeführt werden.53
 
 ![Upload](https://user-images.githubusercontent.com/64984929/193027396-b06fd017-75fd-4104-a935-e2ee6f06ed90.png)
 Edge Impulse Data Acquisition
 
-Ein Autolabelling ist nicht empfehlenswert, da der Anwendungsfall mit der Radfahrendenerkennung sehr spezialisiert ist und es dafür noch keine vorgefertigten Algorithmengibt.
+Ein Autolabelling ist nicht empfehlenswert, da der Anwendungsfall mit der Radfahrendenerkennung sehr spezialisiert ist und es dafür noch keine vorgefertigten Algorithmen gibt.
+
+Nach mehreren Iterationen des Annotierens und Entfernens von überflüssigen Bildern (sehr ähnliche Bilder, fast Duplikate) bilden 312 Aufnahmen die Datengrundlage mit folgender Verteilung:
+
+![split](https://user-images.githubusercontent.com/64984929/193031394-71312c21-5893-4541-95d2-6d860b8e8aef.png)
+Von den 243 Elementen im Trainingsdatensatz sind 112 als 1 annotiert und 131 als 0 annotiert.
+
+Dementsprechend sind die beiden Gruppen (0 und 1) fast gleich groß.
+
+Die hohe Zahl an als 0 klassifizierten Bildern ist damit zu erklären, dass Radfahrende am hinteren Ende des Radweges in der ersten Iteration vom Algorithmus schwer zu erkennen waren und die Genauigkeit niedrig war. Ab welcher Entfernung Radfahrende als solche erkannt werden sollen wurde im Rahmen des Prototypen willkürlich festgelegt (Höhe des angeschlossenen Fahrrades an der Seite). Um den Übergang deutlicher zu kennzeichnen wurden deshalb eine Reihe an Bildern mit Radfahrenden kurz hinter dem angeschlossenen Fahrrad entfernt. 
+Zukünftig sollte die Kamera so eingestellt sein, dass die Entfernung geringer ist, was durch die Neigung der Kamera erreicht werden könnte. Dabei sollte allerdings beachtet werden, dass dadurch die abgedeckte Strecke sich verringert und womöglich sich schnell fortbewegende Radfahrende mit der aktuellen Bilderfassungsfrequenz nicht erfasst werden.
 
 <a name="datenedge"></a>
 ## 3.5 Daten auf Edge Impulse hochladen
