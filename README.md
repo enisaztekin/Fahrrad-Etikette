@@ -8,6 +8,7 @@
 - [2 Setup](#setup)
     - [2.1 LED Matrix Setup](#matrixsetup)
         - [2.1.1 Hardware](#matrixhardware)
+	- [2.1.2 Bauanleitung der LED-Matrix]
         - [2.1.2 Software](#matrixsoftware)
     - [2.2 Personenerkennung Setup](#personenerkennung)
         - [2.2.1 Hardware](#personenerkennunghardware)
