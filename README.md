@@ -1,5 +1,5 @@
 # Projektdokumentation *Road Rage war gestern*   
-<img src="https://user-images.githubusercontent.com/50478523/193127779-f36679c6-448d-46a8-b447-7de05a5ee4a2.png" width=200 align=right>
+<img src="https://user-images.githubusercontent.com/88652185/193118046-27b8c1f7-3e31-4aae-bfb1-7b78b6a6ccb0.png" width=100 align=right>
 
 - [1 Einführung](#einfuehrung)
     - [1.1 Motivation](#motivation)
@@ -78,8 +78,8 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 | mindestens 15 Female to Female Jumper Kabel | Mit den Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |   ![female to female](https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg)  |
 | Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   ![terminalblock](https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png) |
 
-### Bauanleitung
-#### 1. Verknüpfung vom ESP32 mit der LED-Matrix
+## Bauanleitung
+### 1. Verknüpfung vom ESP32 mit der LED-Matrix
 <img width="500" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
 
 Das sollte dann so ähnlich wie im folgenden Bild aussehen
