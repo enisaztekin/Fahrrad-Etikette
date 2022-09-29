@@ -8,7 +8,7 @@
 - [2 Setup](#setup)
     - [2.1 LED Matrix Setup](#matrixsetup)
         - [2.1.1 Hardware](#matrixhardware)
-        - [2.1.2 Bauanleitung für die LED-Matrix](#BauanleitungLED-Matrix)
+        - [2.1.2 Bauanleitung der LED-Matrix](#BauanleitungLED-Matrix)
         - [2.1.3 Software](#matrixsoftware)
     - [2.2 Personenerkennung Setup](#personenerkennung)
         - [2.2.1 Hardware](#personenerkennunghardware)
@@ -80,20 +80,24 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 | Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   ![terminalblock](https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png) |
 
 <a name="BauanleitungLED-Matrix"></a>
-## 2.1.2 Bauanleitung für die LED-Matrix
+## 2.1.2 Bauanleitung der LED-Matrix
 ### 1. Verknüpfung vom ESP32 mit der LED-Matrix
-<img width="500" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
+Zu aller erst müssen mit Hilfe der Jumper Kabel (Female to Female) die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft werden. In dem folgenden Bild werden die Verknüpfungen beschrieben.
 
-Das sollte dann so ähnlich wie im folgenden Bild aussehen
+<img width="400" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
 
-<img width="650" alt="pinout2" src="https://user-images.githubusercontent.com/44236199/192895515-9944837b-595a-47da-b175-daa99a81432d.jpeg">
+Nach der vollständigen Verknüpfung sollte es so ähnlich wie in dem folgenden Bild aussehen:
 
-Probleme/Hinweise: 
+<img width="500" alt="pinout2" src="https://user-images.githubusercontent.com/44236199/192895515-9944837b-595a-47da-b175-daa99a81432d.jpeg">
 
-- Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel, das, wie sich am Ende herausgestellt hat, defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. So sollte es eigentlich aussehen: 
-<img width="400" alt="plasma" src="https://user-images.githubusercontent.com/44236199/193125361-ddb88a1c-3e4f-4599-9689-5524ebe9f1ba.png"> 
+**Probleme und Hinweise**
+
+- Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel. Es hat sich jedoch herrausgestellt, dass es defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. So sollte es eigentlich aussehen: 
+- 
+<img width="350" alt="plasma" src="https://user-images.githubusercontent.com/44236199/193125361-ddb88a1c-3e4f-4599-9689-5524ebe9f1ba.png"> 
 und so sah es bei uns aus:
-<img width="200" alt="WhatsApp Image 2022-09-29 at 21 30 01" src="https://user-images.githubusercontent.com/44236199/193125419-04e30f21-3604-4f79-9d5d-fcaa9eb9a4fe.jpeg"> 
+
+<img width="450" alt="WhatsApp Image 2022-09-29 at 21 30 01" src="https://user-images.githubusercontent.com/44236199/193125419-04e30f21-3604-4f79-9d5d-fcaa9eb9a4fe.jpeg"> 
 
 - Falls es die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
 
