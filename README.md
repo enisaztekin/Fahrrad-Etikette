@@ -312,6 +312,18 @@ Achtung: Die extrahierten Frames müssen gegebenenfalls gedreht werden.
 
 <a name="annotieren"></a>
 ## 3.4 Annotieren der Daten
+Da es sich bei der Klassifizierung von Bildern um einen Algorithmus des überwachten (supervised) maschinellen Lernens handelt, wird das Modell auf gekennzeichneten (labeled) Daten trainiert. Die Rohdaten in Form von Bildern müssen aus diesem Grund manuell mit einer Beschriftung versehen werden. Dieser Schritt wird Annotierung genannt.
+Annotationslogik:
+0 - keine Radfahrende auf dem Bild zu erkennen
+1 - Radfahrende auf dem Bild zu erkennen
+
+Die Rohdaten können gesammelt in Edge Impulse hochgeladen werden und durch das Öffnen jedes einzelnen betrachtet und entsprechend annotiert werden. Das ist aufwändig und, wie in diesem Anwendungsfall mit über 300 Bilddateien, nicht effizient.
+Alternativ dazu können die Bilder auch lokal entsprechend der Annotationslogik in dafür angelegte Ordner verschoben werden. Diese können dann nacheinander gemäß der Annotation hochgeladen werden.
+
+![Upload](https://user-images.githubusercontent.com/64984929/193027396-b06fd017-75fd-4104-a935-e2ee6f06ed90.png)
+Edge Impulse Data Acquisition
+
+Ein Autolabelling ist nicht empfehlenswert, da der Anwendungsfall mit der Radfahrendenerkennung sehr spezialisiert ist und es dafür noch keine vorgefertigten Algorithmengibt.
 
 <a name="datenedge"></a>
 ## 3.5 Daten auf Edge Impulse hochladen
