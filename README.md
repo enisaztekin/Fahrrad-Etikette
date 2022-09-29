@@ -8,8 +8,7 @@
 - [2 Setup](#setup)
     - [2.1 LED Matrix Setup](#matrixsetup)
         - [2.1.1 Hardware](#matrixhardware)
-        - [2.1.2 Bauanleitung der LED-Matrix](#BauanleitungLED-Matrix)
-        - [2.1.3 Software](#matrixsoftware)
+        - [2.1.2 Software](#matrixsoftware)
     - [2.2 Personenerkennung Setup](#personenerkennung)
         - [2.2.1 Hardware](#personenerkennunghardware)
         - [2.2.2 Software](#personenerkennungsoftware)
@@ -79,31 +78,45 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 | mindestens 15 Female to Female Jumper Kabel | Mit den Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |   ![female to female](https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg)  |
 | Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   ![terminalblock](https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png) |
 
-<a name="BauanleitungLED-Matrix"></a>
-## 2.1.2 Bauanleitung der LED-Matrix
+## Bauanleitung
 ### 1. Verknüpfung vom ESP32 mit der LED-Matrix
-Zu aller erst müssen mit Hilfe der Jumper Kabel (Female to Female) die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft werden. In dem folgenden Bild werden die Verknüpfungen beschrieben.
+<img width="500" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
 
-<img width="400" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
+Das sollte dann so ähnlich wie im folgenden Bild aussehen
 
-Nach der vollständigen Verknüpfung sollte es so ähnlich wie in dem folgenden Bild aussehen:
+<img width="650" alt="pinout2" src="https://user-images.githubusercontent.com/44236199/192895515-9944837b-595a-47da-b175-daa99a81432d.jpeg">
 
-<img width="500" alt="pinout2" src="https://user-images.githubusercontent.com/44236199/192895515-9944837b-595a-47da-b175-daa99a81432d.jpeg">
+Probleme/Hinweise: 
 
-**Probleme und Hinweise**
-
-- Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel. Es hat sich jedoch herrausgestellt, dass es defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. So sollte es eigentlich aussehen: 
-- 
-<img width="350" alt="plasma" src="https://user-images.githubusercontent.com/44236199/193125361-ddb88a1c-3e4f-4599-9689-5524ebe9f1ba.png"> 
+- Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel, das, wie sich am Ende herausgestellt hat, defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. So sollte es eigentlich aussehen: 
+<img width="400" alt="plasma" src="https://user-images.githubusercontent.com/44236199/193125361-ddb88a1c-3e4f-4599-9689-5524ebe9f1ba.png"> 
 und so sah es bei uns aus:
-
-<img width="450" alt="WhatsApp Image 2022-09-29 at 21 30 01" src="https://user-images.githubusercontent.com/44236199/193125419-04e30f21-3604-4f79-9d5d-fcaa9eb9a4fe.jpeg"> 
+<img width="200" alt="WhatsApp Image 2022-09-29 at 21 30 01" src="https://user-images.githubusercontent.com/44236199/193125419-04e30f21-3604-4f79-9d5d-fcaa9eb9a4fe.jpeg"> 
 
 - Falls es die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
 
-### 2.
+### 2. Stromversorgung von ESP32 und der LED Matrix
+Die LED Matrix beinhaltet ein Stromkabel mit einem roten und einem schwarzen Ende auf einer Seite, so wie im folgenden Bild:
+<img width="499" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193131302-5704607e-bc82-4357-9b2b-fb71584c314e.png">
+
+Damit die LED Matrix und der ESP32 später vom selben Netzteil mit Strom versorgt werden können, verbinden wir zuerst das rote Ende vom Matrix-Stromkabel mit den "+"-Zugang vom Terminalblock und das schwarze Ende mit dem "-"-Zugang am Terminalblock. Das Gleiche wird auch mit dem Micro-USB Kabel mit den zwei offenen Kabelenden gemacht werden, da es auch hier jeweils ein rotes Kabelende, das mit "+" am Terminalblock verbunden werden muss, und ein schwarzes Kabelende, das das mit "-" am Terminalblock verbunden werden muss. Anschließend wird das runde Ende vom Terminalblock mit dem Netzteil verbunden.
+Wenn dies geschehen ist, sollte es wie im folgenden Bild aussehen:
+![WhatsApp Image 2022-09-29 at 21 51 25](https://user-images.githubusercontent.com/44236199/193133050-761d6487-c508-4005-b05e-81af40832fd7.jpeg)
+
+Die Micro USB-Seite wird ans ESP32 angestekt.
+![WhatsApp Image 2022-09-29 at 21 49 30](https://user-images.githubusercontent.com/44236199/193134387-524d97ee-38b4-46c1-b565-ef769db5169b.jpeg)
+
+
+Die andere Seite des LED Matrix-Stromkabels wird mit der LED Matrix über den "Power"-Port verknüpft.
+![WhatsApp Image 2022-09-29 at 21 59 05](https://user-images.githubusercontent.com/44236199/193133579-225369ca-3648-472e-8f82-5fe6b64ab869.jpeg)
+
+Wenn alles korrekt verbunden wurde, sollte das Endresultat folgendermaßen aussehen:
+![WhatsApp Image 2022-09-29 at 21 51 25 (1)](https://user-images.githubusercontent.com/44236199/193135353-b4ab5fcd-1856-454e-aac6-afc455e1a1ea.jpeg)
+
+Probleme/Hinweise
+
 <a name="matrixsoftware"></a>
-## 2.1.3 Software
+## 2.1.2 Software
 Als Entwicklungsumgebung wurde, für die LED Matrix, [Arduino IDE](https://www.umwelt-campus.de/fileadmin/Umwelt-Campus/IoT-Werkstatt/octopus/Quickstart.pdf) verwendet. Danach muss als erstes das ESP32 Board in die Ardiuno IDE instaliert werden. Eine entsprechende Anleitung gibt es [hier](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/). Anschließend gilt es die Bibliotheken [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) , [ESP32-HUB75-MatrixPanel-I2S-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA) und [Animated GIF](https://github.com/bitbank2/AnimatedGIF) in die IDE hinzuzufügen.
 
 Der verwendete Code stammt ebenfalls von der Bibliothek ESP32-HUB75-MatrixPanel-I2S-DMA unter dem Namen [AnimatedGIFPanel.ino](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA/tree/master/examples/AnimatedGIFPanel), da das uns ermöglicht beliebige Inhalte als GIFs auf der LED Matrix anzuzeigen, ohne jedes Mal den Code anpassen zu müssen. Dafür muss vorab noch das Plugin [Arduino ESP32 filesystem uploader](https://github.com/me-no-dev/arduino-esp32fs-plugin) installiert werden.
