@@ -277,6 +277,7 @@ Zum Training eines Modells zur Klassifizierung von Bildern direkt beim Erheben d
 Vorteile: Test der Technik, Nachvollziehbarkeit Verarbeitung
 Nachteile: Geringe Bildqualität und Latenz, Bilder einzeln labeln, schwierige Handhabung „im Feld“
    
+<img src="https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg" width=50% height=50%>
 ![#1_Sensorik](https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg)
 Schwierige Handhabung auf der Radbahn
 
