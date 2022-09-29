@@ -297,7 +297,7 @@ Von einzelnen Radfahrenden, über Gruppen, die sowohl in die gleiche als auch en
 
 Neben den Bildern, auf denen Radfahrende in der richtigen Entfernung zu sehen sind, müssen im Trainingssatz auch Bilder ohne Radfahrende enthalten sein, sodass der Algorithmus auch auf diese Situationen trainiert wird. 
 
-[1_00001](https://user-images.githubusercontent.com/64984929/193005317-57230595-8814-4985-9a76-fe44cd104903.png)
+![1_00001](https://user-images.githubusercontent.com/64984929/193013004-ca31e40e-5a65-41bd-b5b9-ae34aff34cec.png)
 Leere Radbahn
 
 Das angeschlossene Fahrrad an der Seite hilft dem Algorithmus zusätlich dabei, dass nur Fahrräder in Verbindung mit einem Radfahrenden einen Auslöser für die Matrix darstellen, da das obige Bild als 0 (keine Radfahrende) klassifiziert wurde. 
