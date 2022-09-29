@@ -11,7 +11,7 @@
     - [2.2 Personenerkennung Setup](#personenerkennung)
         - [2.2.1 Hardware](#personenerkennunghardware)
         - [2.2.2 Software](#personenerkennungsoftware)
-- [3 Erkennnung von Radfahrer:innen mit TinyML](#erkennung)
+- [3 Erkennnung von Radfahrer:innen mit TinyML und EDGE Impulse](#erkennung)
     - [3.1 Verbindung zwischen Edge Impulse und Arduino Board](#edgeimpulse)	
     - [3.2 Aquisition der Daten](#aquisition)
     - [3.3 Datenaufbereitung](#datenaufbereitung)	
