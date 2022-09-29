@@ -278,17 +278,16 @@ Vorteile: Test der Technik, Nachvollziehbarkeit Verarbeitung
 Nachteile: Geringe Bildqualität und Latenz, Bilder einzeln labeln, schwierige Handhabung „im Feld“
    
 <img src="https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg" width=50% height=50%>
-![#1_Sensorik](https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg)
 Schwierige Handhabung auf der Radbahn
 
-![#1_Mit NanoSense aufgenommen](https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg)
+<img src="https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg" width=150% height=150%>
 Geringe Bildqualität bei der Aufnahme mit Arduino Nano Sense
 
 #2 Massenupload von Handyaufnahmen in Edge Impulse
 Vorteile: effiziente Videoaufnahmen möglich, gute Qualität für das Labeln in Ordnern, einfache Handhabung
 Nachteile: Tool zur Datenaufbereitung nötig
 
-![#2_Videoaufnahme_Handy](https://user-images.githubusercontent.com/64984929/193004059-0701755d-306a-4cdb-a56c-9a102894f0ca.png)
+<img src="https://user-images.githubusercontent.com/64984929/193004059-0701755d-306a-4cdb-a56c-9a102894f0ca.png" width=50% height=50%>
 Einfache Handhabung auf der Radbahn
 
 Aufgrund der einfachen Handhabung ist die zweite Methodik (Videoaufnahmen mit Handy) eingesetzt worden. Dabei wurde darauf geachtet, dass die Kamera aus einem erhöhten Punkt die Bilder aufnimmt, an dem in der Zukunft auch die Kamera positioniert werden kann.
@@ -296,13 +295,13 @@ Aufgrund der einfachen Handhabung ist die zweite Methodik (Videoaufnahmen mit Ha
 Um ausreichend Trainingsdaten möglichst unterschiedlicher Szenarien zu generieren und somit dem Klassifikationsmodell mehr Beispieldaten zum Lernen zur Verfügung zu stellen, sind acht Videos aufgenommen worden. 
 Von einzelnen Radfahrenden, über Gruppen, die sowohl in die gleiche als auch entgegengesetzte Richtung fahren, wurden auch sich hintereinander sowie nebeneinander fortbewegende Radfahrende aufgenommen. Dabei wurden unterschiedliche Kleidungsstücke in einer Reihe an Farben eingesetzt und Accessoires, wie ein Regenschirm, verwendet.
 
-![2rad_1person00011](https://user-images.githubusercontent.com/64984929/193005041-0689aaa9-c829-4d02-9e35-765e0f825301.png)
-![4_00038](https://user-images.githubusercontent.com/64984929/193005070-38cb68b4-baf0-4ef5-8084-457303378e7e.png)
-![3_00049](https://user-images.githubusercontent.com/64984929/193005146-b657845b-f500-4662-a810-5cd07de8aa7e.png)
+<img src="https://user-images.githubusercontent.com/64984929/193005041-0689aaa9-c829-4d02-9e35-765e0f825301.png) width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/64984929/193005070-38cb68b4-baf0-4ef5-8084-457303378e7e.png) width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/64984929/193005146-b657845b-f500-4662-a810-5cd07de8aa7e.png) width=50% height=50%>
 
 Neben den Bildern, auf denen Radfahrende in der richtigen Entfernung zu sehen sind, müssen im Trainingssatz auch Bilder ohne Radfahrende enthalten sein, sodass der Algorithmus auch auf diese Situationen trainiert wird. 
 
-![1_00001](https://user-images.githubusercontent.com/64984929/193013004-ca31e40e-5a65-41bd-b5b9-ae34aff34cec.png)
+<img src="https://user-images.githubusercontent.com/64984929/193013004-ca31e40e-5a65-41bd-b5b9-ae34aff34cec.png) width=50% height=50%>
 Leere Radbahn
 
 Das angeschlossene Fahrrad an der Seite hilft dem Algorithmus zusätlich dabei, dass nur Fahrräder in Verbindung mit einem Radfahrenden einen Auslöser für die Matrix darstellen, da das obige Bild als 0 (keine Radfahrende) klassifiziert wurde. 
