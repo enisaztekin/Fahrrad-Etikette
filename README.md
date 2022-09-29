@@ -40,7 +40,7 @@ Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt und das soll auf de
 
 <a name="zielstellung"></a>
 ## 1.2 Zielstellung
-Mit Hilfe eines TinyML-Modells, das Bildaufnahmen von der Radbahn aufnimmt, sollen RadfahrerInnen erkannt werden. Tritt dies ein, soll ein Signal per Bluetooth an eine mit einem Mikrocontroller verbundene Leuchtmatrix gesendet werden und die sonst ausgeschaltete Matrix einschalten. Zu sehen ist dann eine Darstellung des gewünschten Verhaltens von Fahrradfahrenden auf der Radbahn. Das situationsbedingte Einschalten der Matrix sorgt für Aufmerksamkeit bei Fahrradfahrenden. Eine hohe Genauigkeit bei der Objekterkennung ist nicht nötig, da es sich nicht um für den Verkehr kritische Informationen handelt. 
+Mit Hilfe eines TinyML-Modells, das Bildaufnahmen von der Radbahn aufnimmt, sollen Radfahrende erkannt werden. Tritt dies ein, soll ein Signal (1 = Radfahrende zu sehen / 0 keine Radfahrenden zu erkennen) per Bluetooth an eine mit einem Mikrocontroller verbundene Leuchtmatrix gesendet werden und die sonst ausgeschaltete Matrix einschalten. Zu sehen ist dann eine Darstellung des gewünschten Verhaltens von Fahrradfahrenden auf der Radbahn. Das situationsbedingte Einschalten der LED Matrix sorgt für Aufmerksamkeit bei Fahrradfahrenden zudem muss die stromintensive LED Matrix nicht durchgehend angeschalten sein, was die Nachhaltigkeit der Anwendung erhöht. Eine hohe Genauigkeit bei der Objekterkennung ist zudem nicht nötig, da es sich nicht um für den Verkehr kritische Informationen handelt. 
 Was auf den Rolltreppen in England funktioniert, ist auch auf deutschen Radwegen umsetzbar.
 
 <a name="vorgehensweise"></a>
@@ -239,6 +239,12 @@ Für das Projekt wird Edge Impulse, welche eine Softwareplattform für die Entwi
 
 <a name="erkennung"></a>
 ## 3 Erkennnung von Radfahrer:innen mit TinyML
+Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt werden. Auf der linken Seite befinden sich dann die zu durchlaufenden Schritte von der Verbindung mit dem Edge Gerät über die Datenacquistion und das Modellieren bis zum Deployment der finalen Modellversion. Bereits durchgeführte Schritte werden dabei grün angezeigt.
+
+<img width="111" alt="EdgeImpulse_Steps" src="https://user-images.githubusercontent.com/64984929/193010449-c5d62f2e-4f4a-4652-b7a3-14120211b50e.png">
+Durchzuführende Schritte in Edge Impulse (Anleitung)
+
+Im Rahmen eines vergleichbaren Projektes ist es empfehlenswert, eine Reihe an Iterationen bei unzureichender Modellgenauigkeit im Testing zu durchlaufen. Die Genauigkeit kann durch Erhöhung der Datengrundlage, der Überarbeitung der Annotierung ebendieser, der Auswahl des eingesetzten Modells und der Hyperparameteranpassung erfolgen.
 
 <a name="edgeimpulse"></a>
 ## 3.1 Verbindung zwischen Edge Impulse und Arduino Board
@@ -268,14 +274,17 @@ Vorteile: Test der Technik, Nachvollziehbarkeit Verarbeitung
 Nachteile: Geringe Bildqualität und Latenz, Bilder einzeln labeln, schwierige Handhabung „im Feld“
    
 ![#1_Sensorik](https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg)
-![#1_Mit NanoSense aufgenommen](https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg)
+Schwierige Handhabung auf der Radbahn
 
+![#1_Mit NanoSense aufgenommen](https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg)
+Geringe Bildqualität bei der Aufnahme mit Arduino Nano Sense
 
 #2 Massenupload von Handyaufnahmen in Edge Impulse
 Vorteile: effiziente Videoaufnahmen möglich, gute Qualität für das Labeln in Ordnern, einfache Handhabung
 Nachteile: Tool zur Datenaufbereitung nötig
 
 ![#2_Videoaufnahme_Handy](https://user-images.githubusercontent.com/64984929/193004059-0701755d-306a-4cdb-a56c-9a102894f0ca.png)
+Einfache Handhabung auf der Radbahn
 
 Aufgrund der einfachen Handhabung ist die zweite Methodik (Videoaufnahmen mit Handy) eingesetzt worden. Dabei wurde darauf geachtet, dass die Kamera aus einem erhöhten Punkt die Bilder aufnimmt, an dem in der Zukunft auch die Kamera positioniert werden kann.
 
@@ -286,17 +295,17 @@ Von einzelnen Radfahrenden, über Gruppen, die sowohl in die gleiche als auch en
 ![4_00038](https://user-images.githubusercontent.com/64984929/193005070-38cb68b4-baf0-4ef5-8084-457303378e7e.png)
 ![3_00049](https://user-images.githubusercontent.com/64984929/193005146-b657845b-f500-4662-a810-5cd07de8aa7e.png)
 
-
-xxx Beispielbilder
 Neben den Bildern, auf denen Radfahrende in der richtigen Entfernung zu sehen sind, müssen im Trainingssatz auch Bilder ohne Radfahrende enthalten sein, sodass der Algorithmus auch auf diese Situationen trainiert wird. 
-Verbesserung - höher und weiter nach unten (aber dann bei schnellen Problemen
 
-leer![1_00001](https://user-images.githubusercontent.com/64984929/193005317-57230595-8814-4985-9a76-fe44cd104903.png)
+[1_00001](https://user-images.githubusercontent.com/64984929/193005317-57230595-8814-4985-9a76-fe44cd104903.png)
+Leere Radbahn
 
-
+Das angeschlossene Fahrrad an der Seite hilft dem Algorithmus zusätlich dabei, dass nur Fahrräder in Verbindung mit einem Radfahrenden einen Auslöser für die Matrix darstellen, da das obige Bild als 0 (keine Radfahrende) klassifiziert wurde. 
 
 <a name="datenaufbereitung"></a>
 ## 3.3 Datenaufbereitung
+
+
 
 <a name="annotieren"></a>
 ## 3.4 Annotieren der Daten
