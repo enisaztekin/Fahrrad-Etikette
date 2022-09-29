@@ -22,9 +22,6 @@
     - [3.8 Deployment](#deployment)	
 - [4 Ausgabe (LED-Matrix)](#ausgabe)	
 - [5 Zusammenbau (Bluetooth-Signal)](#zusammenbau)
-- [6 Ergänzung](#ergaenzung)
-- [7 Learning](#learning)
-- [8 Literaturverzeichnis](#literaturverzeichnis)
 ----
 
 <a name="einfuehrung"></a>
@@ -33,7 +30,7 @@
 <a name="motivation"></a>
 ## 1.1 Motivation
 Das Fahrrad als Transportmittel.
-Aus diesem Grund sind die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, eine wichtige Zielgruppe der Radbahn - https://radbahn.berlin/de/ueber-radbahn. Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
+Aus diesem Grund sind die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, eine wichtige Zielgruppe der [Radbahn](https://radbahn.berlin/de/ueber-radbahn). Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
 Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der FahrradfarerInnen grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrer:innen. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
 Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt und das soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
 
@@ -53,7 +50,7 @@ Letzteres konnte aufgrund der zeitlichen Begrenzung nicht umgesetzt werden. Verw
 
 Nach dem Zusammenstecken der Hardware konnte die Softwareseite betrachtet werden. Für das Erstellen eines Modells zur Klassifikation der Bilder (Input) ist Edge Impulse im Einsatz. Dabei handelt es sich um eine Plattform für maschinelles Lernen auf Edge Geräten, wozu Kameras und weitere Sensoren zählen. Mit Hilfe von Edge Impulse kann das mit eigenen Bilddaten von der Radbahn angelernte Modell so komprimiert werden, dass es auf den mit der Kamera verbundenen Mikro-Controller geladen werden kann. Dieses Konzept wird TinyML genannt und umfasst spezielle Hard- und Software sowie Algorithmen. https://www.tinyml.org/
 
-Die Einschränkungen in der Hardware ermöglichen es nur eine Klassifikation der Bilddaten vorzunehmen und dabei zu bestimmen, ob Fahrradfahrende zu sehen sind oder nicht. Ohne diese Beschränkungen könnten auch leistungsstärkere Algorithmen eingesetzt werden, die beispielsweise erkennen können, ob Fahrradfahrende zu sehen sind, wie viele und an welchen Stellen sie sich im Bild befinden. https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/object-detection/fomo-object-detection-for-constrained-devices  
+Die Einschränkungen in der Hardware ermöglichen es nur eine Klassifikation der Bilddaten vorzunehmen und dabei zu bestimmen, ob Fahrradfahrende zu sehen sind oder nicht. Ohne diese Beschränkungen könnten auch leistungsstärkere Algorithmen eingesetzt werden, die beispielsweise erkennen können, ob Fahrradfahrende zu sehen sind, wie viele und an welchen Stellen sie sich im Bild befinden. Siehe [Edge Impulse](https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/object-detection/fomo-object-detection-for-constrained-devices)
 So könnte ein zukünftiger Prototyp so konzipiert werden, dass die Matrix lediglich dann aufleuchtet, wenn sich Radfahrende nebeneinander fortbewegen.
 
 Edge Impulse (öffentliches Projekt): https://studio.edgeimpulse.com/public/138316/latest
@@ -241,11 +238,10 @@ Für das Projekt wird Edge Impulse, welche eine Softwareplattform für die Entwi
 
 <a name="erkennung"></a>
 ## 3 Erkennnung von Radfahrer:innen mit TinyML und Edge Impulse
-Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt werden. Auf der linken Seite befinden sich dann die zu durchlaufenden Schritte von der Verbindung mit dem Edge Gerät über die Datenacquistion und das Modellieren bis zum Deployment der finalen Modellversion. Bereits durchgeführte Schritte werden dabei grün angezeigt.https://www.edgeimpulse.com/
+Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt werden. Auf der linken Seite befinden sich dann die zu durchlaufenden Schritte von der Verbindung mit dem Edge Gerät über die Datenacquistion und das Modellieren bis zum Deployment der finalen Modellversion. Bereits durchgeführte Schritte werden dabei grün angezeigt. Siehe [Edge Impulse](https://www.edgeimpulse.com/)
 
 <img width="111" alt="EdgeImpulse_Steps" src="https://user-images.githubusercontent.com/64984929/193010449-c5d62f2e-4f4a-4652-b7a3-14120211b50e.png">
 Durchzuführende Schritte in Edge Impulse (Anleitung)
-
 
 
 Im Rahmen eines vergleichbaren Projektes ist es empfehlenswert, eine Reihe an Iterationen bei unzureichender Modellgenauigkeit im Testing zu durchlaufen. Die Genauigkeit kann durch Erhöhung der Datengrundlage, der Überarbeitung der Annotierung ebendieser, der Auswahl des eingesetzten Modells und der Hyperparameteranpassung erfolgen.
@@ -365,13 +361,13 @@ Die für das Modelltraining generierten Features im Unterpunkt Image erzeugen fo
 Features mit Möglichkeit zum Annotieren und Bild
 
 
-Im Bereich Transfer Learning können im oberen Bereich die Trainings Settings angepasst werden. Dabei wurden die Standardeinstellungen übernommen mit Ausnahme von Data Augmentation. Dabei werden die Bilder zufällig während des Trainings transformiert und somit die Diversität der Daten erhöht. Aufgrund der geringen Menge an Daten ist dies sinnvoll. https://www.tensorflow.org/tutorials/images/data_augmentation
+Im Bereich Transfer Learning können im oberen Bereich die Trainings Settings angepasst werden. Dabei wurden die Standardeinstellungen übernommen mit Ausnahme von Data Augmentation. Dabei werden die Bilder zufällig während des Trainings transformiert und somit die Diversität der Daten erhöht. Aufgrund der geringen Menge an Daten ist dies sinnvoll. Siehe [TensorFlow](https://www.tensorflow.org/tutorials/images/data_augmentation)
 Im unteren Bereich ist die Wahl unterschiedlicher Algorithmen möglich.
 
 <img width="532" alt="Transfer learning" src="https://user-images.githubusercontent.com/64984929/193043988-f9ddc43d-ed80-4f43-ac62-5f9efc1d3d14.png">
 
 
-Bei der Wahl eines passenden Algorithmus muss auf die Leistung der Hardware geachtet werden. Lediglich die mit MobileNetV1-Modelle können auf dem Arduino Nano Sense 33 BLE laufen, da dieser nur über einen Arbeitsspeicher von 256 KB verfügt. https://docs.arduino.cc/hardware/nano-33-ble-sense
+Bei der Wahl eines passenden Algorithmus muss auf die Leistung der Hardware geachtet werden. Lediglich die mit MobileNetV1-Modelle können auf dem Arduino Nano Sense 33 BLE laufen, da dieser nur über einen Arbeitsspeicher von 256 KB verfügt. Siehe [ArduionoFactSheet](https://docs.arduino.cc/hardware/nano-33-ble-sense)
 Im Test konnte die höchst mögliche Genauigkeit das Modell erzielen: MobileNetV1 96x96 0.25 (no final dense layer, 0.1 dropout)
 
 <img width="400" alt="Model" src="https://user-images.githubusercontent.com/64984929/193047212-5ad30c5e-2a4b-45ec-b0f1-255b8c6b8e3a.png">
@@ -440,17 +436,5 @@ Es ist zu erwähnen, dass das Modell noch weiter optimiert werden sollte, um bes
 Bei der Erstellung unserer Anzeige war es uns wichtig, dass das Design vom Fahrrad aus erkennbar sein muss, weshalb die Frames auf das Wesentliche reduziert wurden. Unsere Anzeige zeigen, dass FarradfahrerInnen links überholen und sich rechts einordnen sollen. Jedoch die Anzeige nicht als Warnung aufgefasst werden und lediglich die FarradfahrerInnen darauf aufmerksam machen auf ihre Mitmenschen rücksicht zu nehmen. Aus diesem Grund wurden Grüntöne als Farbe für die Fahrräder gewählt.
 
 Für die Erstellung unserer Anzeige als GIF haben wir die kostenlose Software [Piskel](https://www.piskelapp.com/p/create/sprite) genutzt, die auch als Browseranwendung verfugbar ist. Ein Tutorial zum Erstellen von GIFs mit Piskel gibt es [hier](https://www.youtube.com/watch?v=XqdZX3Ldzyo).
-
-
-
-
-<a name="ergaenzung"></a>
-## 5 Ergänzung
-
-<a name="learning"></a>
-## 6 Learning
-
-<a name="literaturverzeichnis"></a>
-## 8 Literaturverzeichnis
 
 
