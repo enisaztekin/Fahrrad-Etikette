@@ -1,5 +1,5 @@
 # Projektdokumentation *Road Rage war gestern*   
-<img src="https://user-images.githubusercontent.com/88652185/193118046-27b8c1f7-3e31-4aae-bfb1-7b78b6a6ccb0.png" width=100 align=right>
+<img src="https://user-images.githubusercontent.com/50478523/193144514-07fd4403-13c0-48d8-b004-766bfdfa20b2.png width=200 align=right>
 
 - [1 Einführung](#einfuehrung)
     - [1.1 Motivation](#motivation)
@@ -8,7 +8,7 @@
 - [2 Setup](#setup)
     - [2.1 LED Matrix Setup](#matrixsetup)
         - [2.1.1 Hardware](#matrixhardware)
-	- [2.1.2 Bauanleitung der LED-Matrix]
+        - [2.1.2 Bauanleitung der LED-Matrix](#BauanleitungLED-Matrix)
         - [2.1.2 Software](#matrixsoftware)
     - [2.2 Personenerkennung Setup](#personenerkennung)
         - [2.2.1 Hardware](#personenerkennunghardware)
@@ -79,46 +79,59 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 | mindestens 15 Female to Female Jumper Kabel | Mit den Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |   ![female to female](https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg)  |
 | Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   ![terminalblock](https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png) |
 
-## Bauanleitung
+<a name="BauanleitungLED-Matrix"></a>
+## 2.1.2 Bauanleitung der LED-Matrix
 ### 1. Verknüpfung vom ESP32 mit der LED-Matrix
-<img width="500" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
+Zu aller erst müssen mit Hilfe der Jumper Kabel (Female to Female) die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft werden. In dem folgenden Bild werden die Verknüpfungen beschrieben.
 
-Das sollte dann so ähnlich wie im folgenden Bild aussehen
+<img width="300" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
 
-<img width="650" alt="pinout2" src="https://user-images.githubusercontent.com/44236199/192895515-9944837b-595a-47da-b175-daa99a81432d.jpeg">
+Das sollte dann so ähnlich wie im folgenden Bild aussehen:
 
-Probleme/Hinweise: 
+<img width="400" alt="pinout2" src="https://user-images.githubusercontent.com/44236199/192895515-9944837b-595a-47da-b175-daa99a81432d.jpeg">
 
-- Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel, das, wie sich am Ende herausgestellt hat, defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. So sollte es eigentlich aussehen: 
-<img width="400" alt="plasma" src="https://user-images.githubusercontent.com/44236199/193125361-ddb88a1c-3e4f-4599-9689-5524ebe9f1ba.png"> 
-und so sah es bei uns aus:
-<img width="200" alt="WhatsApp Image 2022-09-29 at 21 30 01" src="https://user-images.githubusercontent.com/44236199/193125419-04e30f21-3604-4f79-9d5d-fcaa9eb9a4fe.jpeg"> 
+**Probleme und Hinweise**
 
-- Falls es die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
+Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel. Es hat sich jedoch herausgestellt, dass es defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. Auf der linken Seite sieht man unser gewünschtes Ergebnis und auf der rechten Seite unser Ergebnis mit dem kaputtem Flachbandkabel:
+
+<img width="400" alt="plasma" src="https://user-images.githubusercontent.com/50478523/193141060-77a2d8cb-495e-49c4-a19d-c2ac1e7d0b20.PNG"> 
+
+Hinweis:
+Falls es die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
 
 ### 2. Stromversorgung von ESP32 und der LED Matrix
 Die LED Matrix beinhaltet ein Stromkabel mit einem roten und einem schwarzen Ende auf einer Seite, so wie im folgenden Bild:
-<img width="499" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193131302-5704607e-bc82-4357-9b2b-fb71584c314e.png">
+
+<img width="300" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193131302-5704607e-bc82-4357-9b2b-fb71584c314e.png">
 
 Damit die LED Matrix und der ESP32 später vom selben Netzteil mit Strom versorgt werden können, verbinden wir zuerst das rote Ende vom Matrix-Stromkabel mit den "+"-Zugang vom Terminalblock und das schwarze Ende mit dem "-"-Zugang am Terminalblock. Das Gleiche wird auch mit dem Micro-USB Kabel mit den zwei offenen Kabelenden gemacht werden, da es auch hier jeweils ein rotes Kabelende, das mit "+" am Terminalblock verbunden werden muss, und ein schwarzes Kabelende, das das mit "-" am Terminalblock verbunden werden muss. Anschließend wird das runde Ende vom Terminalblock mit dem Netzteil verbunden.
 Wenn dies geschehen ist, sollte es wie im folgenden Bild aussehen:
-![WhatsApp Image 2022-09-29 at 21 51 25](https://user-images.githubusercontent.com/44236199/193133050-761d6487-c508-4005-b05e-81af40832fd7.jpeg)
+
+<img width="400" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193133050-761d6487-c508-4005-b05e-81af40832fd7.jpeg">
 
 Die Micro USB-Seite wird ans ESP32 angestekt.
-![WhatsApp Image 2022-09-29 at 21 49 30](https://user-images.githubusercontent.com/44236199/193134387-524d97ee-38b4-46c1-b565-ef769db5169b.jpeg)
 
+<img width="350" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193134387-524d97ee-38b4-46c1-b565-ef769db5169b.jpeg">
 
 Die andere Seite des LED Matrix-Stromkabels wird mit der LED Matrix über den "Power"-Port verknüpft.
-![WhatsApp Image 2022-09-29 at 21 59 05](https://user-images.githubusercontent.com/44236199/193133579-225369ca-3648-472e-8f82-5fe6b64ab869.jpeg)
+
+<img width="350" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193133579-225369ca-3648-472e-8f82-5fe6b64ab869.jpeg">
 
 Wenn alles korrekt verbunden wurde, sollte das Endresultat folgendermaßen aussehen:
-![WhatsApp Image 2022-09-29 at 21 51 25 (1)](https://user-images.githubusercontent.com/44236199/193135353-b4ab5fcd-1856-454e-aac6-afc455e1a1ea.jpeg)
 
-Probleme/Hinweise: Beim Verbinden von den Micro-USB- und Stromkabelenden mit dem Terminalblock sollte unbedingt darauf geachtet werden, dass sie gut im Terminalblock befestigt sind und gegebenenfalls isoliert sind. Bei unserem ersten Anlauf ist nämlich das schwarze Ende vom Micro-USB Kabel rausgerutscht und and die anderen Kabelenden gekommen, was einen Kurzschluss verursacht hat.
-![WhatsApp Image 2022-09-29 at 21 45 06](https://user-images.githubusercontent.com/44236199/193137740-fe585008-2381-4734-bc3f-4809bc88cc9c.jpeg)
+<img width="350" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193135353-b4ab5fcd-1856-454e-aac6-afc455e1a1ea.jpeg">
+
+**Probleme und Hinweise**
+
+Beim Verbinden von den Micro-USB- und Stromkabelenden mit dem Terminalblock sollte unbedingt darauf geachtet werden, dass sie gut im Terminalblock befestigt sind und gegebenenfalls isoliert sind. Bei unserem ersten Anlauf ist das schwarze Ende vom Micro-USB Kabel rausgerutscht und hat das andere Kabelende berührt, was einen Kurzschluss verursacht hat.
+
+<img width="300" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193137740-fe585008-2381-4734-bc3f-4809bc88cc9c.jpeg">
+
 Daraufhin konnte der ESP32 nicht mal mehr an den Rechner angeschlossen werden, um den Quellcode hochzuladen und gab ständig Fehler aus.
-![WhatsApp Image 2022-09-29 at 22 42 52](https://user-images.githubusercontent.com/44236199/193138047-d22535e7-6ce2-46bf-b679-f54786ff8348.jpeg)
-Der Chip auf dem ESP32 überhitzte bereits nach paar Sekunden und wir mussten ein neues ESP32 verwenden.
+
+<img width="300" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193138047-d22535e7-6ce2-46bf-b679-f54786ff8348.jpeg">
+
+Der Chip auf dem ESP32 überhitzte bereits nach paar Sekunden und wir mussten ein neuen ESP32 verwenden.
 
 <a name="matrixsoftware"></a>
 ## 2.1.2 Software
