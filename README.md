@@ -351,7 +351,6 @@ Dieses visuelle Werkzeug unterstützt dabei, Ausreißer und falsch oder gar nich
 Data Explorer mit Möglichkeit zum Vergeben einer neuen Annotatierung mit Bild
 
 
-
 <a name="modellierung"></a>
 ## 3.7 Modellierung
 In Edge Impulse wird der Modellierungsprozess "Impulse Design" genannt. Im ersten Schritt wurden dabei die empfohlenen Standards für die Feature-Generierung aus den Trainingsdaten gewählt. Auch für das Transfer Learning, was einen bereits vortrainierten Algorithmus zur Klassifizierung von Bildern mit den zuvor generierten Features aus den Trainingsdaten anpasst, wurde die empfohle Standardeinstellung ausgewählt. Alternativ können auch individuelle Algorithmen eingesetzt werden, die vorher in die Plattform geladen werden müssen. Der Output stellt das Ergebnis des Modells dar, dass entsprechend der Annotationslogik entweder 0 oder 1 ist.
@@ -360,12 +359,15 @@ In Edge Impulse wird der Modellierungsprozess "Impulse Design" genannt. Im erste
 Create Impulse in Edge Impulse
 
 Die für das Modelltraining generierten Features im Unterpunkt Image erzeugen folgende Darstellung wenn sie wieder auf die zweidimensionale Ebene projeziert werden.
+
 <img width="369" alt="image features 2 0" src="https://user-images.githubusercontent.com/64984929/193043038-f77945eb-482b-4149-88ac-3a6987db984a.png">
+
 Features mit Möglichkeit zum Annotieren und Bild
 
 
 Im Bereich Transfer Learning können im oberen Bereich die Trainings Settings angepasst werden. Dabei wurden die Standardeinstellungen übernommen mit Ausnahme von Data Augmentation. Dabei werden die Bilder zufällig während des Trainings transformiert und somit die Diversität der Daten erhöht. Aufgrund der geringen Menge an Daten ist dies sinnvoll. https://www.tensorflow.org/tutorials/images/data_augmentation
 Im unteren Bereich ist die Wahl unterschiedlicher Algorithmen möglich.
+
 <img width="532" alt="Transfer learning" src="https://user-images.githubusercontent.com/64984929/193043988-f9ddc43d-ed80-4f43-ac62-5f9efc1d3d14.png">
 
 
@@ -385,10 +387,12 @@ Im bestmöglichen Modell (2.4) der fünf erstellten, wurde eine gute Genauigkeit
 <img width="389" alt="validation1" src="https://user-images.githubusercontent.com/64984929/193067675-1b2f7586-3449-4e85-a1c8-7d2be7508be7.png">
 Leistungsübersicht des Modells
 
+
 Als sehr benutzerfreundlich ist in der Übersicht ein weiterer Data Explorer zu bewerten, der die unterschiedlihen Klassifizierungen farblich hervorhebt, das Filtern dieser zulässt und die einzelnen Bilder nach Auswahl anzeigt. So können die fehlklassifizierten Bilder identifiziert und darauf aufbauend Anpassungen am Datensatz oder der Annotierung durchgeführt werden.
 
 <img width="383" alt="validation2" src="https://user-images.githubusercontent.com/64984929/193067766-859386d3-6d85-421f-8d16-a9541370e151.png">
 Data Explorer
+
 
 Zudem kann im unteren Teil der Übersicht die zukünftige Leistung des Modells beim Durchlaufen auf dem Edge Device abgelesen werden. Mit maximal 130,9KB benötigtem Arbeitsspeicher läuft dieses Modell entsprechend auch auf dem Arduino Nano Sense 33 BLE.
 
@@ -396,6 +400,7 @@ Im Rahmen der Modelloptimierung wurden auch die Einstellungen im Bereich der Tra
 
 <img width="809" alt="vali3" src="https://user-images.githubusercontent.com/64984929/193069638-e1d7a92a-cc81-443b-a136-268e0173b797.png">
 Überanpassung des Modells auf Trainingsdaten
+
 
 Mit einer leistungsstärkeren Hardware könnten auch Algorithmen angewendet werden, die mehr Arbeitsspeicher benötigen. Im Vergleich zu den vorherigen Modellen könnte so ein deutlich genaueres Ergebnis erzielt werden, wie das mit dem unten verwendeten MobileNetV2-Modell zu sehen ist.
 
