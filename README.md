@@ -16,11 +16,10 @@
     - [3.2 Acquisition der Daten](#aquisition)
     - [3.3 Datenaufbereitung](#datenaufbereitung)	
     - [3.4 Annotieren der Daten](#annotieren)	
-    - [3.5 Daten auf Edge Impulse hochladen](#datenedge)
-    - [3.6 Datenexploration](#datenexploration)
-    - [3.7 Modellierung](#modellierung)
-    - [3.8 Validierung](#validierung)	
-    - [3.9 Deployment](#deployment)	
+    - [3.5 Datenexploration](#datenexploration)
+    - [3.6 Modellierung](#modellierung)
+    - [3.7 Validierung](#validierung)	
+    - [3.8 Deployment](#deployment)	
 - [4 Ausgabe (LED-Matrix)](#ausgabe)	
 - [5 Zusammenbau (Bluetooth-Signal)](#zusammenbau)
 - [6 Ergänzung](#ergaenzung)
@@ -340,11 +339,9 @@ Dementsprechend sind die beiden Gruppen (0 und 1) fast gleich groß.
 Die hohe Zahl an als 0 klassifizierten Bildern ist damit zu erklären, dass Radfahrende am hinteren Ende des Radweges in der ersten Iteration vom Algorithmus schwer zu erkennen waren und die Genauigkeit niedrig war. Ab welcher Entfernung Radfahrende als solche erkannt werden sollen wurde im Rahmen des Prototypen willkürlich festgelegt (Höhe des angeschlossenen Fahrrades an der Seite). Um den Übergang deutlicher zu kennzeichnen wurden deshalb eine Reihe an Bildern mit Radfahrenden kurz hinter dem angeschlossenen Fahrrad entfernt. 
 Zukünftig sollte die Kamera so eingestellt sein, dass die Entfernung geringer ist, was durch die Neigung der Kamera erreicht werden könnte. Dabei sollte allerdings beachtet werden, dass dadurch die abgedeckte Strecke sich verringert und womöglich sich schnell fortbewegende Radfahrende mit der aktuellen Bilderfassungsfrequenz nicht erfasst werden.
 
-<a name="datenedge"></a>
-## 3.5 Daten auf Edge Impulse hochladen
 
 <a name="datenexploration"></a>
-## 3.6 Datenexploration
+## 3.5 Datenexploration
 Um ein Gefühl für die Daten und für die technische Verarbeitung der Bilder zu bekommen, bietet Edge Impulse einen Data Explorer an.
 Dieses visuelle Werkzeug unterstützt dabei, Ausreißer und falsch oder gar nicht annotierte Bilder zu erkennen. Dazu wird ein Algorithmus eingesetzt, der aussagekräftige Eigenschaften aus den Bildern extrahiert (Kanten, Kontraste, Muster). Diese werden dann mit einem weiteren Algorithmus zur Dimensionalitätreduktion in die unten sichtbare zweidimensionale Darstellung umgewandelt. Data explorer - Edge Impulse Documentation
 
@@ -353,7 +350,7 @@ Data Explorer mit Möglichkeit zum Vergeben einer neuen Annotatierung mit Bild
 
 
 <a name="modellierung"></a>
-## 3.7 Modellierung
+## 3.6 Modellierung
 In Edge Impulse wird der Modellierungsprozess "Impulse Design" genannt. Im ersten Schritt wurden dabei die empfohlenen Standards für die Feature-Generierung aus den Trainingsdaten gewählt. Auch für das Transfer Learning, was einen bereits vortrainierten Algorithmus zur Klassifizierung von Bildern mit den zuvor generierten Features aus den Trainingsdaten anpasst, wurde die empfohle Standardeinstellung ausgewählt. Alternativ können auch individuelle Algorithmen eingesetzt werden, die vorher in die Plattform geladen werden müssen. Der Output stellt das Ergebnis des Modells dar, dass entsprechend der Annotationslogik entweder 0 oder 1 ist.
 
 
@@ -380,7 +377,7 @@ Im Test konnte die höchst mögliche Genauigkeit das Modell erzielen: MobileNetV
 Auflistung der auswählbaren Modelle
 
 <a name="validierung"></a>
-## 3.8 Validierung
+## 3.7 Validierung
 Nach dem Training eines neuen Modells wird auch eine Validierung durchgeführt, um die Leistung des Modells zu erkennen. Entsprechen die Ergebnisse nicht den Anforderungen des Anwendungsfalls gelten sie als Ausgangspunkt für die nächste Iteration. 
 
 Neben der Genauigkeit (Accuracy) des Modells wird eine Konfusionsmatrix, welche die Ergebnisse des Klassifikationsmodells auf die Validierungsdaten darstellt, ausgegeben. 
@@ -410,7 +407,7 @@ Mit einer leistungsstärkeren Hardware könnten auch Algorithmen angewendet werd
 Anwendung des MobileNetV2-Modells auf die Daten
 
 <a name="deployment"></a>
-## 3.9 Deployment
+## 3.8 Deployment
 
 Für das Deployment wird eine Firmware mit dem optimierten Modell auf dem Arduino Nano 33 BLE Sense gelauncht. Das ist die Edge Impulse Dokumentation für das Development: https://docs.edgeimpulse.com/docs/edge-impulse-studio/deployment
 
@@ -445,14 +442,12 @@ Für die Erstellung unserer Anzeige als GIF haben wir die kostenlose Software [P
 
 
 
-<a name="zusammenbau"></a>
-## 5 Zusammenbau (Bluetooth-Signal)
 
 <a name="ergaenzung"></a>
-## 6 Ergänzung
+## 5 Ergänzung
 
 <a name="learning"></a>
-## 7 Learning
+## 6 Learning
 
 <a name="literaturverzeichnis"></a>
 ## 8 Literaturverzeichnis
