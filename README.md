@@ -34,7 +34,7 @@ Das Fahrrad als Transportmittel.
 Aus diesem Grund sind die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, eine wichtige Zielgruppe der [Radbahn](https://radbahn.berlin/de/ueber-radbahn). Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
 Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der FahrradfarerInnen grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrer:innen. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
 Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt und das soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
-Zur besseren Veranschaulichung wurde hierzu eine kurze [Animation](https://github.com/enisaztekin/Fahrrad-Etikette/blob/main/Road_Rage_war_gestern_cut.mp4) erstellt 
+Zur besseren Veranschaulichung wurde hierzu eine kurze [Animation](https://github.com/enisaztekin/Fahrrad-Etikette/blob/main/Road_Rage_war_gestern_cut.mp4) erstellt. 
 
 <a name="zielstellung"></a>
 ## 1.2 Zielstellung
