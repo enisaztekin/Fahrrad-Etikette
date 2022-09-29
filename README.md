@@ -57,7 +57,7 @@ Nach dem Zusammenstecken der Hardware konnte die Softwareseite betrachtet werden
 Die Einschränkungen in der Hardware ermöglichen es nur eine Klassifikation der Bilddaten vorzunehmen und dabei zu bestimmen, ob Fahrradfahrende zu sehen sind oder nicht. Ohne diese Beschränkungen könnten auch leistungsstärkere Algorithmen eingesetzt werden, die beispielsweise erkennen können, ob Fahrradfahrende zu sehen sind, wie viele und an welchen Stellen sie sich im Bild befinden. https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/object-detection/fomo-object-detection-for-constrained-devices  
 So könnte ein zukünftiger Prototyp so konzipiert werden, dass die Matrix lediglich dann aufleuchtet, wenn sich Radfahrende nebeneinander fortbewegen.
 
-Edge Impulse:
+Edge Impulse (öffentliches Projekt): https://studio.edgeimpulse.com/public/138316/latest
 
 
 <a name="setup"></a>
@@ -354,6 +354,7 @@ Data Explorer mit Möglichkeit zum Vergeben einer neuen Annotatierung mit Bild
 <a name="modellierung"></a>
 ## 3.7 Modellierung
 In Edge Impulse wird der Modellierungsprozess "Impulse Design" genannt. Im ersten Schritt wurden dabei die empfohlenen Standards für die Feature-Generierung aus den Trainingsdaten gewählt. Auch für das Transfer Learning, was einen bereits vortrainierten Algorithmus zur Klassifizierung von Bildern mit den zuvor generierten Features aus den Trainingsdaten anpasst, wurde die empfohle Standardeinstellung ausgewählt. Alternativ können auch individuelle Algorithmen eingesetzt werden, die vorher in die Plattform geladen werden müssen. Der Output stellt das Ergebnis des Modells dar, dass entsprechend der Annotationslogik entweder 0 oder 1 ist.
+
 
 <img width="934" alt="image" src="https://user-images.githubusercontent.com/64984929/193039542-97c6a9dd-1d42-45a7-a672-32ccb9fbe2f6.png">
 Create Impulse in Edge Impulse
