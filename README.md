@@ -13,7 +13,7 @@
         - [2.2.2 Software](#personenerkennungsoftware)
 - [3 Erkennnung von Radfahrer:innen mit TinyML und EDGE Impulse](#erkennung)
     - [3.1 Verbindung zwischen Edge Impulse und Arduino Board](#edgeimpulse)	
-    - [3.2 Aquisition der Daten](#aquisition)
+    - [3.2 Acquisition der Daten](#aquisition)
     - [3.3 Datenaufbereitung](#datenaufbereitung)	
     - [3.4 Annotieren der Daten](#annotieren)	
     - [3.5 Daten auf Edge Impulse hochladen](#datenedge)
@@ -259,7 +259,39 @@ Die gleichen Logindaten wie bei Edge Impuls eingeben und aus den bereits vorhand
 Das Arduino Board muss bei den folgenden Schritten nicht angeschlossen werden, da vorerst Daten gesammelt, aufbereitet und das Modell erstellt werden. Erst beim Deployment ist der Anschluss notwendig.
 
 <a name="aquisition"></a>
-## 3.2 Aquisition der Daten
+## 3.2 Acquisition der Daten
+
+Zum Training eines Modells zur Klassifizierung von Bildern direkt beim Erheben der Daten von der Kamera (Edge) müssen Rohdaten von den möglichen Situationen auf der Radbahn gesammelt werden. Zwei mögliche Herangehensweisen können dabei in Betracht gezogen werden und werden im Folgenden mit den jeweiligen Vor- und Nachteilen.
+
+#1 Mit der Sensorik Bilder direkt in Edge Impulse laden
++ Test der Technik
+   Nachvollziehbarkeit Verarbeitung
+- Geringe Bildqualität und Latenz
+   Bilder einzeln labeln
+   schwierige Handhabung „im Feld“
+   
+![#1_Sensorik](https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg)
+![#1_Mit NanoSense aufgenommen](https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg)
+
+
+#2 Massenupload von Handyaufnahmen in Edge Impulse
++ effiziente Videoaufnahmen möglich
+   gute Qualität für das Labeln in Ordnern
+   einfache Handhabung
+- Tool zur Datenaufbereitung nötig
+
+
+Aufgrund der einfachen Handhabung ist die zweite Methodik (Handyaufnahmen) eingesetzt worden. Dabei wurde darauf geachtet, dass die Kamera aus einem erhöhten Punkt die Bilder aufnimmt, an dem in der Zukunft auch die Kamera positioniert werden kann.
+
+xxx Bilder
+
+Um ausreichend Trainingsdaten möglichst unterschiedlicher Szenarien zu generieren und somit dem Klassifikationsmodell mehr Beispieldaten zum Lernen zur Verfügung zu stellen, sind acht Videos aufgenommen worden. 
+Von einzelnen Radfahrenden, über Gruppen, die sowohl in die gleiche als auch entgegengesetzte Richtung fahren, wurden auch sich hintereinander sowie nebeneinander fortbewegende Radfahrende aufgenommen. Dabei wurden unterschiedliche Kleidungsstücke in einer Reihe an Farben eingesetzt und Accessoires, wie ein Regenschirm, verwendet.
+xxx Beispielbilder
+Neben den Bildern, auf denen Radfahrende in der richtigen Entfernung zu sehen sind, müssen im Trainingssatz auch Bilder ohne Radfahrende enthalten sein, sodass der Algorithmus auch auf diese Situationen trainiert wird. 
+Verbesserung - höher und weiter nach unten (aber dann bei schnellen Problemen
+
+
 
 <a name="datenaufbereitung"></a>
 ## 3.3 Datenaufbereitung
