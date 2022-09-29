@@ -277,7 +277,7 @@ Nachteile: Geringe Bildqualität und Latenz, Bilder einzeln labeln, schwierige H
 <img src="https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg" width=50% height=50%>
 Schwierige Handhabung auf der Radbahn
 
-<img src="https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg" width=100% height=100%>
+<img src="https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg" width=50% height=50%>
 Geringe Bildqualität bei der Aufnahme mit Arduino Nano Sense
 
 #2 Massenupload von Handyaufnahmen in Edge Impulse
