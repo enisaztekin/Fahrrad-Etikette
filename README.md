@@ -33,13 +33,25 @@
 
 <a name="motivation"></a>
 ## 1.1 Motivation
-Test
+Das Fahrrad als Transportmittel.
+Aus diesem Grund sind die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, eine wichtige Zielgruppe der Radbahn - https://radbahn.berlin/de/ueber-radbahn. Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
+Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der FahrradfarerInnen grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrer:innen. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
+Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt und das soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
 
 <a name="zielstellung"></a>
 ## 1.2 Zielstellung
+Mit Hilfe eines TinyML-Modells, das Bildaufnahmen von der Radbahn aufnimmt, sollen RadfahrerInnen erkannt werden. Tritt dies ein, soll ein Signal per Bluetooth an eine mit einem Mikrocontroller verbundene Leuchtmatrix gesendet werden und die sonst ausgeschaltete Matrix einschalten. Zu sehen ist dann eine Darstellung des gewünschten Verhaltens von Fahrradfahrenden auf der Radbahn. Das situationsbedingte Einschalten der Matrix sorgt für Aufmerksamkeit bei Fahrradfahrenden. Eine hohe Genauigkeit bei der Objekterkennung ist nicht nötig, da es sich nicht um für den Verkehr kritische Informationen handelt. 
+Was auf den Rolltreppen in England funktioniert, ist auch auf deutschen Radwegen umsetzbar.
 
 <a name="vorgehensweise"></a>
 ## 1.3 Vorgehensweise
+Das Projekt kann in drei Pakete aufgeteilt werden. 
+- Visualisierung auf einer LED Matrix (Output)
+- Erkennung von Radfahrenden mit TinyML und Edge Impulse (Input)
+- Verbindung von Input und Output mit Bluetooth
+Letzteres konnte aufgrund der zeitlichen Begrenzung nicht umgesetzt werden. Verweis Frank xxx
+Der erste Schritt besteht darin, die bereitgestellte Hardware zusammenzustecken und die benötigte Software zu installieren.
+
 
 <a name="setup"></a>
 ## 2 Setup
