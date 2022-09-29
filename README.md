@@ -48,10 +48,13 @@ Was auf den Rolltreppen in England funktioniert, ist auch auf deutschen Radwegen
 Das Projekt kann in drei Pakete aufgeteilt werden. 
 - Visualisierung auf einer LED Matrix (Output)
 - Erkennung von Radfahrenden mit TinyML und Edge Impulse (Input)
-- Verbindung von Input und Output mit Bluetooth
+- Verbindung von Input und Output mittels Bluetooth
 
 Letzteres konnte aufgrund der zeitlichen Begrenzung nicht umgesetzt werden. Verweis Frank xxx
-Der erste Schritt besteht darin, die bereitgestellte Hardware zusammenzustecken und die benötigte Software zu installieren.
+
+Nach dem Zusammenstecken der Hardware konnte die Softwareseite betrachtet werden. Für das Erstellen eines Modells zur Klassifikation der Bilder (Input) ist Edge Impulse im Einsatz. Dabei handelt es sich um eine Plattform für maschinelles Lernen auf Edge Geräten, wozu Kameras und weitere Sensoren zählen. Mit Hilfe von Edge Impulse kann das mit eigenen Bilddaten von der Radbahn angelernte Modell so komprimiert werden, dass es auf den mit der Kamera verbundenen Mikro-Controller geladen werden kann.
+
+Die Einschränkungen in der Hardware ermöglichen es nur eine Klassifikation der Bilddaten vorzunehmen und dabei zu bestimmen, ob Fahrradfahrende zu sehen sind oder nicht. 
 
 
 <a name="setup"></a>
