@@ -304,8 +304,11 @@ Das angeschlossene Fahrrad an der Seite hilft dem Algorithmus zusätlich dabei, 
 
 <a name="datenaufbereitung"></a>
 ## 3.3 Datenaufbereitung
+Aus den aufgenommenen Videodateien müssen einzelne Frames extrahiert werden, sodass sie auf Edge Impulse hochgeladen werden können.
+Da der später eingesetzten Algorithmen (MobileNetV1 oder MobileNetV2) eine höhere Genauigkeit basierend auf quadratischen Bildquellen erzielt, wurden die mit einem iPhone aufgenommen Videoaufnahmen direkt auf dem Endgerät in ein quadratisches Format umgeformt. Dieser Schritt ist nicht zwingend notwendig, da Edge Impulse diesen Schritt im späteren Verlauf anbietet. Allerdings kann so die Methode der Größenanpassung eher beeinflusst werden.
+Für die Extraktion der Frames aus den Videos wurde der kostenfreie VLC Player heruntergeladen, der eine Funktion anbietet, welche in vorher eingestellten Abständen Frames aus einem Video in einem definierten Ordner ablegt. Die genaue Beschreibung dazu ist in dem Video dargestellt.  (2 Easy Ways to Extract Frames from a Video [with High Quality] - Bing video)
 
-
+Achtung: Die extrahierten Frames müssen gegebenenfalls gedreht werden.
 
 <a name="annotieren"></a>
 ## 3.4 Annotieren der Daten
