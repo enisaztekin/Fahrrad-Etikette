@@ -21,7 +21,7 @@
     - [3.7 Validierung](#validierung)	
     - [3.8 Deployment](#deployment)	
 - [4 Ausgabe (LED-Matrix)](#ausgabe)
-- [5 Learnings (Learnings)](#learnings)	
+- [5 Learnings](#learnings)	
 ----
 
 <a name="einfuehrung"></a>
