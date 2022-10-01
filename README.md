@@ -180,7 +180,7 @@ In der folgenden Abbildung sind das Arduino 33 BLE Sense Lite Board und die Ardu
 
 **Vorbereitung und Testen der benötigten Hardware:**
 
-Bevor die Hardware mit der Softwareplattform Edge Impuls verbunden wird, muss geprüft werden, ob die angewendeten Elemente funktionieren.
+Bevor die Hardware mit der Softwareplattform Edge Impuls verbunden wird, muss geprüft werden, ob die zu verwendenden Elemente funktionieren.
 
 Für die Vorbereitung und das Testen der Hardware wurde folgendes Endgerät genutzt:
 - MacBook Pro (M1, 2020)
@@ -234,7 +234,7 @@ Für macOS müssen die drei Schritte durchgeführt werden:
 
 <a name="personenerkennungsoftware"></a>
 ## 2.2.3 Software
-Für das Projekt wird Edge Impulse, welche eine Softwareplattform für die Entwicklung für das maschinelles Lernen (eng. Machine Learning (ML)) ist, genutzt. Es ermöglicht Entwickler:innen Lösungen mit realen Daten zu erstellen und zu optimieren. Durch den Prozess der Erstellung, Bereitstellung und Skalierung von eingebetteten ML-Anwendungen wird das Arbeiten einfacher, schneller und ermöglicht, Geräte intelligenter zu machen. (Edge Impuls 2022)
+Für das Projekt wird Edge Impulse, eine Softwareplattform für die Entwicklung von maschinellem Lernen (eng. Machine Learning (ML)), genutzt. Es ermöglicht Entwickler:innen Lösungen mit realen Daten zu erstellen und zu optimieren. Durch den Prozess der Erstellung, Bereitstellung und Skalierung von eingebetteten ML-Anwendungen wird das Arbeiten einfacher, schneller und ermöglicht, Geräte intelligenter zu machen. (Edge Impuls 2022)
 
 **Setup Edge Impuls für MacOS:**
 1. Schritt: Einen Account und Projekt erstellen bei Edge Impuls:
