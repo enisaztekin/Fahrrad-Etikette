@@ -370,6 +370,7 @@ Achtung: Die extrahierten Frames müssen gegebenenfalls gedreht werden.
 Da es sich bei der Klassifizierung von Bildern um einen Algorithmus des überwachten (supervised) maschinellen Lernens handelt, wird das Modell auf gekennzeichneten (labeled) Daten trainiert. Die Rohdaten in Form von Bildern müssen aus diesem Grund manuell mit einer Beschriftung versehen werden. Dieser Schritt wird Annotierung genannt.
 ### Annotationslogik:
 0 - keine Radfahrende auf dem Bild zu erkennen
+
 1 - Radfahrende auf dem Bild zu erkennen
 
 Die Rohdaten können gesammelt in Edge Impulse hochgeladen werden und durch das Öffnen jedes einzelnen betrachtet und entsprechend annotiert werden. Das ist aufwändig und, wie in diesem Anwendungsfall mit über 300 Bilddateien, nicht effizient.
