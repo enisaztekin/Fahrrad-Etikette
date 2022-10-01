@@ -129,25 +129,25 @@ Wenn alles korrekt verbunden wurde, sollte das Endresultat folgendermaßen ausse
 
 **Probleme und Hinweise**
 
-Beim Verbinden von den Micro-USB- und Stromkabelenden mit dem Terminalblock sollte unbedingt darauf geachtet werden, dass sie gut im Terminalblock befestigt sind und gegebenenfalls isoliert sind. Bei unserem ersten Anlauf ist das schwarze Ende vom Micro-USB Kabel rausgerutscht und hat das andere Kabelende berührt, was einen Kurzschluss verursacht hat.
+Beim Verbinden von den Micro-USB- und Stromkabelenden mit dem Terminalblock sollte unbedingt darauf geachtet werden, dass sie gut im Terminalblock befestigt und gegebenenfalls isoliert sind. Bei unserem ersten Anlauf ist das schwarze Ende vom Micro-USB Kabel rausgerutscht und hat das andere Kabelende berührt, was einen Kurzschluss verursacht hat.
 
 <img width="300" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193137740-fe585008-2381-4734-bc3f-4809bc88cc9c.jpeg">
 
-Daraufhin konnte der ESP32 nicht mal mehr an den Rechner angeschlossen werden, um den Quellcode hochzuladen und gab ständig Fehler aus.
+Daraufhin konnte der ESP32 nicht mehr an den Rechner angeschlossen werden, um den Quellcode hochzuladen und gab ständig Fehler aus.
 
 <img width="300" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193138047-d22535e7-6ce2-46bf-b679-f54786ff8348.jpeg">
 
-Der Chip auf dem ESP32 überhitzte bereits nach paar Sekunden und wir mussten ein neuen ESP32 verwenden.
+Der Chip auf dem ESP32 überhitzte bereits nach ein paar Sekunden und wir mussten einen neuen ESP32 verwenden.
 
 <a name="matrixsoftware"></a>
 ## 2.1.2 Software
-Als Entwicklungsumgebung wurde, für die LED Matrix, [Arduino IDE](https://www.umwelt-campus.de/fileadmin/Umwelt-Campus/IoT-Werkstatt/octopus/Quickstart.pdf) verwendet. Danach muss als erstes das ESP32 Board in die Ardiuno IDE instaliert werden. Eine entsprechende Anleitung gibt es [hier](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/). Anschließend gilt es die Bibliotheken [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library) , [ESP32-HUB75-MatrixPanel-I2S-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA) und [Animated GIF](https://github.com/bitbank2/AnimatedGIF) in die IDE hinzuzufügen.
+Als Entwicklungsumgebung für die LED Matrix wurde [Arduino IDE](https://www.umwelt-campus.de/fileadmin/Umwelt-Campus/IoT-Werkstatt/octopus/Quickstart.pdf) verwendet. Danach muss als erstes das ESP32 Board in der Ardiuno IDE installiert werden. Eine entsprechende Anleitung ist [hier](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/) zu finden. Anschließend gilt es die Bibliotheken [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library),  [ESP32-HUB75-MatrixPanel-I2S-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA) und [Animated GIF](https://github.com/bitbank2/AnimatedGIF) in der IDE hinzuzufügen.
 
-Der verwendete Code stammt ebenfalls von der Bibliothek ESP32-HUB75-MatrixPanel-I2S-DMA unter dem Namen [AnimatedGIFPanel.ino](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA/tree/master/examples/AnimatedGIFPanel), da das uns ermöglicht beliebige Inhalte als GIFs auf der LED Matrix anzuzeigen, ohne jedes Mal den Code anpassen zu müssen. Dafür muss vorab noch das Plugin [Arduino ESP32 filesystem uploader](https://github.com/me-no-dev/arduino-esp32fs-plugin) installiert werden.
+Der verwendete Code stammt ebenfalls von der Bibliothek ESP32-HUB75-MatrixPanel-I2S-DMA unter dem Namen [AnimatedGIFPanel.ino](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA/tree/master/examples/AnimatedGIFPanel), da das uns ermöglicht, beliebige Inhalte als GIFs auf der LED Matrix anzuzeigen, ohne jedes Mal den Code anpassen zu müssen. Dafür muss vorab noch das Plugin [Arduino ESP32 filesystem uploader](https://github.com/me-no-dev/arduino-esp32fs-plugin) installiert werden.
 
-Wenn die oberen Schritte erfolgreich abgeschlossen wurden, können die gewünschten GIFs in den /data/gifs hinzugefügt werden und der Code auf das ESP32 hochgeladen werden.
+Wenn die oberen Schritte erfolgreich abgeschlossen wurden, können die gewünschten GIFs in den /data/gifs hinzugefügt werder und der Code auf das ESP32 hochgeladen werden.
 
-Probleme/Hinweise: Falls beim Kompilieren und Hochladen des Codes aud den ESP32 keine Fehler angegeben wurden, aber die Anzeige trotzdem nicht richtig funktioniert (z.B. werden nicht alle Farben  und Formen angezeigt), dann ist es ratsam onchmal die Hardware zu überprüfen. Vorallem jegliche Kabel neigen dazu schnell beschädigt zu werden ohne das man etwas bemerkt.
+Probleme und Hinweise: Falls beim Kompilieren und Hochladen des Codes auf den ESP32 keine Fehler angegeben wurden, aber die Anzeige trotzdem nicht richtig funktioniert (z.B. werden nicht alle Farben und Formen angezeigt), dann ist es ratsam die Hardware zu überprüfen. Besonderer Fokus sollte dabei auf den Kabeln liegen, da diese dazu neigen schnell beschädigt zu sein ohne, dass es bemerkt wird.
 
 
 <a name="personenerkennung"></a>
