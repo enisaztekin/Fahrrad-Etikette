@@ -324,21 +324,25 @@ Das Arduino Board muss bei den folgenden Schritten nicht angeschlossen werden, d
 Zum Training eines Modells zur Klassifizierung von Bildern direkt beim Erheben der Daten auf der Kamera (Edge) müssen zuerst Rohdaten von den möglichen Situationen auf der Radbahn gesammelt werden. Zwei mögliche Herangehensweisen können dabei in Betracht gezogen werden.
 
 #1 Mit der Sensorik Bilder direkt in Edge Impulse laden
+
 Vorteile: Test der Technik, Nachvollziehbarkeit Verarbeitung
+
 Nachteile: Geringe Bildqualität und hohe Latenz, Bilder einzeln labeln, schwierige Handhabung „im Feld“
    
 <img src="https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg" width=300>
-Schwierige Handhabung auf der Radbahn
+
 
 <img src="https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg" width=300>
-Geringe Bildqualität bei der Aufnahme mit Arduino Nano Sense
+
 
 #2 Massenupload von Handyaufnahmen in Edge Impulse
+
 Vorteile: effiziente Videoaufnahmen möglich, gute Qualität für das Labeln in Ordnern, einfache Handhabung
+
 Nachteile: Tool zur Datenaufbereitung nötig
 
 <img src="https://user-images.githubusercontent.com/64984929/193004059-0701755d-306a-4cdb-a56c-9a102894f0ca.png" width=300>
-Einfache Handhabung auf der Radbahn
+
 
 Aufgrund der einfachen Handhabung ist die zweite Methodik (Videoaufnahmen mit Handy) eingesetzt worden. Dabei wurde darauf geachtet, dass die Kamera von einem erhöhten Punkt aus die Bilder aufnimmt, an dem in der Zukunft auch die Kamera positioniert werden kann.
 
@@ -352,7 +356,7 @@ Von einzelnen Radfahrenden, über Gruppen, die sowohl in die gleiche als auch en
 Neben den Bildern, auf denen Radfahrende in der richtigen Entfernung zu sehen sind, müssen im Trainingssatz auch Bilder ohne Radfahrende enthalten sein, sodass der Algorithmus auch auf diese Situationen trainiert wird. 
 
 <img src="https://user-images.githubusercontent.com/64984929/193013004-ca31e40e-5a65-41bd-b5b9-ae34aff34cec.png" width=400>
-Leere Radbahn
+
 
 Das angeschlossene Fahrrad an der Seite hilft dem Algorithmus zusätlich dabei, dass nur Fahrräder in Verbindung mit einem Radfahrenden einen Auslöser für die Matrix darstellen. Da das obige Bild als 0 (keine Radfahrende) klassifiziert wurde, lernt der Algorithmus dies. 
 
