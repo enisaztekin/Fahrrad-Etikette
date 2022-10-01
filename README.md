@@ -31,7 +31,7 @@
 
 <a name="motivation"></a>
 ## 1.1 Motivation
-Im Rahmen der [Summerschool des Citylabs Berlin](https://citylab-berlin.org/de/projects/summerschool/) wurden die Wirkungen neuer Technologien auf unterschiedliche Aspekte von „Stadt“ untersucht. Das Theme Radfahren bildete den Fokus im Jahr 2022.
+Im Rahmen der [Summerschool des Citylabs Berlin](https://citylab-berlin.org/de/projects/summerschool/) wurden die Wirkungen neuer Technologien auf unterschiedliche Aspekte von „Stadt“ untersucht. Das Thema Radfahren bildete den Fokus im Jahr 2022. (Projektzeitraum: 12.09.-22.09.2022)
 
 Für den Großßteil der berliner Radfahrenden ist das Fahrrad ein Transportmittel.
 
@@ -465,7 +465,7 @@ Mit einer leistungsstärkeren Hardware könnten auch Algorithmen angewendet werd
 <a name="deployment"></a>
 ## 3.8 Deployment
 
-Für das Deployment wird eine Firmware mit dem optimierten Modell auf dem Arduino Nano 33 BLE Sense gelauncht. Das ist die Edge Impulse Dokumentation für das Development: https://docs.edgeimpulse.com/docs/edge-impulse-studio/deployment
+Für das Deployment wird eine Firmware mit dem optimierten Modell auf dem Arduino Nano 33 BLE Sense gelauncht. Das ist die Edge Impulse Dokumentation für das Deloyment: https://docs.edgeimpulse.com/docs/edge-impulse-studio/deployment
 
 Das  Arduino Nano 33 BLE Sense Board dazu mit dem USB Kabel an den Computer verbinden. Auf der Edge Impulse Webseite auf "Deployment" gehen und das Gerät “Arduino Nano 33 BLE Sense” auswählen und auf “Build” klicken:
 
@@ -494,7 +494,7 @@ Es ist zu erwähnen, dass das Modell noch weiter optimiert werden sollte, um bes
 ## 4 Ausgabe (LED-Matrix)
 Bei der Erstellung unserer Anzeige war es uns wichtig, dass das Design vom Fahrrad aus erkennbar sein muss, weshalb die Frames auf das Wesentliche reduziert wurden. Unsere Anzeige zeigt, dass Farradfahrende links überholen und sich rechts einordnen sollen. Jedoch soll die Anzeige nicht als Warnung aufgefasst werden und lediglich die Farradfahrenden darauf aufmerksam machen, auf ihre Mitmenschen Rücksicht zu nehmen. Aus diesem Grund wurden Grüntöne als Farbe für die Fahrräder gewählt.
 
-Für die Erstellung unserer Anzeige als GIF haben wir die kostenlose Software [Piskel](https://www.piskelapp.com/p/create/sprite) genutzt, die auch als Browseranwendung verfugbar ist. Ein Tutorial zum Erstellen von GIFs mit Piskel gibt es [hier](https://www.youtube.com/watch?v=XqdZX3Ldzyo).
+Für die Erstellung unserer Anzeige als GIF haben wir die kostenlose Software [Piskel](https://www.piskelapp.com/p/create/sprite) genutzt, die auch als Browseranwendung verfügbar ist. Ein Tutorial zum Erstellen von GIFs mit Piskel gibt es [hier](https://www.youtube.com/watch?v=XqdZX3Ldzyo).
 
 
 
