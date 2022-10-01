@@ -82,7 +82,7 @@ Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 | 5V 3 Ampere Netzteil                        | Netzteil für die Stromzufuhr an die LED Matrix und an den ESP32                                                                  |   <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882575-5a93a7e4-64e7-4907-8bfd-5816602403a8.jpg"> |
 | Micro USB Kabel                             | Mit dem Micro USB Kabel wird der Code vom Rechner auf den ESP32 hochgeladen                                                      | <img width="250" alt="mini-usb" src="https://user-images.githubusercontent.com/44236199/192882605-9bd6f867-327b-4676-80cf-ab1b6ac60ec3.jpg"> |
 | Micro USB Kabel mit zwei offenen Kabelenden | Das Micro USB Kabel mit zwei offenen Kabelenden wird für die Versorgungsspannung ans ESP32, ohne ein zweites Netzteil, benötigt  |     <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882622-953ea12e-6301-4b15-aa46-fec2b3d049ab.jpg">  |
-| mindestens 15 Female to Female Jumper Kabel | Mit den Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |    <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg">  |
+| mindestens 15 Female to Female Jumper Kabel | Mit dem Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |    <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg">  |
 | Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png"> |
 
 <a name="BauanleitungLED-Matrix"></a>
@@ -98,19 +98,19 @@ Das sollte dann so ähnlich wie im folgenden Bild aussehen:
 
 **Probleme und Hinweise**
 
-Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel. Es hat sich jedoch herausgestellt, dass es defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. Auf der linken Seite sieht man unser gewünschtes Ergebnis und auf der rechten Seite unser Ergebnis mit dem kaputtem Flachbandkabel:
+Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel. Es hat sich jedoch herausgestellt, dass es defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. Auf der linken Seite sieht man das gewünschte Ergebnis und auf der rechten Seite das Ergebnis mit dem kaputten Flachbandkabel:
 
 <img width="400" alt="plasma" src="https://user-images.githubusercontent.com/50478523/193141060-77a2d8cb-495e-49c4-a19d-c2ac1e7d0b20.PNG"> 
 
 Hinweis:
-Falls es die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
+Falls die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
 
 ### 2. Stromversorgung von ESP32 und der LED Matrix
 Die LED Matrix beinhaltet ein Stromkabel mit einem roten und einem schwarzen Ende auf einer Seite, so wie im folgenden Bild:
 
 <img width="300" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193131302-5704607e-bc82-4357-9b2b-fb71584c314e.png">
 
-Damit die LED Matrix und der ESP32 später vom selben Netzteil mit Strom versorgt werden können, verbinden wir zuerst das rote Ende vom Matrix-Stromkabel mit den "+"-Zugang vom Terminalblock und das schwarze Ende mit dem "-"-Zugang am Terminalblock. Das Gleiche wird auch mit dem Micro-USB Kabel mit den zwei offenen Kabelenden gemacht werden, da es auch hier jeweils ein rotes Kabelende, das mit "+" am Terminalblock verbunden werden muss, und ein schwarzes Kabelende, das das mit "-" am Terminalblock verbunden werden muss. Anschließend wird das runde Ende vom Terminalblock mit dem Netzteil verbunden.
+Damit die LED Matrix und der ESP32 später vom selben Netzteil mit Strom versorgt werden können, verbinden wir zuerst das rote Ende vom Matrix-Stromkabel mit dem "+"-Zugang vom Terminalblock und das schwarze Ende mit dem "-"-Zugang am Terminalblock. Das Gleiche wird auch mit dem Micro-USB Kabel mit den zwei offenen Kabelenden gemacht, da es auch hier jeweils ein rotes Kabelende, das mit "+" am Terminalblock verbunden werden muss, und ein schwarzes Kabelende, das das mit "-" am Terminalblock verbunden werden muss. Anschließend wird das runde Ende vom Terminalblock mit dem Netzteil verbunden.
 Wenn dies geschehen ist, sollte es wie im folgenden Bild aussehen:
 
 <img width="400" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193133050-761d6487-c508-4005-b05e-81af40832fd7.jpeg">
