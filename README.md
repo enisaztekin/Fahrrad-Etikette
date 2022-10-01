@@ -31,17 +31,20 @@
 
 <a name="motivation"></a>
 ## 1.1 Motivation
-Das Fahrrad als Transportmittel.
+Im Rahmen der [Summerschool des Citylabs Berlin](https://citylab-berlin.org/de/projects/summerschool/) wurden die Wirkungen neuer Technologien auf unterschiedliche Aspekte von „Stadt“ untersucht. Das Theme Radfahren bildete den Fokus im Jahr 2022.
 
-Aus diesem Grund sind die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, eine wichtige Zielgruppe der [Radbahn](https://radbahn.berlin/de/ueber-radbahn). Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
-Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der Fahrradfarer:innen grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrer:innen. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
+Für den Großßteil der berliner Radfahrenden ist das Fahrrad ein Transportmittel.
+
+Die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, sind eine wichtige Zielgruppe der [Radbahn](https://radbahn.berlin/de/ueber-radbahn). Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
+Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der Radfahrrenden grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrende. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
 Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt und das soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
 
-Zur besseren Veranschaulichung wurde zu dem beschriebenden Szenario ein kleines [Video](https://github.com/enisaztekin/Fahrrad-Etikette/blob/main/Road_Rage_war_gestern_cut.mp4) erstellt und dabei unsere Idee zur Lösung des Problems visulaisiert. 
+Zur besseren Veranschaulichung und einfachen Erklärung wurde zu dem beschriebenden Szenario ein kleines [Video](https://github.com/enisaztekin/Fahrrad-Etikette/blob/main/Road_Rage_war_gestern_cut.mp4) erstellt. 
 
 <a name="zielstellung"></a>
 ## 1.2 Zielstellung
-Mit Hilfe eines TinyML-Modells, das Bildaufnahmen von der Radbahn aufnimmt, sollen Radfahrende erkannt werden. Tritt dies ein, soll ein Signal (1 = Radfahrende zu sehen / 0 keine Radfahrenden zu erkennen) per Bluetooth an eine mit einem Mikrocontroller verbundene Leuchtmatrix gesendet werden und die sonst ausgeschaltete Matrix einschalten. Zu sehen ist dann eine Darstellung des gewünschten Verhaltens von Fahrradfahrenden auf der Radbahn. Das situationsbedingte Einschalten der LED Matrix sorgt für Aufmerksamkeit bei Fahrradfahrenden zudem muss die stromintensive LED Matrix nicht durchgehend angeschalten sein, was die Nachhaltigkeit der Anwendung erhöht. Eine hohe Genauigkeit bei der Objekterkennung ist zudem nicht nötig, da es sich nicht um für den Verkehr kritische Informationen handelt. 
+Mit Hilfe eines TinyML-Modells, das Bildaufnahmen von der Radbahn aufnimmt, sollen Radfahrende erkannt werden. Tritt dies ein, soll ein Signal (1 = Radfahrende zu sehen / 0 keine Radfahrenden zu erkennen) per Bluetooth an eine mit einem Mikrocontroller verbundene Leuchtmatrix gesendet werden und die sonst ausgeschaltete Matrix einschalten. Zu sehen ist dann eine Darstellung des gewünschten Verhaltens von Fahrradfahrenden auf der Radbahn. Das situationsbedingte Einschalten der LED Matrix sorgt für Aufmerksamkeit bei Fahrradfahrenden. Zudem muss die stromintensive LED Matrix nicht durchgehend angeschalten sein, was die Nachhaltigkeit der Anwendung erhöht. Eine hohe Genauigkeit bei der Objekterkennung ist dabei nicht nötig, da es sich nicht um für den Verkehr kritische Informationen handelt. 
+
 Was auf den Rolltreppen in England funktioniert, ist auch auf deutschen Radwegen umsetzbar.
 
 <a name="vorgehensweise"></a>
@@ -51,13 +54,13 @@ Das Projekt kann in drei Pakete aufgeteilt werden.
 - Erkennung von Radfahrenden mit TinyML und Edge Impulse (Input)
 - Verbindung von Input und Output mittels Bluetooth
 
-Letzteres konnte aufgrund der zeitlichen Begrenzung nicht umgesetzt werden. Verweis Frank xxx
+Letzteres konnte aufgrund der zeitlichen Begrenzung nicht vom Projektteam "R(o)AD RAGE war gestern" im Rahmen der Summerschool umgesetzt werden. Jedoch können die Ergebnisse dieser[ Projektgruppe](https://github.com/leventarica/htw-nanosense) dabei hilfreich sein, die Verbindung zwischen dem Input- und Outputdevicce herzustellen und einen End-to-End-Protoypen zu entwicklen.
 
-Nach dem Zusammenstecken der Hardware konnte die Softwareseite betrachtet werden. Für das Erstellen eines Modells zur Klassifikation der Bilder (Input) ist Edge Impulse im Einsatz. Dabei handelt es sich um eine Plattform für maschinelles Lernen auf Edge Geräten, wozu Kameras und weitere Sensoren zählen. Mit Hilfe von Edge Impulse kann das mit eigenen Bilddaten von der Radbahn angelernte Modell so komprimiert werden, dass es auf den mit der Kamera verbundenen Mikro-Controller geladen werden kann. Dieses Konzept wird [TinyML](https://www.tinyml.org/) genannt und umfasst spezielle Hard- und Software sowie Algorithmen. 
+Nach dem Zusammenstecken der Hardware konnte die Softwareseite betrachtet werden. Für das Erstellen eines Modells zur Klassifikation der Bilder (Input) ist Edge Impulse im Einsatz. Dabei handelt es sich um eine Plattform für maschinelles Lernen auf Edge Geräten, wozu Kameras und weitere Sensoren zählen. Mit Hilfe von Edge Impulse kann das mit eigenen Bilddaten von der Radbahn angelernte Modell so komprimiert werden, dass es auf den mit der Kamera verbundenen Mikro-Controller gespielt werden kann. Dieses Konzept wird [TinyML](https://www.tinyml.org/) genannt und umfasst spezielle Hard- und Software sowie Algorithmen. 
 
 Die Einschränkungen in der Hardware ermöglichen es nur eine Klassifikation der Bilddaten vorzunehmen und dabei zu bestimmen, ob Fahrradfahrende zu sehen sind oder nicht. Ohne diese Beschränkungen könnten auch leistungsstärkere Algorithmen eingesetzt werden, die beispielsweise erkennen können, ob Fahrradfahrende zu sehen sind, wie viele und an welchen Stellen sie sich im Bild befinden. Siehe [Edge Impulse](https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/object-detection/fomo-object-detection-for-constrained-devices).
 
-So könnte ein zukünftiger Prototyp so konzipiert werden, dass die Matrix lediglich dann aufleuchtet, wenn sich Radfahrende nebeneinander fortbewegen.
+So könnte ein zukünftiger Prototyp so konzipiert werden, dass die LED Matrix lediglich dann aufleuchtet, wenn sich Radfahrende nebeneinander fortbewegen.
 
 Edge Impulse (öffentliches Projekt): https://studio.edgeimpulse.com/public/138316/latest
 
