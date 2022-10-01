@@ -416,7 +416,7 @@ In Edge Impulse wird der Modellierungsprozess "Impulse Design" genannt. Im erste
 Die für das Modelltraining generierten Features im Unterpunkt Image erzeugen folgende Darstellung wenn sie wieder auf die zweidimensionale Ebene projeziert werden.
 
 <img width="369" alt="image features 2 0" src="https://user-images.githubusercontent.com/64984929/193043038-f77945eb-482b-4149-88ac-3a6987db984a.png">
-Features mit Möglichkeit zum Annotieren und Bild
+
 
 
 Im Bereich Transfer Learning können im oberen Bereich die Trainings Settings angepasst werden. Es wurden die Standardeinstellungen mit Ausnahme von Data Augmentationübernommen. Dabei werden die Bilder zufällig während des Trainings transformiert und somit die Diversität der Daten erhöht. Aufgrund der geringen Menge an Daten ist dies sinnvoll. Siehe [TensorFlow](https://www.tensorflow.org/tutorials/images/data_augmentation)
@@ -441,7 +441,6 @@ Neben der Genauigkeit (Accuracy) des Modells wird eine Konfusionsmatrix, welche 
 Im bestmöglichen Modell (2.4) der fünf erstellten, wurde eine gute Genauigkeit erreicht. Auffallend ist, das 40% der Bilder ohne Radfahrende im Validierungsdatensatz als Bilder mit Radfahrenden klassifiziert wurden. Dies ist allerdings nicht zu kritisch zu bewerten, da es sich dabei oft um Bilder handelt, in denen die Radfahrenden kurz vor dem Erkennungsbereich sind und sowieso im nächsten Frame erkannt werden würden. Zusätzlich ist es für betrachteten Anwendungsfall nicht bedenklich, wenn die LED Matrix etwas öfters aufleuchtet als sie eigentlich müsste. Eine nahezu perfekte Genauigkeit auf Edge Devices zu erwarten, ist nicht realistisch.
 
 <img width="389" alt="validation1" src="https://user-images.githubusercontent.com/64984929/193067675-1b2f7586-3449-4e85-a1c8-7d2be7508be7.png">
-Leistungsübersicht des Modells
 
 
 Als sehr benutzerfreundlich ist ein weiterer Data Explorer in der Übersicht zu bewerten, der die unterschiedlichen Klassifizierungen farblich hervorhebt, das Filtern dieser zulässt und die einzelnen Bilder nach Auswahl dieser anzeigt. So können die fehlklassifizierten Bilder identifiziert und darauf aufbauend Anpassungen am Datensatz oder der Annotierung durchgeführt werden.
