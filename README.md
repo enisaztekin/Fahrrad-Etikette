@@ -373,8 +373,8 @@ Da es sich bei der Klassifizierung von Bildern um einen Algorithmus des überwac
 
 1 - Radfahrende auf dem Bild zu erkennen
 
-Die Rohdaten können gesammelt in Edge Impulse hochgeladen werden und durch das Öffnen jedes einzelnen betrachtet und entsprechend annotiert werden. Das ist aufwändig und, wie in diesem Anwendungsfall mit über 300 Bilddateien, nicht effizient.
-Alternativ dazu können die Bilder auch lokal entsprechend der Annotationslogik in dafür angelegte Ordner verschoben werden. Diese können dann nacheinander gemäß der Annotation hochgeladen werden. Zudem kann wie in dem folgenden Bild ein Split der Daten in Trainings- und Testdatensatz durchgeführt werden.53
+Die Rohdaten können gesammelt in Edge Impulse hochgeladen werden und durch das Öffnen jedes dieser einzeln betrachtet und entsprechend annotiert werden. Das ist aufwändig und, wie in diesem Anwendungsfall mit über 300 Bilddateien, nicht effizient.
+Alternativ dazu können die Bilder auch lokal entsprechend der Annotationslogik in dafür angelegte Ordner verschoben werden. Diese können dann nacheinander gemäß der Annotation hochgeladen werden. Zudem kann wie in dem folgenden Bild ein Split der Daten in Trainings- und Testdatensatz durchgeführt werden.
 
 ![Upload](https://user-images.githubusercontent.com/64984929/193027396-b06fd017-75fd-4104-a935-e2ee6f06ed90.png)
 Edge Impulse Data Acquisition
@@ -385,18 +385,18 @@ Nach mehreren Iterationen des Annotierens und Entfernens von überflüssigen Bil
 
 ![split](https://user-images.githubusercontent.com/64984929/193031394-71312c21-5893-4541-95d2-6d860b8e8aef.png)
 
-Von den 243 Elementen im Trainingsdatensatz sind 112 als 1 annotiert und 131 als 0 annotiert.
+Von den 243 Elementen im Trainingsdatensatz sind 112 als 1 und 131 als 0 annotiert.
 
 Dementsprechend sind die beiden Gruppen (0 und 1) fast gleich groß.
 
-Die hohe Zahl an als 0 klassifizierten Bildern ist damit zu erklären, dass Radfahrende am hinteren Ende des Radweges in der ersten Iteration vom Algorithmus schwer zu erkennen waren und die Genauigkeit niedrig war. Ab welcher Entfernung Radfahrende als solche erkannt werden sollen wurde im Rahmen des Prototypen willkürlich festgelegt (Höhe des angeschlossenen Fahrrades an der Seite). Um den Übergang deutlicher zu kennzeichnen wurden deshalb eine Reihe an Bildern mit Radfahrenden kurz hinter dem angeschlossenen Fahrrad entfernt. 
-Zukünftig sollte die Kamera so eingestellt sein, dass die Entfernung geringer ist, was durch die Neigung der Kamera erreicht werden könnte. Dabei sollte allerdings beachtet werden, dass dadurch die abgedeckte Strecke sich verringert und womöglich sich schnell fortbewegende Radfahrende mit der aktuellen Bilderfassungsfrequenz nicht erfasst werden.
+Die hohe Zahl an als 0 klassifizierten Bildern ist damit zu erklären, dass Radfahrende am hinteren Ende des Radweges in der ersten Iteration vom Algorithmus schwer zu erkennen waren und die Genauigkeit niedrig war. Deswegen wurden Bilder mit Radfahrenden am hinteren Ende des Radweges als 0 klassifiziert. Ab welcher Entfernung Radfahrende als solche erkannt werden sollen, wurde im Rahmen des Prototypen willkürlich festgelegt (Höhe des angeschlossenen Fahrrades an der Seite). Um den Übergang deutlicher zu kennzeichnen wurden deshalb eine Reihe an Bildern mit Radfahrenden kurz hinter dem angeschlossenen Fahrrad entfernt. 
+Zukünftig sollte die Kamera so eingestellt sein, dass die betrachtete Entfernung geringer ist, was durch die Neigung der Kamera erreicht werden könnte. Dabei sollte allerdings beachtet werden, dass sich dadurch die Länge abgedeckte Strecke verringert und womöglich sich schnell fortbewegende Radfahrende mit der aktuellen Bilderfassungsfrequenz nicht erfasst werden.
 
 
 <a name="datenexploration"></a>
 ## 3.5 Datenexploration
-Um ein Gefühl für die Daten und für die technische Verarbeitung der Bilder zu bekommen, bietet Edge Impulse einen Data Explorer an.
-Dieses visuelle Werkzeug unterstützt dabei, Ausreißer und falsch oder gar nicht annotierte Bilder zu erkennen. Dazu wird ein Algorithmus eingesetzt, der aussagekräftige Eigenschaften aus den Bildern extrahiert (Kanten, Kontraste, Muster). Diese werden dann mit einem weiteren Algorithmus zur Dimensionalitätreduktion in die unten sichtbare zweidimensionale Darstellung umgewandelt. Data explorer - Edge Impulse Documentation
+Um ein Gefühl für die Daten und für die technische Verarbeitung der Bilder zu bekommen, bietet Edge Impulse einen [Data Explorer](https://docs.edgeimpulse.com/docs/edge-impulse-studio/data-explorer) an.
+Dieses visuelle Werkzeug unterstützt dabei, Ausreißer und falsch oder gar nicht annotierte Bilder zu erkennen. Dazu wird ein Algorithmus eingesetzt, der aussagekräftige Eigenschaften aus den Bildern extrahiert (Kanten, Kontraste, Muster). Diese werden dann mit einem weiteren Algorithmus zur Dimensionalitätreduktion in die unten sichtbare zweidimensionale Darstellung umgewandelt.
 
 <img width="768" alt="Data Explorer" src="https://user-images.githubusercontent.com/64984929/193038931-e51d0344-2595-4e1b-8f12-ed4c1ecc3275.png">
 Data Explorer mit Möglichkeit zum Vergeben einer neuen Annotatierung mit Bild
@@ -404,7 +404,7 @@ Data Explorer mit Möglichkeit zum Vergeben einer neuen Annotatierung mit Bild
 
 <a name="modellierung"></a>
 ## 3.6 Modellierung
-In Edge Impulse wird der Modellierungsprozess "Impulse Design" genannt. Im ersten Schritt wurden dabei die empfohlenen Standards für die Feature-Generierung aus den Trainingsdaten gewählt. Auch für das Transfer Learning, was einen bereits vortrainierten Algorithmus zur Klassifizierung von Bildern mit den zuvor generierten Features aus den Trainingsdaten anpasst, wurde die empfohle Standardeinstellung ausgewählt. Alternativ können auch individuelle Algorithmen eingesetzt werden, die vorher in die Plattform geladen werden müssen. Der Output stellt das Ergebnis des Modells dar, dass entsprechend der Annotationslogik entweder 0 oder 1 ist.
+In Edge Impulse wird der Modellierungsprozess "Impulse Design" genannt. Im ersten Schritt wurden dabei die empfohlenen Standards für die Feature-Generierung aus den Trainingsdaten gewählt. Auch für das Transfer Learning, was einen bereits vortrainierten Algorithmus zur Klassifizierung von Bildern mit den zuvor generierten Features aus den Trainingsdaten anpasst, wurde die empfohle Standardeinstellung ausgewählt. Alternativ können auch eigene Algorithmen eingesetzt werden, die vorher in die Plattform geladen werden müssen. Der Output stellt das Ergebnis des Modells dar, dass entsprechend der Annotationslogik entweder 0 oder 1 ist.
 
 
 <img width="934" alt="image" src="https://user-images.githubusercontent.com/64984929/193039542-97c6a9dd-1d42-45a7-a672-32ccb9fbe2f6.png">
@@ -416,17 +416,17 @@ Die für das Modelltraining generierten Features im Unterpunkt Image erzeugen fo
 Features mit Möglichkeit zum Annotieren und Bild
 
 
-Im Bereich Transfer Learning können im oberen Bereich die Trainings Settings angepasst werden. Dabei wurden die Standardeinstellungen übernommen mit Ausnahme von Data Augmentation. Dabei werden die Bilder zufällig während des Trainings transformiert und somit die Diversität der Daten erhöht. Aufgrund der geringen Menge an Daten ist dies sinnvoll. Siehe [TensorFlow](https://www.tensorflow.org/tutorials/images/data_augmentation)
+Im Bereich Transfer Learning können im oberen Bereich die Trainings Settings angepasst werden. Es wurden die Standardeinstellungen mit Ausnahme von Data Augmentationübernommen. Dabei werden die Bilder zufällig während des Trainings transformiert und somit die Diversität der Daten erhöht. Aufgrund der geringen Menge an Daten ist dies sinnvoll. Siehe [TensorFlow](https://www.tensorflow.org/tutorials/images/data_augmentation)
 Im unteren Bereich ist die Wahl unterschiedlicher Algorithmen möglich.
 
 <img width="532" alt="Transfer learning" src="https://user-images.githubusercontent.com/64984929/193043988-f9ddc43d-ed80-4f43-ac62-5f9efc1d3d14.png">
 
 
-Bei der Wahl eines passenden Algorithmus muss auf die Leistung der Hardware geachtet werden. Lediglich die mit MobileNetV1-Modelle können auf dem Arduino Nano Sense 33 BLE laufen, da dieser nur über einen Arbeitsspeicher von 256 KB verfügt. Siehe [ArduionoFactSheet](https://docs.arduino.cc/hardware/nano-33-ble-sense)
+Bei der Wahl eines passenden Algorithmus muss auf die Leistung der Hardware geachtet werden. Lediglich die MobileNetV1-Modelle können auf dem Arduino Nano Sense 33 BLE laufen, da dieser nur über einen Arbeitsspeicher von 256 KB verfügt. Siehe [ArduionoFactSheet](https://docs.arduino.cc/hardware/nano-33-ble-sense)
 Im Test konnte die höchst mögliche Genauigkeit das Modell erzielen: MobileNetV1 96x96 0.25 (no final dense layer, 0.1 dropout)
 
 <img width="400" alt="Model" src="https://user-images.githubusercontent.com/64984929/193047212-5ad30c5e-2a4b-45ec-b0f1-255b8c6b8e3a.png">
-Auflistung der auswählbaren Modelle
+
 
 
 <a name="validierung"></a>
