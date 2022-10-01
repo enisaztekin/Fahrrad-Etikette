@@ -287,19 +287,19 @@ Für das Projekt wird Edge Impulse, eine Softwareplattform für die Entwicklung 
         
         <img width="895" alt="Bildschirmfoto 2022-09-24 um 17 57 15" src="https://user-images.githubusercontent.com/72546527/192720337-263dedd7-6515-453c-828a-a6a089dff3a7.png">
 
-        - Das Arduino-Board ist weiterhin angeschlossen mit dem Computer und ein neues Terminal-Fenster öffnen und folgenden Befehl eingeben: ```edge-impulse-daemon```
+        - Das Arduino-Board ist weiterhin angeschlossen mit dem Computer. Ein neues Terminal-Fenster öffnen und folgenden Befehl eingeben: ```edge-impulse-daemon```
         - Auf der Edge Impulse Device Seite erscheint das Gerät:
         <img width="951" alt="Bildschirmfoto 2022-09-20 um 14 48 26" src="https://user-images.githubusercontent.com/72546527/192720521-0dd6c372-2928-4695-8681-41156592f847.png">
 
 <a name="erkennung"></a>
 ## 3 Erkennnung von Radfahrer:innen mit TinyML und Edge Impulse
-Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt werden. Auf der linken Seite befinden sich dann die zu durchlaufenden Schritte von der Verbindung mit dem Edge Gerät über die Datenacquistion und das Modellieren bis zum Deployment der finalen Modellversion. Bereits durchgeführte Schritte werden dabei grün angezeigt. Siehe [Edge Impulse](https://www.edgeimpulse.com/)
+Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt werden. Auf der linken Seite befinden sich dann die zu durchlaufenden Schritte von der Verbindung mit dem Edge Gerät über die Datenacquistion und das Modellieren bis zum Deployment der finalen Modellversion. Bereits durchgeführte Schritte werden dabei zum Teil grün angezeigt. Siehe [Edge Impulse](https://www.edgeimpulse.com/)
 
 <img width="111" alt="EdgeImpulse_Steps" src="https://user-images.githubusercontent.com/64984929/193010449-c5d62f2e-4f4a-4652-b7a3-14120211b50e.png">
 Durchzuführende Schritte in Edge Impulse (Anleitung)
 
 
-Im Rahmen eines vergleichbaren Projektes ist es empfehlenswert, eine Reihe an Iterationen bei unzureichender Modellgenauigkeit im Testing zu durchlaufen. Die Genauigkeit kann durch Erhöhung der Datengrundlage, der Überarbeitung der Annotierung ebendieser, der Auswahl des eingesetzten Modells und der Hyperparameteranpassung erfolgen.
+Im Rahmen eines vergleichbaren Projektes ist es empfehlenswert, eine Reihe an Iterationen bei unzureichender Modellgenauigkeit im Testing zu durchlaufen. Die Genauigkeit kann durch Erweiterung der Datengrundlage, der Überarbeitung der Annotierung ebendieser, der Auswahl des eingesetzten Modells und der Hyperparameteranpassung im Modelltraining erfolgen.
 
 <a name="edgeimpulse"></a>
 ## 3.1 Verbindung zwischen Edge Impulse und Arduino Board
@@ -308,7 +308,7 @@ Um die Verbindung zu prüfen, muss zuallererst ein Login auf der Edge Impulse We
 
 <img width="713" alt="Bildschirmfoto 2022-09-24 um 16 20 14" src="https://user-images.githubusercontent.com/72546527/192827009-166b10ec-6bcf-4191-99fd-251cdb051d70.png">
 
-Bei “Devices” sollte das gewünschte Board bereits angezeigt werden, jedoch ist bei “Remote Management” das Licht rot. Dann das Arduino Nano 33 BLE Sense Board mit dem USB Kabel an den Computer verbinden. Bei einem macOS Gerät im Terminal folgenden Befehl eingeben: ```edge-impulse-daemon```
+Bei “Devices” sollte das gewünschte Board bereits angezeigt werden, jedoch ist bei “Remote Management” das Licht rot. Dann das Arduino Nano 33 BLE Sense Board mit dem USB Kabel an den Computer stecken. Bei einem macOS Gerät im Terminal folgenden Befehl eingeben: ```edge-impulse-daemon```
  
 Das Licht vom Arduino Board bei “Devices” auf Edge Impulse sollte nun grün sein.
 Ein Gerät kann nur an einem Edge Impulse Gerät verknüpft werden. Bei einem Wechsel muss der Terminal-Befehl auf dem macOS Gerät eingeben: ```edge-impulse-daemon --clean```
@@ -322,14 +322,13 @@ Das Arduino Board muss bei den folgenden Schritten nicht angeschlossen werden, d
 <a name="aquisition"></a>
 ## 3.2 Acquisition der Daten
 
-Zum Training eines Modells zur Klassifizierung von Bildern direkt beim Erheben der Daten von der Kamera (Edge) müssen Rohdaten von den möglichen Situationen auf der Radbahn gesammelt werden. Zwei mögliche Herangehensweisen können dabei in Betracht gezogen werden und werden im Folgenden mit den jeweiligen Vor- und Nachteilen.
+Zum Training eines Modells zur Klassifizierung von Bildern direkt beim Erheben der Daten auf der Kamera (Edge) müssen zuerst Rohdaten von den möglichen Situationen auf der Radbahn gesammelt werden. Zwei mögliche Herangehensweisen können dabei in Betracht gezogen werden.
 
 #1 Mit der Sensorik Bilder direkt in Edge Impulse laden
 Vorteile: Test der Technik, Nachvollziehbarkeit Verarbeitung
-Nachteile: Geringe Bildqualität und Latenz, Bilder einzeln labeln, schwierige Handhabung „im Feld“
+Nachteile: Geringe Bildqualität und hohe Latenz, Bilder einzeln labeln, schwierige Handhabung „im Feld“
    
-<img src="https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg" width=300>
-Schwierige Handhabung auf der Radbahn
+<img src="https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg" width=300>Schwierige Handhabung auf der Radbahn
 
 <img src="https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg" width=300>
 Geringe Bildqualität bei der Aufnahme mit Arduino Nano Sense
