@@ -323,7 +323,7 @@ Das Arduino Board muss bei den folgenden Schritten nicht angeschlossen werden, d
 
 Zum Training eines Modells zur Klassifizierung von Bildern direkt beim Erheben der Daten auf der Kamera (Edge) müssen zuerst Rohdaten von den möglichen Situationen auf der Radbahn gesammelt werden. Zwei mögliche Herangehensweisen können dabei in Betracht gezogen werden.
 
-#1 Mit der Sensorik Bilder direkt in Edge Impulse laden
+#### #1 Mit der Sensorik Bilder direkt in Edge Impulse laden
 
 Vorteile: Test der Technik, Nachvollziehbarkeit Verarbeitung
 
@@ -335,7 +335,7 @@ Nachteile: Geringe Bildqualität und hohe Latenz, Bilder einzeln labeln, schwier
 <img src="https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg" width=300>
 
 
-#2 Massenupload von Handyaufnahmen in Edge Impulse
+#### #2 Massenupload von Handyaufnahmen in Edge Impulse
 
 Vorteile: effiziente Videoaufnahmen möglich, gute Qualität für das Labeln in Ordnern, einfache Handhabung
 
