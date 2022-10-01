@@ -408,7 +408,7 @@ In Edge Impulse wird der Modellierungsprozess "Impulse Design" genannt. Im erste
 
 
 <img width="934" alt="image" src="https://user-images.githubusercontent.com/64984929/193039542-97c6a9dd-1d42-45a7-a672-32ccb9fbe2f6.png">
-Create Impulse in Edge Impulse
+
 
 Die für das Modelltraining generierten Features im Unterpunkt Image erzeugen folgende Darstellung wenn sie wieder auf die zweidimensionale Ebene projeziert werden.
 
@@ -423,7 +423,8 @@ Im unteren Bereich ist die Wahl unterschiedlicher Algorithmen möglich.
 
 
 Bei der Wahl eines passenden Algorithmus muss auf die Leistung der Hardware geachtet werden. Lediglich die MobileNetV1-Modelle können auf dem Arduino Nano Sense 33 BLE laufen, da dieser nur über einen Arbeitsspeicher von 256 KB verfügt. Siehe [ArduionoFactSheet](https://docs.arduino.cc/hardware/nano-33-ble-sense)
-Im Test konnte die höchst mögliche Genauigkeit das Modell erzielen: MobileNetV1 96x96 0.25 (no final dense layer, 0.1 dropout)
+
+Die Genauigkeit des folgenden Models war bei Einbezug der Hardwarevorraussetzungen am höchsten: MobileNetV1 96x96 0.25 (no final dense layer, 0.1 dropout)
 
 <img width="400" alt="Model" src="https://user-images.githubusercontent.com/64984929/193047212-5ad30c5e-2a4b-45ec-b0f1-255b8c6b8e3a.png">
 
@@ -431,20 +432,18 @@ Im Test konnte die höchst mögliche Genauigkeit das Modell erzielen: MobileNetV
 
 <a name="validierung"></a>
 ## 3.7 Validierung
-Nach dem Training eines neuen Modells wird auch eine Validierung durchgeführt, um die Leistung des Modells zu erkennen. Entsprechen die Ergebnisse nicht den Anforderungen des Anwendungsfalls gelten sie als Ausgangspunkt für die nächste Iteration. 
+Nach dem Training eines neuen Modells sollte auch eine Validierung durchgeführt werden, um die Leistung des Modells zu erkennen. Entsprechen die Ergebnisse nicht den Anforderungen des Anwendungsfalls gelten sie als Ausgangspunkt für die nächste Iteration. 
 
-Neben der Genauigkeit (Accuracy) des Modells wird eine Konfusionsmatrix, welche die Ergebnisse des Klassifikationsmodells auf die Validierungsdaten darstellt, ausgegeben. 
+Neben der Genauigkeit (Accuracy) des Modells wird eine Konfusionsmatrix, welche die Ergebnisse des Klassifikationsmodells auf die Validierungsdaten anzeigt, ausgegeben. 
 Im bestmöglichen Modell (2.4) der fünf erstellten, wurde eine gute Genauigkeit erreicht. Auffallend ist, das 40% der Bilder ohne Radfahrende im Validierungsdatensatz als Bilder mit Radfahrenden klassifiziert wurden. Dies ist allerdings nicht zu kritisch zu bewerten, da es sich dabei oft um Bilder handelt, in denen die Radfahrenden kurz vor dem Erkennungsbereich sind und sowieso im nächsten Frame erkannt werden würden. Zusätzlich ist es für betrachteten Anwendungsfall nicht bedenklich, wenn die LED Matrix etwas öfters aufleuchtet als sie eigentlich müsste. Eine nahezu perfekte Genauigkeit auf Edge Devices zu erwarten, ist nicht realistisch.
 
 <img width="389" alt="validation1" src="https://user-images.githubusercontent.com/64984929/193067675-1b2f7586-3449-4e85-a1c8-7d2be7508be7.png">
 Leistungsübersicht des Modells
 
 
-Als sehr benutzerfreundlich ist in der Übersicht ein weiterer Data Explorer zu bewerten, der die unterschiedlihen Klassifizierungen farblich hervorhebt, das Filtern dieser zulässt und die einzelnen Bilder nach Auswahl anzeigt. So können die fehlklassifizierten Bilder identifiziert und darauf aufbauend Anpassungen am Datensatz oder der Annotierung durchgeführt werden.
+Als sehr benutzerfreundlich ist ein weiterer Data Explorer in der Übersicht zu bewerten, der die unterschiedlichen Klassifizierungen farblich hervorhebt, das Filtern dieser zulässt und die einzelnen Bilder nach Auswahl dieser anzeigt. So können die fehlklassifizierten Bilder identifiziert und darauf aufbauend Anpassungen am Datensatz oder der Annotierung durchgeführt werden.
 
 <img width="383" alt="validation2" src="https://user-images.githubusercontent.com/64984929/193067766-859386d3-6d85-421f-8d16-a9541370e151.png">
-Data Explorer
-
 
 
 Zudem kann im unteren Teil der Übersicht die zukünftige Leistung des Modells beim Durchlaufen auf dem Edge Device abgelesen werden. Mit maximal 130,9KB benötigtem Arbeitsspeicher läuft dieses Modell entsprechend auch auf dem Arduino Nano Sense 33 BLE.
