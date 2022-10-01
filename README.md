@@ -328,7 +328,8 @@ Zum Training eines Modells zur Klassifizierung von Bildern direkt beim Erheben d
 Vorteile: Test der Technik, Nachvollziehbarkeit Verarbeitung
 Nachteile: Geringe Bildqualität und hohe Latenz, Bilder einzeln labeln, schwierige Handhabung „im Feld“
    
-<img src="https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg" width=300>Schwierige Handhabung auf der Radbahn
+<img src="https://user-images.githubusercontent.com/64984929/193002169-4daba362-b3bf-4542-b6ac-52db4ac85859.jpg" width=300>
+Schwierige Handhabung auf der Radbahn
 
 <img src="https://user-images.githubusercontent.com/64984929/193002546-0541f262-f645-4310-8108-a5145645bd32.jpg" width=300>
 Geringe Bildqualität bei der Aufnahme mit Arduino Nano Sense
@@ -340,7 +341,7 @@ Nachteile: Tool zur Datenaufbereitung nötig
 <img src="https://user-images.githubusercontent.com/64984929/193004059-0701755d-306a-4cdb-a56c-9a102894f0ca.png" width=300>
 Einfache Handhabung auf der Radbahn
 
-Aufgrund der einfachen Handhabung ist die zweite Methodik (Videoaufnahmen mit Handy) eingesetzt worden. Dabei wurde darauf geachtet, dass die Kamera aus einem erhöhten Punkt die Bilder aufnimmt, an dem in der Zukunft auch die Kamera positioniert werden kann.
+Aufgrund der einfachen Handhabung ist die zweite Methodik (Videoaufnahmen mit Handy) eingesetzt worden. Dabei wurde darauf geachtet, dass die Kamera von einem erhöhten Punkt aus die Bilder aufnimmt, an dem in der Zukunft auch die Kamera positioniert werden kann.
 
 Um ausreichend Trainingsdaten möglichst unterschiedlicher Szenarien zu generieren und somit dem Klassifikationsmodell mehr Beispieldaten zum Lernen zur Verfügung zu stellen, sind acht Videos aufgenommen worden. 
 Von einzelnen Radfahrenden, über Gruppen, die sowohl in die gleiche als auch entgegengesetzte Richtung fahren, wurden auch sich hintereinander sowie nebeneinander fortbewegende Radfahrende aufgenommen. Dabei wurden unterschiedliche Kleidungsstücke in einer Reihe an Farben eingesetzt und Accessoires, wie ein Regenschirm, verwendet.
@@ -354,20 +355,20 @@ Neben den Bildern, auf denen Radfahrende in der richtigen Entfernung zu sehen si
 <img src="https://user-images.githubusercontent.com/64984929/193013004-ca31e40e-5a65-41bd-b5b9-ae34aff34cec.png" width=400>
 Leere Radbahn
 
-Das angeschlossene Fahrrad an der Seite hilft dem Algorithmus zusätlich dabei, dass nur Fahrräder in Verbindung mit einem Radfahrenden einen Auslöser für die Matrix darstellen, da das obige Bild als 0 (keine Radfahrende) klassifiziert wurde. 
+Das angeschlossene Fahrrad an der Seite hilft dem Algorithmus zusätlich dabei, dass nur Fahrräder in Verbindung mit einem Radfahrenden einen Auslöser für die Matrix darstellen. Da das obige Bild als 0 (keine Radfahrende) klassifiziert wurde, lernt der Algorithmus dies. 
 
 <a name="datenaufbereitung"></a>
 ## 3.3 Datenaufbereitung
 Aus den aufgenommenen Videodateien müssen einzelne Frames extrahiert werden, sodass sie auf Edge Impulse hochgeladen werden können.
-Da der später eingesetzten Algorithmen (MobileNetV1 oder MobileNetV2) eine höhere Genauigkeit basierend auf quadratischen Bildquellen erzielt, wurden die mit einem iPhone aufgenommen Videoaufnahmen direkt auf dem Endgerät in ein quadratisches Format umgeformt. Dieser Schritt ist nicht zwingend notwendig, da Edge Impulse diesen Schritt im späteren Verlauf anbietet. Allerdings kann so die Methode der Größenanpassung eher beeinflusst werden.
-Für die Extraktion der Frames aus den Videos wurde der kostenfreie VLC Player heruntergeladen, der eine Funktion anbietet, welche in vorher eingestellten Abständen Frames aus einem Video in einem definierten Ordner ablegt. Die genaue Beschreibung dazu ist in dem Video dargestellt.  (2 Easy Ways to Extract Frames from a Video [with High Quality] - Bing video)
+Da die später eingesetzten Algorithmen (MobileNetV1 oder MobileNetV2) eine höhere Genauigkeit basierend auf quadratischen Bildquellen erzielen, wurden die mit einem iPhone aufgenommen Videoaufnahmen direkt auf dem Endgerät in ein quadratisches Format umgeformt. Dieser Schritt ist nicht zwingend notwendig, da Edge Impulse diese Funktion in Vorbereitung auf die Modellierung anbietet. Allerdings kann so die Methode der Größenanpassung eher beeinflusst werden.
+Für die Extraktion der Frames aus den Videos wurde der kostenfreie [VLC Player](https://www.vlc.de/) heruntergeladen, der eine Funktion anbietet, welche in vorher eingestellten Abständen Frames aus einem Video in einem definierten Ordner ablegt. Die genaue Beschreibung dazu ist in dem Video dargestellt.  (2 Easy Ways to Extract Frames from a Video [with High Quality] - Bing video)
 
 Achtung: Die extrahierten Frames müssen gegebenenfalls gedreht werden.
 
 <a name="annotieren"></a>
 ## 3.4 Annotieren der Daten
 Da es sich bei der Klassifizierung von Bildern um einen Algorithmus des überwachten (supervised) maschinellen Lernens handelt, wird das Modell auf gekennzeichneten (labeled) Daten trainiert. Die Rohdaten in Form von Bildern müssen aus diesem Grund manuell mit einer Beschriftung versehen werden. Dieser Schritt wird Annotierung genannt.
-Annotationslogik:
+### Annotationslogik:
 0 - keine Radfahrende auf dem Bild zu erkennen
 1 - Radfahrende auf dem Bild zu erkennen
 
