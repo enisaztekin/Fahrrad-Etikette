@@ -451,21 +451,21 @@ Zudem kann im unteren Teil der Übersicht die zukünftige Leistung des Modells b
 Im Rahmen der Modelloptimierung wurden auch die Einstellungen im Bereich der Training Settings angepasst. Die Anzahl an zu durchlaufender Trainingszyklen wurde erhöht und die Lernrate minimiert, was für einen detaillierteren Lernprozess sorgt. Allerdings hat dies zur Überanpassung des Modells auf die Trainingsdaten geführt und angewendet auf die Validierungsdaten nur eine Genauigkeit von 42,9% erreicht.
 
 <img width="809" alt="vali3" src="https://user-images.githubusercontent.com/64984929/193069638-e1d7a92a-cc81-443b-a136-268e0173b797.png">
-Überanpassung des Modells auf Trainingsdaten
+
 
 
 Mit einer leistungsstärkeren Hardware könnten auch Algorithmen angewendet werden, die mehr Arbeitsspeicher benötigen. Im Vergleich zu den vorherigen Modellen könnte so ein deutlich genaueres Ergebnis erzielt werden, wie das mit dem unten verwendeten MobileNetV2-Modell zu sehen ist.
 
 
 <img width="849" alt="vali4" src="https://user-images.githubusercontent.com/64984929/193070927-7767d9b9-7156-4cc1-9d8b-f57f718572a0.png">
-Anwendung des MobileNetV2-Modells auf die Daten
+
 
 <a name="deployment"></a>
 ## 3.8 Deployment
 
 Für das Deployment wird eine Firmware mit dem optimierten Modell auf dem Arduino Nano 33 BLE Sense gelauncht. Das ist die Edge Impulse Dokumentation für das Development: https://docs.edgeimpulse.com/docs/edge-impulse-studio/deployment
 
-Das  Arduino Nano 33 BLE Sense Board mit dem USB Kabel an den Computer verbinden. Auf der Edge Impulse Webseite "Deployment" gehen und das Gerät “Arduino Nano 33 BLE Sense” auswählen und auf “Build” klicken:
+Das  Arduino Nano 33 BLE Sense Board dazu mit dem USB Kabel an den Computer verbinden. Auf der Edge Impulse Webseite auf "Deployment" gehen und das Gerät “Arduino Nano 33 BLE Sense” auswählen und auf “Build” klicken:
 
 <img width="187" alt="Bildschirmfoto 2022-09-24 um 18 34 01" src="https://user-images.githubusercontent.com/72546527/192828136-15b9027d-1c4b-4ea5-b28b-c9da971f94ee.png">
 
@@ -478,7 +478,7 @@ Sobald die Firmware erstellt wurde, wird sie automatisch heruntergeladen. Den Or
 <img width="453" alt="Bildschirmfoto 2022-09-24 um 19 00 48" src="https://user-images.githubusercontent.com/72546527/192828632-6a0cb160-2c44-4355-8743-42053c8d0c10.png">
 
 Ein neues Terminal-Fenster öffnen und folgenden Befehl eingeben: ```edge-impulse-run-impulse```
-Das Arduino Nano 33 BLE Sense Board nimmt im Zweisekunden-Takt ein Bild auf und im Terminal erscheint eine Wahrscheinlichkeit, ob ein:r Fahrradfahrer:in zu erkennen ist oder nicht. Bei dem folgenden Beispiel ist der Wert 1 bei 0.73438, was aussagt, dass die Kamera eine:n Fahrradfahrer:in erkennt:
+Das Arduino Nano 33 BLE Sense Board nimmt im Zweisekunden-Takt ein Bild auf und im Terminal erscheint eine Wahrscheinlichkeit, ob Fahrradfahrende zu erkennen sind oder nicht. Bei dem folgenden Beispiel ist der Wert 1 bei 0.73438, was aussagt, dass die Kamera eine:n Fahrradfahrer:in erkennt:
 
 <img width="724" alt="Bildschirmfoto 2022-09-25 um 03 44 19" src="https://user-images.githubusercontent.com/72546527/192828698-fa55c9ff-5fef-446e-b108-b2ce43939732.png">
 
@@ -490,7 +490,7 @@ Es ist zu erwähnen, dass das Modell noch weiter optimiert werden sollte, um bes
 
 <a name="ausgabe"></a>
 ## 4 Ausgabe (LED-Matrix)
-Bei der Erstellung unserer Anzeige war es uns wichtig, dass das Design vom Fahrrad aus erkennbar sein muss, weshalb die Frames auf das Wesentliche reduziert wurden. Unsere Anzeige zeigen, dass FarradfahrerInnen links überholen und sich rechts einordnen sollen. Jedoch die Anzeige nicht als Warnung aufgefasst werden und lediglich die FarradfahrerInnen darauf aufmerksam machen auf ihre Mitmenschen rücksicht zu nehmen. Aus diesem Grund wurden Grüntöne als Farbe für die Fahrräder gewählt.
+Bei der Erstellung unserer Anzeige war es uns wichtig, dass das Design vom Fahrrad aus erkennbar sein muss, weshalb die Frames auf das Wesentliche reduziert wurden. Unsere Anzeige zeigt, dass Farradfahrende links überholen und sich rechts einordnen sollen. Jedoch soll die Anzeige nicht als Warnung aufgefasst werden und lediglich die Farradfahrenden darauf aufmerksam machen, auf ihre Mitmenschen Rücksicht zu nehmen. Aus diesem Grund wurden Grüntöne als Farbe für die Fahrräder gewählt.
 
 Für die Erstellung unserer Anzeige als GIF haben wir die kostenlose Software [Piskel](https://www.piskelapp.com/p/create/sprite) genutzt, die auch als Browseranwendung verfugbar ist. Ein Tutorial zum Erstellen von GIFs mit Piskel gibt es [hier](https://www.youtube.com/watch?v=XqdZX3Ldzyo).
 
@@ -502,7 +502,7 @@ https://user-images.githubusercontent.com/88652185/193116329-f4a17ebf-2f97-4608-
 
 <a name="learnings"></a>
 ## 5 Kritische Betrachtung und Ausblick
-In Hinblick auf die begrenzte Projektdauer, war es uns nicht möglich die Kommunikation zwischen dem Nano Sense und dem ESP32 herzustellen. Somit würde es sich in einem Folgeprojekt anbieten an einer Lösung zu arbeiten, um die Komponenten per Bluetooth miteinander zu verbinden. Des Weiteren mussten wir eine noch hohe Rate an Fehlklassifikationen feststellen, insbesondere False Positive. Das bedeutet, dass der Algorithmus eine 1 (es nähert sich jemand auf einem Fahrrad) ausgibt, obwohl in Wirklichkeit keine Person sich nähert. Das hätte zur Folge, dass die LED-Matrix umsonst aufleuchten würde. Mögliche Lösungsansätze sind das Upgraden der Hardware zum Einsatz leistungsstärkerer Algorithmen, wie zum Beispiel 'FOMO'(Faster Objects, More Objects), sowie die Implementierung der Objekterkennung anstelle der einfachen Objektklassifizierung, damit der Algorithmus so trainiert werden kann, dass nur Personen erkannt werden, die nebeneinander fahren.
+In Hinblick auf die begrenzte Projektdauer, war es uns nicht möglich die Kommunikation zwischen dem Nano Sense und dem ESP32 herzustellen. Somit würde es sich in einem Folgeprojekt anbieten an einer Lösung zu arbeiten, um die Komponenten per Bluetooth miteinander zu verbinden. Des Weiteren mussten wir eine noch hohe Rate an Fehlklassifikationen feststellen, insbesondere False Positive. Das bedeutet, dass der Algorithmus eine 1 (es nähert sich jemand auf einem Fahrrad) ausgibt, obwohl in Wirklichkeit keine Person sich nähert. Das hätte zur Folge, dass die LED-Matrix umsonst aufleuchten würde. Mögliche Lösungsansätze sind das Upgraden der Hardware zum Einsatz leistungsstärkerer Algorithmen, wie zum Beispiel MobileNetV2 oder 'FOMO'(Faster Objects, More Objects) und der dadurch möglichen Objekterkennung anstelle der einfachen Objektklassifizierung, sodass nur Personen erkannt werden, die nebeneinander fahren.
 
-Wie bereits aus den oberen Abschnitten zu erkennen war, hat die stark fehleranfällige Hardware auch bei der Inbetriebnahme der LED-Matrix viele Probleme verursacht, die für Laien in diesem Bereich mit sehr viel Zeit und Mühen verbunden sind. Aus diesem Grund war es uns wichtig unsere Herausforderungen in der Dokumentation mit aufzuführen.
-Abschließend gilt es festzustellen, wie gut der Prototyp im Feld funktionieren würde, um den Use Case zu erweitern. Dazu zählt, dass der Prototyp auf der Radbahn mit einem entsprechenden Gehäuse ausgestattet werden, die Sicherstellung der Stromversorgung für die Kamera und die LED Matrix, sowie die Frage wo die Kamera am besten platziert werden 
+Wie bereits aus den oberen Abschnitten zu erkennen war, hat die stark fehleranfällige Hardware auch bei der Inbetriebnahme der LED-Matrix viele Probleme verursacht, die für Anfänger in diesem Bereich mit sehr viel Zeit und Mühen verbunden sind. Aus diesem Grund war es uns wichtig unsere Herausforderungen in der Dokumentation mit aufzuführen.
+Abschließend gilt es festzustellen, wie gut der Prototyp im Feld funktionieren würde, um den Use Case zu erweitern. Dazu zählt, dass der Prototyp auf der Radbahn mit einem entsprechenden Gehäuse ausgestattet wird, die Sicherstellung der Stromversorgung für die Kamera und die LED Matrix geplant wird, sowie die Frage wo die Kamera am besten platziert werden könnte, getestet wird.
