@@ -33,24 +33,24 @@
 ## 1.1 Motivation
 Im Rahmen der [Summerschool des Citylabs Berlin](https://citylab-berlin.org/de/projects/summerschool/) wurden die Wirkungen neuer Technologien auf unterschiedliche Aspekte von „Stadt“ untersucht. Das Thema Radfahren bildete den Fokus im Jahr 2022. (Projektzeitraum: 12.09.-22.09.2022)
 
-Für den Großßteil der berliner Radfahrenden ist das Fahrrad ein Transportmittel.
+Für den Großteil der berliner Radfahrenden ist das Fahrrad ein Transportmittel.
 
 Die Radfahrenden, die möglichst sicher und schnell von A nach B gelangen wollen, sind eine wichtige Zielgruppe der [Radbahn](https://radbahn.berlin/de/ueber-radbahn). Dabei geht es nicht darum, die Radbahn als Rennstrecke anzusehen, sondern als Mobilitätsenabler. 
-Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der Radfahrrenden grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, das sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig fahrende und sich nebeneinander fortbewegende Radfahrende. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
-Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt und das soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
+Neben der nötigen Bodenbeschaffenheit und Wegbreite ist das Verhalten der Radfahrrenden grundlegend für einen guten Verkehrsfluss. Dies hat einen direkten Einfluss auf die Sicherheit der Radbahn. Ein Szenario, dass sich negativ auf die Geschwindigkeit und die Sicherheit auswirkt, sind mittig Fahrende und sich nebeneinander fortbewegende Radfahrende. Überholen ist dann entweder gar nicht möglich oder kann nur über die Gegenfahrbahn erfolgen. Das sorgt für Frustration und erhöht das Unfallpotenzial. Mit der Radbahn sollen Radfahrende miteinander an ihr Ziel kommen und aufeinander Rücksicht nehmen.
+Leider ist die nögtige Fahrrad-Etikette nicht jedem bekannt. Dies soll auf der Radbahn mit technischer Unterstützung und den richtigen Hinweisen geändert werden.
 
-Zur besseren Veranschaulichung und einfachen Erklärung wurde zu dem beschriebenden Szenario ein kleines [Video](https://github.com/enisaztekin/Fahrrad-Etikette/blob/main/Road_Rage_war_gestern_cut.mp4) erstellt. 
+Zur besseren Veranschaulichung und einfachen Erklärung, wurde zu dem beschriebenden Szenario ein kleines [Video](https://github.com/enisaztekin/Fahrrad-Etikette/blob/main/Road_Rage_war_gestern_cut.mp4) erstellt. 
 
 <a name="zielstellung"></a>
 ## 1.2 Zielstellung
-Mit Hilfe eines TinyML-Modells, das Bildaufnahmen von der Radbahn aufnimmt, sollen Radfahrende erkannt werden. Tritt dies ein, soll ein Signal (1 = Radfahrende zu sehen / 0 keine Radfahrenden zu erkennen) per Bluetooth an eine mit einem Mikrocontroller verbundene Leuchtmatrix gesendet werden und die sonst ausgeschaltete Matrix einschalten. Zu sehen ist dann eine Darstellung des gewünschten Verhaltens von Fahrradfahrenden auf der Radbahn. Das situationsbedingte Einschalten der LED Matrix sorgt für Aufmerksamkeit bei Fahrradfahrenden. Zudem muss die stromintensive LED Matrix nicht durchgehend angeschalten sein, was die Nachhaltigkeit der Anwendung erhöht. Eine hohe Genauigkeit bei der Objekterkennung ist dabei nicht nötig, da es sich nicht um für den Verkehr kritische Informationen handelt. 
+Mit Hilfe eines TinyML-Modells, dass Bildaufnahmen von der Radbahn aufnimmt, sollen Radfahrende erkannt werden. Tritt dies ein, soll ein Signal (1 = Radfahrende zu sehen / 0 keine Radfahrenden zu erkennen) per Bluetooth an eine mit einem Mikrocontroller verbundene LED-Matrix gesendet werden und die sonst ausgeschaltete Matrix einschalten. Zu sehen ist dann eine Visualisierung auf der LED-Matrix des gewünschten Verhaltens von Fahrradfahrenden auf der Radbahn. Das situationsbedingte Einschalten der LED-Matrix sorgt für Aufmerksamkeit bei Fahrradfahrenden. Zudem muss die stromintensive LED-Matrix nicht durchgehend angeschalten sein, was die Nachhaltigkeit der Anwendung erhöht. Eine hohe Genauigkeit bei der Objekterkennung ist dabei nicht nötig, da es sich nicht um für den Verkehr kritische Informationen handelt. 
 
 Was auf den Rolltreppen in England funktioniert, ist auch auf deutschen Radwegen umsetzbar.
 
 <a name="vorgehensweise"></a>
 ## 1.3 Vorgehensweise
 Das Projekt kann in drei Pakete aufgeteilt werden. 
-- Visualisierung auf einer LED Matrix (Output)
+- Visualisierung auf einer LED-Matrix (Output)
 - Erkennung von Radfahrenden mit TinyML und Edge Impulse (Input)
 - Verbindung von Input und Output mittels Bluetooth
 
@@ -60,7 +60,7 @@ Nach dem Zusammenstecken der Hardware konnte die Softwareseite betrachtet werden
 
 Die Einschränkungen in der Hardware ermöglichen es nur eine Klassifikation der Bilddaten vorzunehmen und dabei zu bestimmen, ob Fahrradfahrende zu sehen sind oder nicht. Ohne diese Beschränkungen könnten auch leistungsstärkere Algorithmen eingesetzt werden, die beispielsweise erkennen können, ob Fahrradfahrende zu sehen sind, wie viele und an welchen Stellen sie sich im Bild befinden. Siehe [Edge Impulse](https://docs.edgeimpulse.com/docs/edge-impulse-studio/learning-blocks/object-detection/fomo-object-detection-for-constrained-devices).
 
-So könnte ein zukünftiger Prototyp so konzipiert werden, dass die LED Matrix lediglich dann aufleuchtet, wenn sich Radfahrende nebeneinander fortbewegen.
+Mit Hilfe dessen könnte ein zukünftiger Prototyp so konzipiert werden, dass die LED-Matrix lediglich dann aufleuchtet, wenn sich Radfahrende nebeneinander fortbewegen.
 
 Edge Impulse (öffentliches Projekt): https://studio.edgeimpulse.com/public/138316/latest
 
@@ -69,26 +69,26 @@ Edge Impulse (öffentliches Projekt): https://studio.edgeimpulse.com/public/1383
 ## 2 Setup
 
 <a name="matrixsetup"></a>
-## 2.1 LED Matrix Setup
-In den folgenden Abschnitten werden die verwendete Hardware und Software von der LED Matrix näher beschrieben.
+## 2.1 LED-Matrix Setup
+In den folgenden Abschnitten werden die verwendete Hardware und Software von der LED-Matrix näher beschrieben.
 <a name="matrixhardware"></a>
 ## 2.1.1 Hardware
 Für die LED-Anzeige werden die folgenden Hardwarekomponenten benötigt.
 
 | Komponente                                  | Beschreibung                                                                                                                     | Bild |
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------|
-| ESP-WROOM-32                                | Microcontroller auf dem der Code für die LED-Anzeige gespeichert ist und der sich mit dem WLAN und mit Bluetooth verbinden kann  |   <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882507-bdc18236-7096-4b0a-aea1-f33fe07cc0f6.jpg">  |
-| 64x32 RGB LED MATRIX – 5MM Pitch            | LED Matrix auf der die gewünschten Anzeige abgebildet wird                                                                     |    <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192883322-65fe3dd6-b2ea-45de-b7e4-334a9e1ae5ce.jpg">   |
-| 5V 3 Ampere Netzteil                        | Netzteil für die Stromzufuhr an die LED Matrix und an den ESP32                                                                  |   <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882575-5a93a7e4-64e7-4907-8bfd-5816602403a8.jpg"> |
+| ESP-WROOM-32                                | Microcontroller auf dem der Code für die LED-Matrix gespeichert ist und der sich mit dem WLAN und mit Bluetooth verbinden kann  |   <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882507-bdc18236-7096-4b0a-aea1-f33fe07cc0f6.jpg">  |
+| 64x32 RGB LED-MATRIX – 5MM Pitch            | LED-Matrix auf der die gewünschten Anzeige abgebildet wird                                                                     |    <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192883322-65fe3dd6-b2ea-45de-b7e4-334a9e1ae5ce.jpg">   |
+| 5V 3 Ampere Netzteil                        | Netzteil für die Stromzufuhr an die LED-Matrix und an den ESP32                                                                  |   <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882575-5a93a7e4-64e7-4907-8bfd-5816602403a8.jpg"> |
 | Micro USB Kabel                             | Mit dem Micro USB Kabel wird der Code vom Rechner auf den ESP32 hochgeladen                                                      | <img width="250" alt="mini-usb" src="https://user-images.githubusercontent.com/44236199/192882605-9bd6f867-327b-4676-80cf-ab1b6ac60ec3.jpg"> |
 | Micro USB Kabel mit zwei offenen Kabelenden | Das Micro USB Kabel mit zwei offenen Kabelenden wird für die Versorgungsspannung ans ESP32, ohne ein zweites Netzteil, benötigt  |     <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882622-953ea12e-6301-4b15-aa46-fec2b3d049ab.jpg">  |
-| mindestens 15 Female to Female Jumper Kabel | Mit dem Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft                                          |    <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg">  |
-| Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED Matrix                                                          |   <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png"> |
+| mindestens 15 Female to Female Jumper Kabel | Mit dem Jumper Kabel werden die Pins vom ESP32 mit den Pins an der LED-Matrix verknüpft                                          |    <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882636-46051648-e847-4914-ba35-ee244fdf4340.jpg">  |
+| Terminal Block                              | Der Terminal Block koppelt die Stromzufuhr vom ESP32 und der LED-Matrix                                                          |   <img width="250" alt="plasma" src="https://user-images.githubusercontent.com/44236199/192882655-c67db23f-0639-4d7b-bf78-95bc2fc72444.png"> |
 
 <a name="BauanleitungLED-Matrix"></a>
 ## 2.1.2 Bauanleitung der LED-Matrix
 ### 1. Verknüpfung vom ESP32 mit der LED-Matrix
-Zu aller erst müssen mit Hilfe der Jumper Kabel (Female to Female) die Pins vom ESP32 mit den Pins an der LED Matrix verknüpft werden. In dem folgenden Bild werden die Verknüpfungen beschrieben.
+Zu aller erst müssen mit Hilfe der Jumper Kabel (Female to Female) die Pins vom ESP32 mit den Pins an der LED-Matrix verknüpft werden. In dem folgenden Bild werden die Verknüpfungen beschrieben.
 
 <img width="300" alt="pinout" src="https://user-images.githubusercontent.com/44236199/192893873-b1f94d4c-88a3-4cc1-a72e-53bdac19f991.PNG">
 
@@ -98,19 +98,19 @@ Das sollte dann so ähnlich wie im folgenden Bild aussehen:
 
 **Probleme und Hinweise**
 
-Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel. Es hat sich jedoch herausgestellt, dass es defekt war. Dadurch hat unsere Anzeige nicht wie gewünscht funktioniert. Auf der linken Seite sieht man das gewünschte Ergebnis und auf der rechten Seite das Ergebnis mit dem kaputten Flachbandkabel:
+Ursprünglich hatten wir zwischen den Pins ein Flachbandkabel. Es hat sich jedoch herausgestellt, dass es defekt war. Dadurch hat unsere LED-Matrix nicht wie gewünscht funktioniert. Auf der linken Seite sieht man das gewünschte Ergebnis und auf der rechten Seite das Ergebnis mit dem kaputten Flachbandkabel:
 
 <img width="400" alt="plasma" src="https://user-images.githubusercontent.com/50478523/193141060-77a2d8cb-495e-49c4-a19d-c2ac1e7d0b20.PNG"> 
 
 Hinweis:
-Falls die fertige Anzeige flackert, kann man auch den zweiten GND von der LED Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
+Falls die fertige Anzeige flackert, kann man auch den zweiten GND von der LED-Matrix frei lassen und dann überprüfen, ob das Flackern aufhört.
 
-### 2. Stromversorgung von ESP32 und der LED Matrix
-Die LED Matrix beinhaltet ein Stromkabel mit einem roten und einem schwarzen Ende auf einer Seite, so wie im folgenden Bild:
+### 2. Stromversorgung von ESP32 und der LED-Matrix
+Die LED-Matrix beinhaltet ein Stromkabel mit einem roten und einem schwarzen Ende auf einer Seite, so wie im folgenden Bild:
 
 <img width="300" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193131302-5704607e-bc82-4357-9b2b-fb71584c314e.png">
 
-Damit die LED Matrix und der ESP32 später vom selben Netzteil mit Strom versorgt werden können, verbinden wir zuerst das rote Ende vom Matrix-Stromkabel mit dem "+"-Zugang vom Terminalblock und das schwarze Ende mit dem "-"-Zugang am Terminalblock. Das Gleiche wird auch mit dem Micro-USB Kabel mit den zwei offenen Kabelenden gemacht, da es auch hier jeweils ein rotes Kabelende, das mit "+" am Terminalblock verbunden werden muss, und ein schwarzes Kabelende, das das mit "-" am Terminalblock verbunden werden muss. Anschließend wird das runde Ende vom Terminalblock mit dem Netzteil verbunden.
+Damit die LED-Matrix und der ESP32 später vom selben Netzteil mit Strom versorgt werden können, verbinden wir zuerst das rote Ende vom Matrix-Stromkabel mit dem "+"-Zugang vom Terminalblock und das schwarze Ende mit dem "-"-Zugang am Terminalblock. Das Gleiche wird auch mit dem Micro-USB Kabel mit den zwei offenen Kabelenden gemacht, da es auch hier jeweils ein rotes Kabelende, das mit "+" am Terminalblock verbunden werden muss, und ein schwarzes Kabelende, das das mit "-" am Terminalblock verbunden werden muss. Anschließend wird das runde Ende vom Terminalblock mit dem Netzteil verbunden.
 Wenn dies geschehen ist, sollte es wie im folgenden Bild aussehen:
 
 <img width="400" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193133050-761d6487-c508-4005-b05e-81af40832fd7.jpeg">
@@ -119,7 +119,7 @@ Die Micro USB-Seite wird ans ESP32 angestekt.
 
 <img width="350" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193134387-524d97ee-38b4-46c1-b565-ef769db5169b.jpeg">
 
-Die andere Seite des LED Matrix-Stromkabels wird mit der LED Matrix über den "Power"-Port verknüpft.
+Die andere Seite des LED-Matrix-Stromkabels wird mit der LED-Matrix über den "Power"-Port verknüpft.
 
 <img width="350" alt="stromkabel" src="https://user-images.githubusercontent.com/44236199/193133579-225369ca-3648-472e-8f82-5fe6b64ab869.jpeg">
 
@@ -141,13 +141,15 @@ Der Chip auf dem ESP32 überhitzte bereits nach ein paar Sekunden und wir musste
 
 <a name="matrixsoftware"></a>
 ## 2.1.2 Software
-Als Entwicklungsumgebung für die LED Matrix wurde [Arduino IDE](https://www.umwelt-campus.de/fileadmin/Umwelt-Campus/IoT-Werkstatt/octopus/Quickstart.pdf) verwendet. Danach muss als erstes das ESP32 Board in der Ardiuno IDE installiert werden. Eine entsprechende Anleitung ist [hier](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/) zu finden. Anschließend gilt es die Bibliotheken [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library),  [ESP32-HUB75-MatrixPanel-I2S-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA) und [Animated GIF](https://github.com/bitbank2/AnimatedGIF) in der IDE hinzuzufügen.
+Als Entwicklungsumgebung für die LED-Matrix wurde [Arduino IDE](https://www.umwelt-campus.de/fileadmin/Umwelt-Campus/IoT-Werkstatt/octopus/Quickstart.pdf) verwendet. Danach muss als Erstes das ESP32 Board in der Ardiuno IDE installiert werden. Eine entsprechende Anleitung ist [hier](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/) zu finden. Anschließend gilt es die Bibliotheken [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library),  [ESP32-HUB75-MatrixPanel-I2S-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA) und [Animated GIF](https://github.com/bitbank2/AnimatedGIF) in der IDE hinzuzufügen.
 
-Der verwendete Code stammt ebenfalls von der Bibliothek ESP32-HUB75-MatrixPanel-I2S-DMA unter dem Namen [AnimatedGIFPanel.ino](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA/tree/master/examples/AnimatedGIFPanel), da das uns ermöglicht, beliebige Inhalte als GIFs auf der LED Matrix anzuzeigen, ohne jedes Mal den Code anpassen zu müssen. Dafür muss vorab noch das Plugin [Arduino ESP32 filesystem uploader](https://github.com/me-no-dev/arduino-esp32fs-plugin) installiert werden.
+Der verwendete Code stammt ebenfalls von der Bibliothek ESP32-HUB75-MatrixPanel-I2S-DMA unter dem Namen [AnimatedGIFPanel.ino](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA/tree/master/examples/AnimatedGIFPanel), da das uns ermöglicht, beliebige Inhalte als GIFs auf der LED-Matrix anzuzeigen, ohne jedes Mal den Code anpassen zu müssen. Dafür muss vorab noch das Plugin [Arduino ESP32 filesystem uploader](https://github.com/me-no-dev/arduino-esp32fs-plugin) installiert werden.
 
-Wenn die oberen Schritte erfolgreich abgeschlossen wurden, können die gewünschten GIFs in den /data/gifs hinzugefügt werder und der Code auf das ESP32 hochgeladen werden.
+Wenn die oberen Schritte erfolgreich abgeschlossen wurden, können die gewünschten GIFs in den Ordner "/data/gifs" hinzugefügt und der Code auf das ESP32 hochgeladen werden.
 
-Probleme und Hinweise: Falls beim Kompilieren und Hochladen des Codes auf den ESP32 keine Fehler angegeben wurden, aber die Anzeige trotzdem nicht richtig funktioniert (z.B. werden nicht alle Farben und Formen angezeigt), dann ist es ratsam die Hardware zu überprüfen. Besonderer Fokus sollte dabei auf den Kabeln liegen, da diese dazu neigen schnell beschädigt zu sein ohne, dass es bemerkt wird.
+**Probleme und Hinweise**
+
+Falls beim Kompilieren und Hochladen des Codes auf den ESP32 keine Fehler angegeben wurden, aber die Anzeige trotzdem nicht richtig funktioniert (z.B. werden nicht alle Farben und Formen angezeigt), dann ist es ratsam die Hardware zu überprüfen. Besonderer Fokus sollte dabei auf den Kabeln liegen, da diese dazu neigen schnell beschädigt zu sein, ohne es zu bemerken.
 
 
 <a name="personenerkennung"></a>
@@ -186,7 +188,7 @@ Für die Vorbereitung und das Testen der Hardware wurde folgendes Endgerät genu
 - MacBook Pro (M1, 2020)
 - Betriebssystem: macOS Monterey
 
-Für macOS müssen die drei Schritte durchgeführt werden:
+Für MacOS müssen die drei Schritte durchgeführt werden:
 1. Schritt: USB-Treiber
 - Der USB-Treiber von SiLabs herunterladen und die dmg-Datei installieren: https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers 
 2. Schritt: Arduino-IDE
@@ -293,7 +295,7 @@ Für das Projekt wird Edge Impulse, eine Softwareplattform für die Entwicklung 
 
 <a name="erkennung"></a>
 ## 3 Erkennnung von Radfahrer:innen mit TinyML und Edge Impulse
-Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt werden. Auf der linken Seite befinden sich dann die zu durchlaufenden Schritte von der Verbindung mit dem Edge Gerät über die Datenacquistion und das Modellieren bis zum Deployment der finalen Modellversion. Bereits durchgeführte Schritte werden dabei zum Teil grün angezeigt. Siehe [Edge Impulse](https://www.edgeimpulse.com/)
+Nach der kostenfreien Anmeldung auf Edge Impulse kann ein neues Projekt angelegt werden. Auf der linken Seite befinden sich dann die zu durchlaufenden Schritte von der Verbindung mit dem Edge Gerät über die Datenacquistion und das Modellieren, bis zum Deployment der finalen Modellversion. Bereits durchgeführte Schritte werden dabei zum Teil grün angezeigt. Siehe [Edge Impulse](https://www.edgeimpulse.com/)
 
 <img width="111" alt="EdgeImpulse_Steps" src="https://user-images.githubusercontent.com/64984929/193010449-c5d62f2e-4f4a-4652-b7a3-14120211b50e.png">
 
@@ -399,7 +401,7 @@ Zukünftig sollte die Kamera so eingestellt sein, dass die betrachtete Entfernun
 <a name="datenexploration"></a>
 ## 3.5 Datenexploration
 Um ein Gefühl für die Daten und für die technische Verarbeitung der Bilder zu bekommen, bietet Edge Impulse einen [Data Explorer](https://docs.edgeimpulse.com/docs/edge-impulse-studio/data-explorer) an.
-Dieses visuelle Werkzeug unterstützt dabei, Ausreißer und falsch oder gar nicht annotierte Bilder zu erkennen. Dazu wird ein Algorithmus eingesetzt, der aussagekräftige Eigenschaften aus den Bildern extrahiert (Kanten, Kontraste, Muster). Diese werden dann mit einem weiteren Algorithmus zur Dimensionalitätreduktion in die unten sichtbare zweidimensionale Darstellung umgewandelt.
+Dieses visuelle Werkzeug unterstützt dabei Ausreißer und falsch oder gar nicht annotierte Bilder zu erkennen. Dazu wird ein Algorithmus eingesetzt, der aussagekräftige Eigenschaften aus den Bildern extrahiert (Kanten, Kontraste, Muster). Diese werden dann mit einem weiteren Algorithmus zur Dimensionalitätreduktion in die unten sichtbare zweidimensionale Darstellung umgewandelt.
 
 <img width="768" alt="Data Explorer" src="https://user-images.githubusercontent.com/64984929/193038931-e51d0344-2595-4e1b-8f12-ed4c1ecc3275.png">
 Data Explorer mit Möglichkeit zum Vergeben einer neuen Annotatierung mit Bild
@@ -438,7 +440,7 @@ Die Genauigkeit des folgenden Models war bei Einbezug der Hardwarevorraussetzung
 Nach dem Training eines neuen Modells sollte auch eine Validierung durchgeführt werden, um die Leistung des Modells zu erkennen. Entsprechen die Ergebnisse nicht den Anforderungen des Anwendungsfalls gelten sie als Ausgangspunkt für die nächste Iteration. 
 
 Neben der Genauigkeit (Accuracy) des Modells wird eine Konfusionsmatrix, welche die Ergebnisse des Klassifikationsmodells auf die Validierungsdaten anzeigt, ausgegeben. 
-Im bestmöglichen Modell (2.4) der fünf erstellten, wurde eine gute Genauigkeit erreicht. Auffallend ist, das 40% der Bilder ohne Radfahrende im Validierungsdatensatz als Bilder mit Radfahrenden klassifiziert wurden. Dies ist allerdings nicht zu kritisch zu bewerten, da es sich dabei oft um Bilder handelt, in denen die Radfahrenden kurz vor dem Erkennungsbereich sind und sowieso im nächsten Frame erkannt werden würden. Zusätzlich ist es für betrachteten Anwendungsfall nicht bedenklich, wenn die LED Matrix etwas öfters aufleuchtet als sie eigentlich müsste. Eine nahezu perfekte Genauigkeit auf Edge Devices zu erwarten, ist nicht realistisch.
+Im bestmöglichen Modell (2.4) der fünf erstellten, wurde eine gute Genauigkeit erreicht. Auffallend ist, dass 40% der Bilder ohne Radfahrende im Validierungsdatensatz als Bilder mit Radfahrenden klassifiziert wurden. Dies ist allerdings nicht zu kritisch zu bewerten, da es sich dabei oft um Bilder handelt, in denen die Radfahrenden kurz vor dem Erkennungsbereich sind und sowieso im nächsten Frame erkannt werden würden. Zusätzlich ist es für betrachteten Anwendungsfall nicht bedenklich, wenn die LED-Matrix etwas öfters aufleuchtet als sie eigentlich müsste. Eine nahezu perfekte Genauigkeit auf Edge Devices zu erwarten, ist nicht realistisch.
 
 <img width="389" alt="validation1" src="https://user-images.githubusercontent.com/64984929/193067675-1b2f7586-3449-4e85-a1c8-7d2be7508be7.png">
 
@@ -507,4 +509,4 @@ https://user-images.githubusercontent.com/88652185/193116329-f4a17ebf-2f97-4608-
 In Hinblick auf die begrenzte Projektdauer, war es uns nicht möglich die Kommunikation zwischen dem Nano Sense und dem ESP32 herzustellen. Somit würde es sich in einem Folgeprojekt anbieten an einer Lösung zu arbeiten, um die Komponenten per Bluetooth miteinander zu verbinden. Des Weiteren mussten wir eine noch hohe Rate an Fehlklassifikationen feststellen, insbesondere False Positive. Das bedeutet, dass der Algorithmus eine 1 (es nähert sich jemand auf einem Fahrrad) ausgibt, obwohl in Wirklichkeit keine Person sich nähert. Das hätte zur Folge, dass die LED-Matrix umsonst aufleuchten würde. Mögliche Lösungsansätze sind das Upgraden der Hardware zum Einsatz leistungsstärkerer Algorithmen, wie zum Beispiel MobileNetV2 oder 'FOMO'(Faster Objects, More Objects) und der dadurch möglichen Objekterkennung anstelle der einfachen Objektklassifizierung, sodass nur Personen erkannt werden, die nebeneinander fahren.
 
 Wie bereits aus den oberen Abschnitten zu erkennen war, hat die stark fehleranfällige Hardware auch bei der Inbetriebnahme der LED-Matrix viele Probleme verursacht, die für Anfänger in diesem Bereich mit sehr viel Zeit und Mühen verbunden sind. Aus diesem Grund war es uns wichtig unsere Herausforderungen in der Dokumentation mit aufzuführen.
-Abschließend gilt es festzustellen, wie gut der Prototyp im Feld funktionieren würde, um den Use Case zu erweitern. Dazu zählt, dass der Prototyp auf der Radbahn mit einem entsprechenden Gehäuse ausgestattet wird, die Sicherstellung der Stromversorgung für die Kamera und die LED Matrix geplant wird, sowie die Frage wo die Kamera am besten platziert werden könnte, getestet wird.
+Abschließend gilt es festzustellen, wie gut der Prototyp im Feld funktionieren würde, um den Use Case zu erweitern. Dazu zählt, dass der Prototyp auf der Radbahn mit einem entsprechenden Gehäuse ausgestattet wird, die Sicherstellung der Stromversorgung für die Kamera und die LED-Matrix geplant wird, sowie die Frage wo die Kamera am besten platziert werden könnte, getestet wird.
